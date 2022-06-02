@@ -1,9 +1,9 @@
 ## CHECKER TO DO:
 Input validator
-	-Error if bigger than integer
-	-Argument not integer
-	-Duplicate values
-	-Given instruction doesnt exist
+	-Error if bigger than integer - Atoll compare to max_int and strlen
+	-Argument not integer -issign and isdigit after
+	-Duplicate values -comparison to existing list (or array for speed)
+	-Given instruction doesnt exist -strncmp doesnt match with the instruct
 How to store the stacks?
 	-Linked list? Double linked?
 Functions to handle the swap arguments
@@ -18,4 +18,9 @@ Functions to handle the swap arguments
 	-rra reverse rotate a, all elements down by one.
 	-rrb reverse rotate b
 	-rrr rra and rrb the same time
-	
+Functions to libft
+	atol / atoll
+Functions to this project:
+	create node,
+	swap two nodes
+	add node to the end of the list
