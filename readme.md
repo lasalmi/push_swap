@@ -19,7 +19,7 @@
 	-rrb reverse rotate b  
 	-rrr rra and rrb the same time  
 ## Functions to libft  
-	atol / atoll  
+	atol / atoll  [DONE]
 ## Functions to this project:  
 	create node,  
 	swap two nodes  
