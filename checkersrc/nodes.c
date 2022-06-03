@@ -22,5 +22,5 @@ t_node	*ft_createnode(void)
 /* Swaps the VALUES of two nodes */
 void	ft_swapnode(t_node *node, t_node *node2)
 {
-	ft_swap(node->value, node2->value);
+	ft_swap(&node->value, &node2->value);
 }
