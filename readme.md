@@ -1,7 +1,7 @@
 # CHECKER TO DO:
 ## Input validator
-	-Error if bigger than integer - Atoll compare to max_int and strlen  
-	-Argument not integer -issign and isdigit after  
+	-Error if bigger than integer - Atoll compare to max_int [DONE]
+	-Argument not integer -issign and isdigit after  [DONE]
 	-Duplicate values -comparison to existing list (or array for speed)  
 	-Given instruction doesnt exist -strncmp doesnt match with the instruct  
 ## How to store the stacks?  
