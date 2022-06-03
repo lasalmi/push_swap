@@ -6,19 +6,20 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/03 18:40:10 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/03 18:49:33 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 #include <limits.h>
 
+/* Error and exit */
 void	ft_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
-
+/* Checks that string is a number and only a number */
 static int	ft_isnumber(char *str)
 {
 	if (*str == '-' || *str == '+')
@@ -29,6 +30,8 @@ static int	ft_isnumber(char *str)
 		return (0);
 	return (1);
 }
+/* Checks that value is not already in the list for duplicate
+input */
 static void ft_checkduplicate(int value, t_node *list)
 {
 	while (list)
@@ -83,6 +86,8 @@ int main(int argc, char **argv)
 {
 	t_utils	utils;
 
+	if (argc < 2)
+		ft_error();
 	utils.head_a = ft_read_values(argv + 1, argc - 1);
 	//ft_swapnode(utils.head_a->next, utils.head_a->next->next);
 	ft_printlist(utils.head_a);

@@ -2,10 +2,11 @@
 ## Input validator
 	-Error if bigger than integer - Atoll compare to max_int [DONE]
 	-Argument not integer -issign and isdigit after  [DONE]
-	-Duplicate values -comparison to existing list (or array for speed)  
-	-Given instruction doesnt exist -strncmp doesnt match with the instruct  
+	-Duplicate values -comparison to existing list (or array for speed)  [DONE]
+	-Given instruction doesnt exist -strncmp doesnt match with the instruct
+	-Does the checker need usage msg with argc < 2? 
 ## How to store the stacks?  
-	-Linked list? Double linked?  
+	-Linked list? [X] Double linked?  
 ## Functions to handle the swap arguments  
 	-sa swap top 2 elements of stack A  
 	-sb swap top 2 elemnts of stack B  
@@ -23,4 +24,5 @@
 ## Functions to this project:  
 	create node [DONE]
 	swap two nodes values [DONE]
-	add node to the end of the list  
+	add node to the end of the list 
+	wincondition checker
