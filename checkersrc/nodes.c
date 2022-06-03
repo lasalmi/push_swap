@@ -1,5 +1,4 @@
-#include "checker.h"
-#include "./libft/libft.h"
+#include "../checker.h"
 
 /* Allocates a new node and in case
 of mallocfail exits */

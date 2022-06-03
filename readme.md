@@ -21,6 +21,6 @@
 ## Functions to libft  
 	atol / atoll  [DONE]
 ## Functions to this project:  
-	create node,  
-	swap two nodes  
+	create node [DONE]
+	swap two nodes values [DONE]
 	add node to the end of the list  

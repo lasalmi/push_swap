@@ -6,12 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/03 14:19:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/03 18:40:10 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
-#include "./libft/libft.h"
+#include "../checker.h"
 #include <limits.h>
 
 void	ft_error(void)
@@ -30,18 +29,29 @@ static int	ft_isnumber(char *str)
 		return (0);
 	return (1);
 }
-
-static int	ft_validate_input(char *str)
+static void ft_checkduplicate(int value, t_node *list)
+{
+	while (list)
+	{
+		if (value == list->value)
+			ft_error();
+		list = list->next;
+	}
+}
+/* Checks strlen and int limits for int overflow protection, that it 
+contains a valid number representation */
+static int	ft_validate_input(char *str, t_node *list)
 {
 	char *temp;
 	long long result;
 
 	temp = str;
-	if (!ft_isnumber(str))
+	if (ft_strlen(str) > 11 || !ft_isnumber(str))
 		ft_error();
 	result = ft_atoll(str);
 	if (result < INT_MIN || result > INT_MAX)
 		ft_error();
+	ft_checkduplicate((int)result, list);
 	return ((int)result);
 }
 
@@ -59,7 +69,7 @@ t_node	*ft_read_values(char **argv, int argc)
 	current = head;
 	while (i < argc)
 	{
-		current->value = ft_validate_input(argv[i]);
+		current->value = ft_validate_input(argv[i], head);
 		if (i == argc - 1)
 			break;
 		current->next = ft_createnode();
@@ -71,13 +81,10 @@ t_node	*ft_read_values(char **argv, int argc)
 
 int main(int argc, char **argv)
 {
-	t_node	*head;
+	t_utils	utils;
 
-	head = ft_read_values(argv + 1, argc - 1);
-	while (head)
-	{
-		ft_printf("%i", head->value);
-		head = head->next;
-	}
+	utils.head_a = ft_read_values(argv + 1, argc - 1);
+	//ft_swapnode(utils.head_a->next, utils.head_a->next->next);
+	ft_printlist(utils.head_a);
 	return (0);
 }
