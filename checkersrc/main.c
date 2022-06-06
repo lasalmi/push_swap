@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 18:27:41 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 19:17:21 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,20 +92,14 @@ int main(int argc, char **argv)
 	ft_read_values(&utils, argv + 1, argc - 1);
 	//ft_swapnode(utils.head_a->next, utils.head_a->next->next);
 //	ft_printlist(utils.head_a);
-	ft_push_b(&utils);
 	ft_printlist(utils);
-	ft_push_b(&utils);
-	ft_push_b(&utils);
-	ft_push_b(&utils);
-	ft_push_b(&utils);
+	ft_rotate_a(&utils);
 	ft_printlist(utils);
-	ft_swap_b(&utils);
-	ft_swap_a(&utils);
-/*	ft_printlist(utils);
-	ft_push_a(&utils);
-	ft_push_a(&utils);
-	ft_push_a(&utils);
-	ft_push_a(&utils);
-	ft_printlist(utils);*/
+	ft_rotate_a(&utils);
+	ft_printlist(utils);
+	ft_rotate_a(&utils);
+	ft_printlist(utils);
+	ft_rotate_a(&utils);
+	ft_printlist(utils);
 	return (0);
 }

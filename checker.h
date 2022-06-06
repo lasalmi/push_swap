@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 17:51:17 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 18:37:34 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void 	ft_push_a(t_utils *utils);
 void 	ft_push_b(t_utils *utils);
 void 	ft_swap_a(t_utils *utils);
 void 	ft_swap_b(t_utils *utils);
+void 	ft_swap_both(t_utils *utils);
 void	ft_delink_head(t_node **head);
 void	ft_initutils(t_utils *utils);
+void	ft_rotate_a(t_utils *utils);
 #endif

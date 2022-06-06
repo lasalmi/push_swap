@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 18:27:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 19:16:56 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,22 @@ void ft_swap_b(t_utils *utils)
 	if (utils->count_b < 2)
 		return ;
 	ft_swapnode(utils->head_b, utils->head_b->next);
+}
+
+void ft_swap_both(t_utils *utils)
+{
+	ft_swap_a(utils);
+	ft_swap_b(utils);
+}
+
+void ft_rotate_a(t_utils *utils)
+{
+	t_node	*temp;
+
+	temp = utils->tail_a->prev;
+	utils->tail_a->next = utils->head_a;
+	utils->tail_a->prev->next = NULL;
+	utils->head_a->prev = utils->tail_a;
+	utils->head_a = utils->tail_a;
+	utils->tail_a = temp;
 }
