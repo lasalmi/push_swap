@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:32:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 17:48:23 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 18:24:32 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@ void	ft_printlist(t_utils utils)
 	while (utils.head_a || utils.head_b)
 	{
 		if (utils.head_a)
-			ft_printf("%-5i", utils.head_a->value);
+		{
+			ft_printf("%9i|", utils.head_a->value);
 			utils.head_a = utils.head_a->next;
-/*		if (utils.head_b)
-			ft_printf("%5-i\n", utils.head_b->value);
-			utils.head_b = utils.head_b->next;*/
+		}
+		else
+			ft_printf("         |");
+		if (utils.head_b)
+		{
+			ft_printf(" %i", utils.head_b->value);
+			utils.head_b = utils.head_b->next;
+		}
+		ft_printf("\n");
 	}
 }

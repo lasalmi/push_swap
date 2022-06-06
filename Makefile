@@ -1,4 +1,4 @@
-CHECKER_FILES = main.c nodes.c ft_printlist.c stacks.c
+CHECKER_FILES = main.c nodes.c ft_printlist.c stacks.c initializers.c
 CHECKER_SRC_DIR = ./checkersrc/
 CHECKER_SRC := $(addprefix $(CHECKER_SRC_DIR),$(CHECKER_FILES))
 PUSH_SWAP_SRC = ./libft/
