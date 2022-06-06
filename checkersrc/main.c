@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 16:35:00 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 17:49:09 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,24 +76,21 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 		if (i == argc - 1)
 			break;
 		current = ft_create_elem_stack_a(utils);
-	/*	current->next = ft_createnode();
-		current = current->next; */
 		i++;
 	}
 	utils->count_a = argc;
-//	ft_printf("%llu", utils->count_a);
 }
 
 int main(int argc, char **argv)
 {
 	t_utils	utils;
-
+	utils.head_b = NULL;
 	if (argc < 2)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
 	//ft_swapnode(utils.head_a->next, utils.head_a->next->next);
 //	ft_printlist(utils.head_a);
-	ft_push_b(&utils);
-	ft_printlist(utils.head_a);
+//	ft_push_b(&utils);
+	ft_printlist(utils);
 	return (0);
 }

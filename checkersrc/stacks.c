@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 16:32:54 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 17:38:28 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,14 @@ void ft_push_b(t_utils *utils)
 	}
 	utils->count_a -= 1;
 	utils->count_b += 1;
+}
+
+void ft_swap_a(t_utils *utils)
+{
+	ft_swapnode(utils->head_a, utils->head_a->next);
+}
+
+void ft_swap_b(t_utils *utils)
+{
+	ft_swapnode(utils->head_b, utils->head_b->next);
 }

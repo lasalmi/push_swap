@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   initializers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 18:32:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 17:48:23 by lasalmi          ###   ########.fr       */
+/*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
+/*   Updated: 2022/06/06 17:51:07 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-#include "../libft/libft.h"
 
-void	ft_printlist(t_utils utils)
+void	ft_initutils(t_utils *utils)
 {
-	ft_printf("STACK A:  STACK  B\n" );
-	while (utils.head_a || utils.head_b)
-	{
-		if (utils.head_a)
-			ft_printf("%-5i", utils.head_a->value);
-			utils.head_a = utils.head_a->next;
-/*		if (utils.head_b)
-			ft_printf("%5-i\n", utils.head_b->value);
-			utils.head_b = utils.head_b->next;*/
-	}
+	utils->head_a = NULL;
+	utils->head_b = NULL;
+	utils->tail_a = NULL;
+	utils->tail_b = NULL;
+	utils->count_a = 0;
+	utils->count_b = 0;
 }
