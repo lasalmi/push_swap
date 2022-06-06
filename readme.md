@@ -8,7 +8,7 @@
 ## Function to handle the stacks
 	-Create node [DONE]
 	-Swap two nodes [DONE] 
-	-Add the given node as a head to given head
+	-Add the given node as a head to given head [DONE, UNTESTED]
 	-Add the given node to the tail [DONE, UNTESTED]
 	-
 ## Functions to handle the swap arguments  

@@ -39,6 +39,8 @@ void	ft_add_node_tail(t_node **tail, t_node *new_node)
 	*tail = new_node;
 }
 
+/* Pushes given node as the new head node
+GIVEN NODE MUST BE HEAD! */
 void	ft_add_node_head(t_node **head, t_node *new_node)
 {
 	if ((*head)->prev)

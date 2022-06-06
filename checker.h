@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/03 18:40:03 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 14:15:30 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ typedef struct s_utils {
 t_node	*ft_createnode(void);
 void	ft_swapnode(t_node *node, t_node *node2);
 void	ft_printlist(t_node *list);
+void	ft_add_node_tail(t_node **tail, t_node *new_node);
 #endif
