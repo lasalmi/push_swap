@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 19:19:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 20:32:45 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,16 @@ void ft_rev_rotate_a(t_utils *utils)
 	utils->head_a->prev = utils->tail_a;
 	utils->head_a = utils->tail_a;
 	utils->tail_a = temp;
+}
+
+void ft_rev_rotate_b(t_utils *utils)
+{
+	t_node	*temp;
+
+	temp = utils->tail_b->prev;
+	utils->tail_b->next = utils->head_b;
+	utils->tail_b->prev->next = NULL;
+	utils->head_b->prev = utils->tail_b;
+	utils->head_b = utils->tail_b;
+	utils->tail_b = temp;
 }
