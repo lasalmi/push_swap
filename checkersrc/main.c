@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 16:12:26 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 16:35:00 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,6 @@ int main(int argc, char **argv)
 	//ft_swapnode(utils.head_a->next, utils.head_a->next->next);
 //	ft_printlist(utils.head_a);
 	ft_push_b(&utils);
-//	ft_printlist(utils.head_a);
-//	ft_printlist(utils.head_b);
-	ft_push_b(&utils);
-	ft_push_b(&utils);
-	ft_push_b(&utils);
-	ft_printlist(utils.head_b);
-	ft_push_a(&utils);
-	ft_printf("List A:\n");
 	ft_printlist(utils.head_a);
 	return (0);
 }

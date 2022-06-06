@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 16:11:09 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 16:32:54 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_node	*ft_create_elem_stack_a(t_utils *utils)
 	return (new_node);
 }
 
-/* Pushes the tail enement of stack b as 
+/* Pushes the head element of stack b as 
 the new head of stack a and refreshes the counts */
 
 void ft_push_a(t_utils *utils)
@@ -45,6 +45,9 @@ void ft_push_a(t_utils *utils)
 	utils->count_a += 1;
 	utils->count_b -= 1;
 }
+
+/* Pushes the head element of stack a as 
+the new head of stack b and refreshes the counts */
 
 void ft_push_b(t_utils *utils)
 {

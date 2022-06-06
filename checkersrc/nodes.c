@@ -54,6 +54,8 @@ void	ft_add_node_head(t_node **head, t_node *new_node)
 	*head = new_node;
 }
 
+/* Delinks the given tail from the list
+and sets the tail as the previous node */
 void	ft_delink_tail(t_node **tail)
 {
 	(*tail)->prev->next = NULL;
