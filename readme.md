@@ -5,12 +5,11 @@
 	-Duplicate values -comparison to existing list (or array for speed)  [DONE]
 	-Given instruction doesnt exist -strncmp doesnt match with the instruct
 	-Does the checker need usage msg with argc < 2? 
-## How to store the stacks?  
+## Function to handle the stacks
 	-Create node [DONE]
-	-Create new node and add it to the tail
 	-Swap two nodes [DONE] 
 	-Add the given node as a head to given head
-	-Add the given node to the tail
+	-Add the given node to the tail [DONE, UNTESTED]
 	-
 ## Functions to handle the swap arguments  
 	-sa swap top 2 elements of stack A  [PREREQ OK]
