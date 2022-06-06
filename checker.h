@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 14:15:30 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/06 15:44:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,10 @@ t_node	*ft_createnode(void);
 void	ft_swapnode(t_node *node, t_node *node2);
 void	ft_printlist(t_node *list);
 void	ft_add_node_tail(t_node **tail, t_node *new_node);
+void	ft_add_node_head(t_node **head, t_node *new_node);
+t_node	*ft_create_elem_stack_a(t_utils *utils);
+void	ft_delink_tail(t_node **tail);
+void 	ft_push_a(t_utils *utils);
+void 	ft_push_b(t_utils *utils);
+void	ft_delink_head(t_node **head);
 #endif

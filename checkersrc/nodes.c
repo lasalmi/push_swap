@@ -30,7 +30,7 @@ void	ft_add_node_tail(t_node **tail, t_node *new_node)
 {
 	if ((*tail)->next)
 	{
-		ft_putstr_fd(2, "List error, given node was not tail!");
+		ft_putstr_fd("List error, given node was not tail!", 2);
 		exit (1);
 	}
 	new_node->next = NULL;
@@ -45,11 +45,28 @@ void	ft_add_node_head(t_node **head, t_node *new_node)
 {
 	if ((*head)->prev)
 	{
-		ft_putstr_fd(2, "List error, given node was not head!");
+		ft_putstr_fd("List error, given node was not head!", 2);
 		exit (1);
 	}
 	new_node->prev = NULL;
 	new_node->next = *head;
 	(*head)->prev = new_node;
 	*head = new_node;
+}
+
+void	ft_delink_tail(t_node **tail)
+{
+	(*tail)->prev->next = NULL;
+	*tail = (*tail)->prev;
+}
+
+void	ft_delink_head(t_node **head)
+{
+	if ((*head)->next)
+	{
+		(*head)->next->prev = NULL;
+		*head = (*head)->next;
+	}
+	else
+		*head = NULL;
 }
