@@ -24,5 +24,6 @@
 ## Functions to this project:  
 	create node [DONE]
 	swap two nodes values [DONE]
-	add node to the end of the list 
+		add node to the end of the list - adds a node to the next node of the given node, and changes the pointer to point to itself (current = current->next) and adds to nodecount, also new nodes prev pointing to the previous current.
 	wincondition checker
+	nodecounter to verify stack counts / node traverser ?

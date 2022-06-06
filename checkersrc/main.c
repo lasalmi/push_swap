@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/03 18:49:33 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/03 19:27:26 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,23 @@ static int	ft_validate_input(char *str, t_node *list)
 /* Reads values from input. TODO: Replace
 ft_atol with input validator, add node add */
 
-t_node	*ft_read_values(char **argv, int argc)
+void	ft_read_values(t_utils *utils, char **argv, int argc)
 {
-	t_node	*head;
 	t_node	*current;
 	int		i;
 
 	i = 0;
-	head = ft_createnode();
-	current = head;
+	utils->head_a = ft_createnode();
+	current = utils->head_a;
 	while (i < argc)
 	{
-		current->value = ft_validate_input(argv[i], head);
+		current->value = ft_validate_input(argv[i], utils->head_a);
 		if (i == argc - 1)
 			break;
 		current->next = ft_createnode();
 		current = current->next;
 		i++;
 	}
-	return (head);
 }
 
 int main(int argc, char **argv)
@@ -88,7 +86,7 @@ int main(int argc, char **argv)
 
 	if (argc < 2)
 		ft_error();
-	utils.head_a = ft_read_values(argv + 1, argc - 1);
+	ft_read_values(&utils, argv + 1, argc - 1);
 	//ft_swapnode(utils.head_a->next, utils.head_a->next->next);
 	ft_printlist(utils.head_a);
 	return (0);
