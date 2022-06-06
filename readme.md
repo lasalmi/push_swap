@@ -14,15 +14,15 @@
 		-Remove tail and update previous links and pointer in struct
 
 ## Functions to handle the swap arguments  
-	-sa swap top 2 elements of stack A  [PREREQ OK]
-	-sb swap top 2 elemnts of stack B  [PREREQ OK]
-	-ss sa and sb same time  [PREREQ OK]
+	-sa swap top 2 elements of stack A  [DONE]
+	-sb swap top 2 elemnts of stack B  [DONE]
+	-ss sa and sb same time  [DONE, CHECK MISC]
 	-pa Top element from B to A  [DONE]
 	-pb Top element from A to B  [DONE]
 	-ra Rotate A, shifts all elements up by one. first becomes last  
 	-rb Rotate B, shifts all elements up by one, first becomes last  
 	-rr ra and rb same time  
-	-rra reverse rotate a, all elements down by one.  
+	-rra reverse rotate a, all elements down by one.  [DONE]
 	-rrb reverse rotate b  
 	-rrr rra and rrb the same time 
 ## Functions to libft  
@@ -33,3 +33,5 @@
 	swap two nodes values [DONE]
 	wincondition checker
 	nodecounter to verify stack counts / node traverser ?
+## MISC
+	Find out about ss stack number count < 2 behaviour
