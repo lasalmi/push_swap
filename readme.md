@@ -23,7 +23,7 @@
 	-rb Rotate B, shifts all elements up by one, first becomes last  
 	-rr ra and rb same time  
 	-rra reverse rotate a, all elements down by one.  [DONE]
-	-rrb reverse rotate b  
+	-rrb reverse rotate b  [DONE]
 	-rrr rra and rrb the same time 
 ## Functions to libft  
 	atol / atoll  [DONE]
@@ -33,5 +33,11 @@
 	swap two nodes values [DONE]
 	wincondition checker
 	nodecounter to verify stack counts / node traverser ?
+	stdin with gnl
+	dispatcher for instruction functions
+	comparator for given instructions
 ## MISC
 	Find out about ss stack number count < 2 behaviour
+## push_swap
+	-Incoming digits saved with a value of order? Then just change the number?
+	-Graph theory for solving?\
