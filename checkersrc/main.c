@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/07 17:51:56 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/07 18:09:06 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,34 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 	utils->count_a = argc;
 }
 
+int		ft_get_instruction(char *line)
+{
+	const char	*table[] = {"lala", "bebe", NULL};
+	int			i;
+
+	i = 0;
+	if (!line)
+		return (-1);
+	while (table[i])
+	{
+		if (!strcmp(line, table[i]))
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+void	ft_read_input(void)
+{
+	int		ret;
+	char	*line;
+	ret = 1;
+	while (ret)
+	{
+		ret = get_next_line(0, &line);
+		ft_printf("%i\n", ft_get_instruction(line));
+	}
+}
+
 int main(int argc, char **argv)
 {
 	t_utils	utils;
@@ -90,12 +118,6 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
-	//ft_swapnode(utils.head_a->next, utils.head_a->next->next);
-	ft_push_b(&utils);
-	ft_push_b(&utils);
-	ft_push_b(&utils);
-	ft_printlist(utils);
-	ft_rev_rotate_both(&utils);
-	ft_printlist(utils);
+	ft_read_input();
 	return (0);
 }
