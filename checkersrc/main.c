@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/07 17:47:25 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/07 17:51:56 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,7 @@ int main(int argc, char **argv)
 	ft_push_b(&utils);
 	ft_push_b(&utils);
 	ft_printlist(utils);
-	ft_rotate_both(&utils);
-	ft_printlist(utils);
-	ft_push_a(&utils);
-	ft_push_a(&utils);
-	ft_push_a(&utils);
+	ft_rev_rotate_both(&utils);
 	ft_printlist(utils);
 	return (0);
 }
