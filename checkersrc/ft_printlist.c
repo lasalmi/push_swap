@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:32:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 18:24:32 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/07 17:32:22 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_printlist(t_utils utils)
 {
-	ft_printf("STACK A:  STACK  B\n" );
+	ft_printf("STACK A:%i  STACK  B:%i\n", utils.count_a, utils.count_b);
 	while (utils.head_a || utils.head_b)
 	{
 		if (utils.head_a)

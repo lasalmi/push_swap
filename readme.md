@@ -19,9 +19,9 @@
 	-ss sa and sb same time  [DONE, CHECK MISC]
 	-pa Top element from B to A  [DONE]
 	-pb Top element from A to B  [DONE]
-	-ra Rotate A, shifts all elements up by one. first becomes last  
-	-rb Rotate B, shifts all elements up by one, first becomes last  
-	-rr ra and rb same time  
+	-ra Rotate A, shifts all elements up by one. first becomes last [DONE]
+	-rb Rotate B, shifts all elements up by one, first becomes last [DONE]
+	-rr ra and rb same time [DONE]
 	-rra reverse rotate a, all elements down by one.  [DONE]
 	-rrb reverse rotate b  [DONE]
 	-rrr rra and rrb the same time 

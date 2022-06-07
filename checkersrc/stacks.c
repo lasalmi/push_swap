@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/06 20:32:45 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/07 17:46:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void ft_push_a(t_utils *utils)
 	else
 	{
 		utils->head_a = to_push;
+		utils->tail_a = to_push;
 		to_push->next = NULL;
 	}
 	utils->count_a += 1;
@@ -62,6 +63,7 @@ void ft_push_b(t_utils *utils)
 	else
 	{
 		utils->head_b = to_push;
+		utils->tail_b = to_push;
 		to_push->next = NULL;
 	}
 	utils->count_a -= 1;
@@ -92,6 +94,8 @@ void ft_rev_rotate_a(t_utils *utils)
 {
 	t_node	*temp;
 
+	if (utils->count_a < 2)
+		return ;
 	temp = utils->tail_a->prev;
 	utils->tail_a->next = utils->head_a;
 	utils->tail_a->prev->next = NULL;
@@ -104,10 +108,48 @@ void ft_rev_rotate_b(t_utils *utils)
 {
 	t_node	*temp;
 
+	if (utils->count_b < 2)
+		return ;
 	temp = utils->tail_b->prev;
 	utils->tail_b->next = utils->head_b;
 	utils->tail_b->prev->next = NULL;
 	utils->head_b->prev = utils->tail_b;
 	utils->head_b = utils->tail_b;
 	utils->tail_b = temp;
+}
+
+void	ft_rotate_a(t_utils *utils)
+{
+	t_node *temp;
+
+	if (utils->count_a < 2)
+		return ;
+	temp = utils->head_a->next;
+	utils->tail_a->next = utils->head_a;
+	utils->head_a->prev = utils->tail_a;
+	utils->head_a->next = NULL;
+	utils->tail_a = utils->head_a;
+	temp->prev = NULL;
+	utils->head_a = temp;
+}
+
+void	ft_rotate_b(t_utils *utils)
+{
+	t_node *temp;
+
+	if (utils->count_b < 2)
+		return ;
+	temp = utils->head_b->next;
+	utils->tail_b->next = utils->head_b;
+	utils->head_b->prev = utils->tail_b	;
+	utils->head_b->next = NULL;
+	utils->tail_b = utils->head_b;
+	temp->prev = NULL;
+	utils->head_b = temp;
+}
+
+void	ft_rotate_both(t_utils *utils)
+{
+	ft_rotate_a(utils);
+	ft_rotate_b(utils);
 }
