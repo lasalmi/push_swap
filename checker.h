@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/08 14:10:13 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/08 15:57:45 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct s_utils {
 	struct s_node	*tail_b;
 	size_t			count_b;
 }	t_utils;
+
+typedef struct	s_instructions {
+	int		*inst_array;
+	size_t	memthreshold;
+	size_t	count;
+} t_instructions;
 
 typedef	void (*t_func)(t_utils*);
 

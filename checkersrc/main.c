@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/08 14:52:04 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/08 16:21:20 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_error(void)
 	exit(1);
 }
 /* Checks that string is a number and only a number */
+
 static int	ft_isnumber(char *str)
 {
 	if (*str == '-' || *str == '+')
@@ -32,7 +33,8 @@ static int	ft_isnumber(char *str)
 }
 /* Checks that value is not already in the list for duplicate
 input */
-static void ft_checkduplicate(int value, t_node *list)
+
+static void	ft_checkduplicate(int value, t_node *list)
 {
 	while (list)
 	{
@@ -43,10 +45,11 @@ static void ft_checkduplicate(int value, t_node *list)
 }
 /* Checks strlen and int limits for int overflow protection, that it 
 contains a valid number representation */
+
 static int	ft_validate_input(char *str, t_node *list)
 {
-	char *temp;
-	long long result;
+	char		*temp;
+	long long	result;
 
 	temp = str;
 	if (ft_strlen(str) > 11 || !ft_isnumber(str))
@@ -75,16 +78,27 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 	{
 		current->value = ft_validate_input(argv[i], utils->head_a);
 		if (i == argc - 1)
-			break;
+			break ;
 		current = ft_create_elem_stack_a(utils);
 		i++;
 	}
 	utils->count_a = argc;
 }
 
-int		ft_get_instruction(char *line)
+void	ft_dispatcher(t_utils *utils, int func_index)
 {
-	const char	*table[] = {"sa", "sb", "ss", "pa", "pb",\
+	static const t_func	funcs[] = {ft_swap_a, ft_swap_b, ft_swap_both, \
+	ft_push_a, ft_push_b, ft_rotate_a, ft_rotate_b, ft_rotate_both, \
+	ft_rev_rotate_a, ft_rev_rotate_b, ft_rev_rotate_both};
+
+	if (func_index < 0)
+		ft_error();
+	funcs[func_index](utils);
+}
+
+int	ft_get_instruction(char *line)
+{
+	const char	*table[] = {"sa", "sb", "ss", "pa", "pb", \
 	"ra", "rb", "rr", "rra", "rrb", "rrr", NULL};
 	int			i;
 
@@ -100,36 +114,77 @@ int		ft_get_instruction(char *line)
 	return (-1);
 }
 
-void	ft_dispatcher(t_utils *utils, int func_index)
+void	ft_exec_instructions(t_utils *utils, t_instructions *instr)
 {
-	static const	t_func funcs[] = {ft_swap_a, ft_swap_b, ft_swap_both,\
-	ft_push_a, ft_push_b, ft_rotate_a, ft_rotate_b, ft_rotate_both, \
-	ft_rev_rotate_a, ft_rev_rotate_b, ft_rev_rotate_both};
-	if (func_index < 0)
+	size_t	i;
+
+	i = 0;
+	while (i < instr->count)
+	{
+		ft_dispatcher(utils, instr->inst_array[i]);
+		ft_printlist(*utils);
+		i++;
+	}
+	free(instr->inst_array);
+}
+
+/* Initializes the instruction array if it doesnt exist, if
+index goes over memthreshold allocates new memory and copies
+the memory to the new alloocation */
+void	ft_save_instruction(t_instructions *instr, char *line)
+{
+	static size_t	i;
+	static size_t	alloc_size;
+	int				*temp;
+
+	if (!instr->inst_array)
+	{
+		instr->inst_array = (int *)malloc(sizeof(int) * 20);
+		instr->memthreshold = 20 / 2;
+	}
+	instr->inst_array[i] = ft_get_instruction(line);
+	if (instr->inst_array[i] < 0)
 		ft_error();
-	funcs[func_index](utils);
+	i++;
+	instr->count = i;
+	if (i > instr->memthreshold)
+	{
+		temp = (int *)malloc(sizeof(int) * instr->memthreshold * 4);
+		if (!temp)
+			ft_error();
+		ft_memcpy(temp, instr->inst_array, (i * sizeof(int)));
+		free(instr->inst_array);
+		instr->memthreshold *= 2;
+		instr->inst_array = temp;
+	}
 }
 
 void	ft_read_input(t_utils *utils)
 {
-	int		ret;
-	char	*line;
-	int		func;
+	int				ret;
+	char			*line;
+	int				func;
+	t_instructions	instr;
 
 	ret = 1;
+	instr.inst_array = NULL;
 	while (ret)
 	{
 		ret = get_next_line(0, &line);
 		if (ret < 1)
 			break ;
-		func = ft_get_instruction(line);
-		ft_dispatcher(utils, func);
+		ft_save_instruction(&instr, line);
+//		func = ft_get_instruction(line);
+//		ft_dispatcher(utils, func);
 		ft_strdel(&line);
-		ft_printlist(*utils);
+//		ft_printlist(*utils);
 	}
+	if (ret < 0)
+		ft_error();
+	ft_exec_instructions(utils, &instr);
 }
 
-int		ft_is_correct(t_utils *utils)
+int	ft_is_correct(t_utils *utils)
 {
 	size_t	i;
 	int		compare;
@@ -149,14 +204,15 @@ int		ft_is_correct(t_utils *utils)
 		current = current->next;
 	}
 	if (i != utils->input_count)
-		return 0;
+		return (0);
 	return (1);
 }
 
 /* Frees both lists in utils. After reaching the
 end of stack_a, will switch to head_b if it
-exists */
- 
+exists. Uses the head_a pointer for freeing stack_b
+aswell. Use only when program is finishing */
+
 void	ft_freelists(t_utils *utils)
 {
 	t_node	*temp;
@@ -176,7 +232,7 @@ void	ft_freelists(t_utils *utils)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_utils	utils;
 

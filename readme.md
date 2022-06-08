@@ -38,6 +38,8 @@
 	comparator for given instructions
 ## MISC
 	Find out about ss stack number count < 2 behaviour
+		save input to int array
+		remalloc dynamically if needed and memcpy
 ## push_swap
 	-Incoming digits saved with a value of order? Then just change the number?
 	-Graph theory for solving?\
