@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/07 17:50:39 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/08 17:38:36 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void ft_rev_rotate_a(t_utils *utils)
 	utils->head_a->prev = utils->tail_a;
 	utils->head_a = utils->tail_a;
 	utils->tail_a = temp;
+	utils->head_a->prev = NULL;
 }
 
 void ft_rev_rotate_b(t_utils *utils)
@@ -116,6 +117,7 @@ void ft_rev_rotate_b(t_utils *utils)
 	utils->head_b->prev = utils->tail_b;
 	utils->head_b = utils->tail_b;
 	utils->tail_b = temp;
+	utils->head_b->prev = NULL;
 }
 
 void	ft_rotate_a(t_utils *utils)

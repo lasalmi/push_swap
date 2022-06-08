@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/08 16:21:20 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/08 17:39:23 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,13 @@ void	ft_exec_instructions(t_utils *utils, t_instructions *instr)
 	i = 0;
 	while (i < instr->count)
 	{
+		ft_printf("INS INDEX:%i\n", instr->inst_array[i]);//FOR DEBUG
 		ft_dispatcher(utils, instr->inst_array[i]);
+		if ((utils->head_a && utils->head_a->prev) || (utils->head_b && utils->head_b->prev)) //FOR DEBUG
+		{
+			ft_printf("ERROR HERE!a: %p b: %p\n", utils->head_a->prev, utils->head_b->prev); //FOR DEBUG
+			exit(1);
+		}
 		ft_printlist(*utils);
 		i++;
 	}
