@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/07 18:09:06 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/08 14:52:04 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 	utils->head_a = ft_createnode();
 	current = utils->head_a;
 	utils->tail_a = current;
+	utils->input_count = argc;
 	while (i < argc)
 	{
 		current->value = ft_validate_input(argv[i], utils->head_a);
@@ -83,7 +84,8 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 
 int		ft_get_instruction(char *line)
 {
-	const char	*table[] = {"lala", "bebe", NULL};
+	const char	*table[] = {"sa", "sb", "ss", "pa", "pb",\
+	"ra", "rb", "rr", "rra", "rrb", "rrr", NULL};
 	int			i;
 
 	i = 0;
@@ -91,21 +93,86 @@ int		ft_get_instruction(char *line)
 		return (-1);
 	while (table[i])
 	{
-		if (!strcmp(line, table[i]))
+		if (!ft_strcmp(line, table[i]))
 			return (i);
 		i++;
 	}
 	return (-1);
 }
-void	ft_read_input(void)
+
+void	ft_dispatcher(t_utils *utils, int func_index)
+{
+	static const	t_func funcs[] = {ft_swap_a, ft_swap_b, ft_swap_both,\
+	ft_push_a, ft_push_b, ft_rotate_a, ft_rotate_b, ft_rotate_both, \
+	ft_rev_rotate_a, ft_rev_rotate_b, ft_rev_rotate_both};
+	if (func_index < 0)
+		ft_error();
+	funcs[func_index](utils);
+}
+
+void	ft_read_input(t_utils *utils)
 {
 	int		ret;
 	char	*line;
+	int		func;
+
 	ret = 1;
 	while (ret)
 	{
 		ret = get_next_line(0, &line);
-		ft_printf("%i\n", ft_get_instruction(line));
+		if (ret < 1)
+			break ;
+		func = ft_get_instruction(line);
+		ft_dispatcher(utils, func);
+		ft_strdel(&line);
+		ft_printlist(*utils);
+	}
+}
+
+int		ft_is_correct(t_utils *utils)
+{
+	size_t	i;
+	int		compare;
+	t_node	*current;
+
+	current = utils->head_a;
+	i = 0;
+	compare = INT_MIN;
+	if (utils->count_b)
+		return (0);
+	while (current)
+	{
+		i++;
+		if (compare > current->value)
+			return (0);
+		compare = current->value;
+		current = current->next;
+	}
+	if (i != utils->input_count)
+		return 0;
+	return (1);
+}
+
+/* Frees both lists in utils. After reaching the
+end of stack_a, will switch to head_b if it
+exists */
+ 
+void	ft_freelists(t_utils *utils)
+{
+	t_node	*temp;
+
+	temp = NULL;
+	while (utils->head_a)
+	{
+		temp = utils->head_a->next;
+		free(utils->head_a);
+		utils->head_a = NULL;
+		if (!temp && utils->head_b)
+		{
+			temp = utils->head_b;
+			utils->head_b = NULL;
+		}
+		utils->head_a = temp;
 	}
 }
 
@@ -118,6 +185,11 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
-	ft_read_input();
+	ft_read_input(&utils);
+	if (ft_is_correct(&utils))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	ft_freelists(&utils);
 	return (0);
 }

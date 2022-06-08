@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/07 17:51:40 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/08 14:10:13 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_node {
 }	t_node;
 
 typedef struct s_utils {
+	int				input_count;
 	struct s_node	*head_a;
 	struct s_node	*tail_a;
 	size_t			count_a;
@@ -27,6 +28,8 @@ typedef struct s_utils {
 	struct s_node	*tail_b;
 	size_t			count_b;
 }	t_utils;
+
+typedef	void (*t_func)(t_utils*);
 
 t_node	*ft_createnode(void);
 void	ft_swapnode(t_node *node, t_node *node2);
@@ -40,12 +43,13 @@ void 	ft_push_b(t_utils *utils);
 void 	ft_swap_a(t_utils *utils);
 void 	ft_swap_b(t_utils *utils);
 void 	ft_swap_both(t_utils *utils);
-void	ft_delink_head(t_node **head);
-void	ft_initutils(t_utils *utils);
 void	ft_rotate_a(t_utils *utils);
+void	ft_rotate_b(t_utils *utils);
 void 	ft_rev_rotate_b(t_utils *utils);
 void 	ft_rev_rotate_a(t_utils *utils);
 void	ft_rotate_a(t_utils *utils);
 void	ft_rotate_both(t_utils *utils);
 void	ft_rev_rotate_both(t_utils *utils);
+void	ft_delink_head(t_node **head);
+void	ft_initutils(t_utils *utils);
 #endif
