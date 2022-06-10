@@ -41,5 +41,6 @@
 		save input to int array
 		remalloc dynamically if needed and memcpy
 ## push_swap
+	-Arrange checker functions to files
 	-Incoming digits saved with a value of order? Then just change the number?
 	-Graph theory for solving?\
