@@ -5,70 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 15:04:18 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/10 16:25:45 by lasalmi          ###   ########.fr       */
+/*   Created: 2022/06/11 16:03:59 by lasalmi           #+#    #+#             */
+/*   Updated: 2022/06/11 16:50:16 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+#include <stdlib.h>
+
+void	ft_quicksortint(int *arr, int len);
+void	quicksort_recursion(int *arr, int low, int high);
+void	ft_swap(int *a, int *b);
+int	partition(int *arr, int low, int high);
+
 #include <stdio.h>
 
-void	ft_swap(int *array, int left, int right)
+int issmaller(const void *a, const void *b)
+{
+	return (*(int *)a - *(int *)b);
+}
+int	main(void)
+{
+	int arr[] = {3, 14, 48, 5, 4, 11, 46, 31, 24, 19, 11};
+	int arr2[] = {3, 14, 48, 5, 4, 11, 46, 31, 24, 19, 11};
+	int len = 11;
+	int i = 0;
+	ft_quicksortint(arr, 11);
+	qsort(arr2, 11, sizeof(int), &issmaller);
+	printf("%i",memcmp(arr, arr2, sizeof(int) * 11));
+	while (i < len)
+		printf("%d ", arr2[i++]);
+}
+
+void	ft_swap(int *a, int *b)
 {
 	int temp;
 
-	temp = array[left];
-	array[left] = array[right];
-	array[right] = temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-int ft_partition(int *array, int left, int right, int pivot)
+void	ft_quicksortint(int *arr, int len)
 {
-	while (left <= right)
+	quicksort_recursion(arr, 0, len - 1);
+}
+
+int	partition(int *arr, int low, int high)
+{
+	int	i;
+	int	j;
+	int		pivot;
+
+	i = low;
+	j = low;
+	pivot = arr[high];
+	while (j < high)
 	{
-		while (array[left] < pivot)
-			left++;
-		while (array[right] > pivot)
-			right--;
-		if (left <= right)
+		if (arr[j] < pivot)
 		{
-			ft_swap(array, left, right);
-			left++;
-			right--;
+			ft_swap(&arr[j], &arr[i]);
+			i++;
 		}
+		j++;
 	}
-	return (left);
-}
-int	ft_getpivot(int *array, int size)
-{
-	return (array[size/2]);
+	ft_swap(&arr[i], &arr[high]);
+	return (i);
 }
 
-void ft_printarray(int *array)
+void	quicksort_recursion(int *arr, int low, int high)
 {
-	size_t i = 0;
-	while (i < 9)
-		printf("%i,", array[i++]);
-	printf("\n");
-}
+	int	pivot_index;
 
-void	ft_quicksort(int *array, int left, int right)
-{
-	int	pivot;
-	int	index;
-
-	if (left >= right)
+	if (low > high)
 		return ;
-	pivot = array[(left + right) / 2];
-	index = ft_partition(array, left, right, pivot);
-	printf("Left: %i  Right%i Index:%i \n", left, right, index);
-	ft_printarray(array);
-	ft_quicksort(array, left, index - 1);
-	ft_quicksort(array, index, right);
-}
-int main(void)
-{
-	int array[] = {5, 13, 9, 3, 10, 4, 6, 11, 19};
-	
-	ft_quicksort(array, 0, 8);
-	int i = 0;
+	pivot_index = partition(arr, low, high);
+	quicksort_recursion(arr, low, pivot_index - 1);
+	quicksort_recursion(arr, pivot_index + 1, high);
 }
