@@ -6,15 +6,41 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/11 14:30:42 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/11 15:34:47 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
+/* Loads the values from the original head_a
+into an array of ints. All the integers need
+to be in stack A */
+void ft_loadvalues(t_utils *utils, int *arr)
+{
+	t_node	*list;
+
+	list = utils->head_a;
+	while (list)
+	{
+		*arr = list->value;
+		list = list->next;
+		arr++;
+	}
+}
+/* Loads and sorts the values in the double linked list
+into an array of integers */
+int	*ft_sortvalues(t_utils *utils)
+{
+	int	*arr;
+
+	arr = (int *)malloc(sizeof(int) * utils->input_count);
+	ft_loadvalues(utils, arr);
+}
+
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
+	int		*order;
 
 	ft_initutils(&utils);
 	utils.head_b = NULL;
