@@ -6,13 +6,15 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/08 15:57:45 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/11 13:41:59 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 # include "./libft/libft.h"
+# include <limits.h>
+
 typedef struct s_node {
 	int				value;
 	struct s_node	*prev;
@@ -58,4 +60,7 @@ void	ft_rotate_both(t_utils *utils);
 void	ft_rev_rotate_both(t_utils *utils);
 void	ft_delink_head(t_node **head);
 void	ft_initutils(t_utils *utils);
+void	ft_initinstructions(t_instructions *instructions);
+void	ft_read_values(t_utils *utils, char **argv, int argc);
+void	ft_error(void);
 #endif

@@ -1,4 +1,4 @@
-CHECKER_FILES = main.c nodes.c ft_printlist.c stacks.c initializers.c
+CHECKER_FILES = main.c nodes.c ft_printlist.c stacks.c initializers.c arg_input.c
 CHECKER_SRC_DIR = ./checkersrc/
 CHECKER_SRC := $(addprefix $(CHECKER_SRC_DIR),$(CHECKER_FILES))
 PUSH_SWAP_SRC = ./libft/
@@ -17,7 +17,7 @@ all : $(CHECKER) #$(PUSH_SWAP)
 re : fclean all
 
 $(CHECKER) : $(CHECKER_OBJ) $(LIB_NAME)
-	gcc $(CFLAGS) -g -L$(LIB_DIR) $(CHECKER_OBJ) -lft
+	gcc $(CFLAGS) -o checker -g -L$(LIB_DIR) $(CHECKER_OBJ) -lft
 
 $(CHECKER_OBJ) : $(CHECKER_SRC)
 	gcc $(CFLAGS) -c -g -I. $(CHECKER_SRC)
