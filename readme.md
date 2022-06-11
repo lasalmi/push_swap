@@ -1,4 +1,9 @@
 # CHECKER TO DO:
+## push_swap
+	-Loading the given integers to a list
+	-Creating an array with already sorted list by using quicksort
+	
+# DONE
 ## Input validator
 	-Error if bigger than integer - Atoll compare to max_int [DONE]
 	-Argument not integer -issign and isdigit after  [DONE]
@@ -34,8 +39,8 @@
 	wincondition checker
 	nodecounter to verify stack counts / node traverser ?
 	stdin with gnl
-	dispatcher for instruction functions
-	comparator for given instructions
+	dispatcher for instruction functions [DONE]
+	comparator for given instructions 
 ## MISC
 	Find out about ss stack number count < 2 behaviour
 		save input to int array
