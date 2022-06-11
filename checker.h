@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/11 13:41:59 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/11 14:29:29 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ void	ft_initutils(t_utils *utils);
 void	ft_initinstructions(t_instructions *instructions);
 void	ft_read_values(t_utils *utils, char **argv, int argc);
 void	ft_error(void);
+void	ft_freelists(t_utils *utils);
 #endif

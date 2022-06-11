@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/10 16:41:44 by lasalmi          ###   ########.fr       */
+/*   Created: 2022/06/11 14:21:52 by lasalmi           #+#    #+#             */
+/*   Updated: 2022/06/11 14:23:25 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-int	main(int argc, char **argv)
+/* Error and exit */
+void	ft_error(void)
 {
-	t_utils	utils;
-
-	ft_initutils(&utils);
-	utils.head_b = NULL;
-	if (argc < 2)
-		ft_error();
-	ft_read_values(&utils, argv + 1, argc - 1);
-	ft_freelists(&utils);
-	return (0);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
 }
