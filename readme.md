@@ -48,5 +48,6 @@
 ## push_swap
 	-Arrange checker functions to files [DONE]
 	-Quicksort for having an array that's already sorted [DONE]
-	-
+	-Instruction saver
+	-Loop dispatcher, to call dispatcher x times with x instruction
 	-Graph theory for solving?\

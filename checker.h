@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/11 14:29:29 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/15 16:23:30 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_utils {
 	struct s_node	*head_b;
 	struct s_node	*tail_b;
 	size_t			count_b;
+	size_t			instr_count;
 }	t_utils;
 
 typedef struct	s_instructions {
@@ -64,4 +65,5 @@ void	ft_initinstructions(t_instructions *instructions);
 void	ft_read_values(t_utils *utils, char **argv, int argc);
 void	ft_error(void);
 void	ft_freelists(t_utils *utils);
+void	ft_pw_dispatcher(t_utils *utils, int func_index);
 #endif

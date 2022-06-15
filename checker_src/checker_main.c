@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_main.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/11 14:28:29 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/15 14:21:51 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-
-void	ft_dispatcher(t_utils *utils, int func_index)
-{
-	static const t_func	funcs[] = {ft_swap_a, ft_swap_b, ft_swap_both, \
-	ft_push_a, ft_push_b, ft_rotate_a, ft_rotate_b, ft_rotate_both, \
-	ft_rev_rotate_a, ft_rev_rotate_b, ft_rev_rotate_both};
-
-	if (func_index < 0)
-		ft_error();
-	funcs[func_index](utils);
-}
 
 int	ft_get_instruction(char *line)
 {
@@ -48,13 +37,9 @@ void	ft_exec_instructions(t_utils *utils, t_instructions *instr)
 	i = 0;
 	while (i < instr->count)
 	{
-		ft_printf("INS INDEX:%i\n", instr->inst_array[i]);//FOR DEBUG
-		ft_dispatcher(utils, instr->inst_array[i]);
-		if ((utils->head_a && utils->head_a->prev) || (utils->head_b && utils->head_b->prev)) //FOR DEBUG
-		{
-			ft_printf("ERROR HERE!a: %p b: %p\n", utils->head_a->prev, utils->head_b->prev); //FOR DEBUG
+		ft_pw_dispatcher(utils, instr->inst_array[i]);
+		if ((utils->head_a && utils->head_a->prev) || (utils->head_b && utils->head_b->prev))
 			exit(1);
-		}
 		ft_printlist(*utils);
 		i++;
 	}

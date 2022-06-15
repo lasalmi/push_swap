@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initializers.c                                     :+:      :+:    :+:   */
+/*   dispatcher.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/15 16:23:42 by lasalmi          ###   ########.fr       */
+/*   Created: 2022/06/15 14:16:10 by lasalmi           #+#    #+#             */
+/*   Updated: 2022/06/15 14:18:31 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-void	ft_initutils(t_utils *utils)
+void	ft_pw_dispatcher(t_utils *utils, int func_index)
 {
-	utils->input_count = -1;
-	utils->head_a = NULL;
-	utils->head_b = NULL;
-	utils->tail_a = NULL;
-	utils->tail_b = NULL;
-	utils->count_a = 0;
-	utils->count_b = 0;
-	utils->instr_count = 0;
-}
+	static const t_func	funcs[] = {ft_swap_a, ft_swap_b, ft_swap_both, \
+	ft_push_a, ft_push_b, ft_rotate_a, ft_rotate_b, ft_rotate_both, \
+	ft_rev_rotate_a, ft_rev_rotate_b, ft_rev_rotate_both};
 
-void	ft_initinstructions(t_instructions *instructions)
-{
-	instructions->inst_array = NULL;
-	instructions->count = 0;
-	instructions->memthreshold = 0;
+	if (func_index < 0)
+		ft_error();
+	funcs[func_index](utils);
 }

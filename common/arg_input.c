@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/11 13:30:34 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/15 16:55:59 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ input */
 
 static void	ft_checkduplicate(int value, t_node *list)
 {
-	while (list)
+	while (list->next)
 	{
 		if (value == list->value)
 			ft_error();
