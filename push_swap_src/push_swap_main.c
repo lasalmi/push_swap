@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/15 13:51:45 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/15 13:57:33 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int	*ft_sortvalues(t_utils *utils)
 	return (arr);
 }
 
+/* Counts the cost of moving the value to the
+bottom of the stack A. Returns negative,
+if it is more efficient to use reverse rotate*/
 ft_countcost(int value_to_find, t_utils *utils)
 {
 	int		i;
@@ -58,7 +61,9 @@ ft_countcost(int value_to_find, t_utils *utils)
 		j--;
 		list = list->prev;
 	}
-	if ()
+	if (ft_abs(j) > i)
+		return (i);
+	return (j);
 }
 
 int	main(int argc, char **argv)
