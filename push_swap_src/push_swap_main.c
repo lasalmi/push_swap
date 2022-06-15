@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/15 13:30:29 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/15 13:51:45 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,42 @@ int	*ft_sortvalues(t_utils *utils)
 	return (arr);
 }
 
+ft_countcost(int value_to_find, t_utils *utils)
+{
+	int		i;
+	int		j;
+	t_node	*list;
+
+	list = utils->head_a;
+	while (value_to_find != list->value)
+	{
+		i++;
+		list = list->next;
+	}
+	i++;
+	list = utils->tail_a;
+	while (value_to_find != list->value)
+	{
+		j--;
+		list = list->prev;
+	}
+	if ()
+}
+
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
-	int		*order;
+	int		*sorted;
 
 	ft_initutils(&utils);
 	utils.head_b = NULL;
 	if (argc < 2)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
-	order = ft_sortvalues(&utils);
+	sorted = ft_sortvalues(&utils);
+	int i = 0;
+	while (i < argc - 1)
+		ft_printf("%d\n", sorted[i++]);
 	ft_freelists(&utils);
 	return (0);
 }

@@ -43,9 +43,10 @@
 	comparator for given instructions 
 ## MISC
 	Find out about ss stack number count < 2 behaviour
-		save input to int array
-		remalloc dynamically if needed and memcpy
+		save input to int array [DONE]
+		remalloc dynamically if needed and memcpy [DONE]
 ## push_swap
-	-Arrange checker functions to files
-	-Incoming digits saved with a value of order? Then just change the number?
+	-Arrange checker functions to files [DONE]
+	-Quicksort for having an array that's already sorted [DONE]
+	-
 	-Graph theory for solving?\
