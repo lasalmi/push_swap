@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/11 15:42:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/15 13:30:29 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	*ft_sortvalues(t_utils *utils)
 
 	arr = (int *)malloc(sizeof(int) * utils->input_count);
 	ft_loadvalues(utils, arr);
+	ft_quicksortint(arr, utils->input_count);
 	return (arr);
 }
 
@@ -49,9 +50,6 @@ int	main(int argc, char **argv)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
 	order = ft_sortvalues(&utils);
-	while (utils.input_count--) // FOR DEBUG
-		ft_printf("%i", order[utils.input_count]); // FOR DBG
-	ft_printlist(utils);
 	ft_freelists(&utils);
 	return (0);
 }
