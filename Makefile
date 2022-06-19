@@ -1,4 +1,4 @@
-COMMON_FILES = nodes.c stacks.c initializers.c arg_input.c error.c ft_printlist.c utils.c
+COMMON_FILES = nodes.c stacks.c initializers.c arg_input.c error.c ft_printlist.c utils.c dispatcher.c
 COMMON_SRC_DIR = ./common/
 COMMON_SRC := $(addprefix $(COMMON_SRC_DIR),$(COMMON_FILES))
 CHECKER_FILES = checker_main.c
