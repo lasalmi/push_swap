@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:57:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/20 17:41:43 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:37:05 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,16 @@ static void	ft_setchunks(int *sorted, t_solver *solverutil, size_t first, size_t
 		i++;
 	solverutil->chunks[j].end = sorted[i++];
 	j++;
-	while (j < solverutil->chunk_amount - 2)
+	while (j < solverutil->chunk_amount && rest)
 	{
 		solverutil->chunks[j].start = sorted[i++];
-		while (i % rest != 0)
+		while (1)
+		{
+			solverutil->chunks[j].end = sorted[i];
 			i++;
-		solverutil->chunks[j].start = sorted[i++];
+			if ((i - first) % rest == 0)
+				break ;
+		}
 		j++;
 	}
 }
@@ -74,6 +78,7 @@ void	ft_getchunks(t_utils *utils, t_solver *solver)
 	size_t	first_chunk;
 	size_t	other_chunks;
 
+	ft_allocatechunks(utils, solver);
 	first_chunk = utils->input_count / solver->chunk_amount;
 	first_chunk += utils->input_count % solver->chunk_amount;
 	other_chunks = utils->input_count / solver->chunk_amount;

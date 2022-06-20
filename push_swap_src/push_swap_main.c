@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/20 17:20:09 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/20 18:33:07 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,18 @@ void	ft_solve(t_utils *utils, int *sorted)
 	ft_push_a_all(utils);
 }
 
+void	ft_testchunks(t_utils *utils)
+{
+	t_solver	solverutils;
+
+	ft_getchunks(utils, &solverutils);
+	int i = 0;
+	while (i < solverutils.chunk_amount)
+	{
+		ft_printf("Start: %d",solverutils.chunks[i].start);
+		ft_printf("End: %d\n",solverutils.chunks[i++].end);
+	}
+}
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
@@ -122,10 +134,11 @@ int	main(int argc, char **argv)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
 	ft_sortvalues(&utils);
-	ft_printlist(utils);
-	ft_solve(&utils, utils.sorted);
-	ft_printlist(utils);
-	ft_printf("%llu", utils.instr_count);
+//	ft_printlist(utils);
+//	ft_solve(&utils, utils.sorted);
+	ft_testchunks(&utils);
+//	ft_printlist(utils);
+//	ft_printf("%llu", utils.instr_count);
 	ft_freelists(&utils);
 	return (0);
 }
