@@ -54,9 +54,12 @@
 	-Chunk functions
 		-Chunk amount [DONE]
 		-Malloc for chunks [DONE]
-		-Chunk reader / analyzer.
+		-Chunk reader / analyzer. [DONE]
+	-"Slot finder for stack B", aka the integer that needs to be at top of stack B for the push of target from A and the cost of moving stack B to that.
+		-Cost to get target to the right slot
+		-"Ride hitcher" for dual instructions.
+	-"Enviroment copier" for counting the total cost for the chunk to move from A to B
+	-Enviroment deleter
+	-Exemptions ? If some integer of a chunk is too "expensive" it will be left behind in stack A and handled specifically when pushing from B to A.
 	-Interpreter to check which chunk to work first by cost
-	-Slot finder for stack B. To find the right slot for which integer
-	-"Ride hitcher" for dual instructions.
-	
 
