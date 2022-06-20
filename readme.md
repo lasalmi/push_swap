@@ -48,11 +48,15 @@
 ## push_swap
 	-Arrange checker functions to files [DONE]
 	-Quicksort for having an array that's already sorted [DONE]
+	-Function to check if the input is already sorted
 	-Instruction saver
 	-Struct for solver/push_swap that has t_chunk array
 	-Chunk functions
-		-Chunk amount
-		-Malloc for chunks
+		-Chunk amount [DONE]
+		-Malloc for chunks [DONE]
 		-Chunk reader / analyzer.
 	-Interpreter to check which chunk to work first by cost
+	-Slot finder for stack B. To find the right slot for which integer
+	-"Ride hitcher" for dual instructions.
 	
+

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/15 18:03:49 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/20 17:20:09 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 /* Loads the values from the original head_a
 into an array of ints. All the integers need
 to be in stack A */
-void ft_loadvalues(t_utils *utils, int *arr)
+void ft_loadvalues(t_utils *utils)
 {
 	t_node	*list;
+	int		*arr;
 
+	arr = utils->sorted;
 	list = utils->head_a;
 	while (list)
 	{
@@ -29,14 +31,13 @@ void ft_loadvalues(t_utils *utils, int *arr)
 }
 /* Loads and sorts the values in the double linked list
 into an array of integers */
-int	*ft_sortvalues(t_utils *utils)
+void	ft_sortvalues(t_utils *utils)
 {
-	int	*arr;
-
-	arr = (int *)malloc(sizeof(int) * utils->input_count);
-	ft_loadvalues(utils, arr);
-	ft_quicksortint(arr, utils->input_count);
-	return (arr);
+	utils->sorted = (int *)malloc(sizeof(int) * utils->input_count);
+	if (!utils->sorted)
+		ft_error();
+	ft_loadvalues(utils);
+	ft_quicksortint(utils->sorted, utils->input_count);
 }
 
 void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction)
@@ -114,16 +115,15 @@ void	ft_solve(t_utils *utils, int *sorted)
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
-	int		*sorted;
 
 	ft_initutils(&utils);
 	utils.head_b = NULL;
 	if (argc < 2)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
-	sorted = ft_sortvalues(&utils);
+	ft_sortvalues(&utils);
 	ft_printlist(utils);
-	ft_solve(&utils, sorted);
+	ft_solve(&utils, utils.sorted);
 	ft_printlist(utils);
 	ft_printf("%llu", utils.instr_count);
 	ft_freelists(&utils);

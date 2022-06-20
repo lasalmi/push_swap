@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/20 17:15:52 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/20 17:40:22 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_chunk {
 
 typedef struct	s_solver {
 	struct s_chunk	*chunks;
+	size_t			chunk_amount;
 }	t_solver;
 
 typedef	void (*t_func)(t_utils*);
@@ -77,4 +78,5 @@ void	ft_read_values(t_utils *utils, char **argv, int argc);
 void	ft_error(void);
 void	ft_freelists(t_utils *utils);
 void	ft_pw_dispatcher(t_utils *utils, int func_index);
+void	ft_getchunks(t_utils *utils, t_solver *solver);
 #endif
