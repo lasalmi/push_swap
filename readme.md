@@ -49,5 +49,10 @@
 	-Arrange checker functions to files [DONE]
 	-Quicksort for having an array that's already sorted [DONE]
 	-Instruction saver
-	-Loop dispatcher, to call dispatcher x times with x instruction
-	-Graph theory for solving?\
+	-Struct for solver/push_swap that has t_chunk array
+	-Chunk functions
+		-Chunk amount
+		-Malloc for chunks
+		-Chunk reader / analyzer.
+	-Interpreter to check which chunk to work first by cost
+	
