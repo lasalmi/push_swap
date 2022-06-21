@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:31:07 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 18:55:21 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 19:31:57 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	ft_find_rev_rotate(t_chunk *chunk, t_node *tail, int *rotate)
 	}
 	if (!tail)
 		chunk->processed = 1;
-	*rotate = cost;
+	*rotate += cost;
 	return (target);
 }
 
@@ -105,7 +105,7 @@ int	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail)
 	rot_target = ft_find_rotate(chunk, head, &rotate);
 	if (chunk->processed)
 		return (-1);
-	rev_target = ft_find_rev_rotate(chunk, head, &rotate);
+	rev_target = ft_find_rev_rotate(chunk, tail, &rev_rotate);
 /*	while (tail && head  && !ft_is_in_range(tail->value,chunk->start, chunk->end))
 	{
 		rev_rotate++;

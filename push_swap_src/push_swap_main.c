@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 18:56:44 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 19:38:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,8 @@ void	ft_preprocess(t_utils *utils)
 {
 	t_solver	solverutils;
 	ft_getchunks(utils, &solverutils);
-	ft_printf("Cost: %d", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[0]));
+	ft_printf("Cost: %d\n", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[0]));
+//	ft_printf("Cost: %d", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[1]));
 }
 
 int	main(int argc, char **argv)
