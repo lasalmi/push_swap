@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:57:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/20 18:37:05 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 11:19:51 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,19 @@ static void	ft_setchunks(int *sorted, t_solver *solverutil, size_t first, size_t
 		}
 		j++;
 	}
+}
+
+/* Identifies which chunk contains the nb given
+and returns the index of that chunk */
+
+int	ft_identifychunk(int n, t_chunk *chunks)
+{
+	int	i;
+
+	i = 0;
+	while (!ft_is_in_range(n, chunks[i].start, chunks[i].end))
+		i++;
+	return (i);
 }
 
 /* Counts the amount of integers in each chunk. The first one has the most */
