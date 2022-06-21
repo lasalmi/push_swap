@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/20 18:33:07 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 18:56:44 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,14 @@ void	ft_testchunks(t_utils *utils)
 		ft_printf("End: %d\n",solverutils.chunks[i++].end);
 	}
 }
+
+void	ft_preprocess(t_utils *utils)
+{
+	t_solver	solverutils;
+	ft_getchunks(utils, &solverutils);
+	ft_printf("Cost: %d", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[0]));
+}
+
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
@@ -136,7 +144,7 @@ int	main(int argc, char **argv)
 	ft_sortvalues(&utils);
 //	ft_printlist(utils);
 //	ft_solve(&utils, utils.sorted);
-	ft_testchunks(&utils);
+	ft_preprocess(&utils);
 //	ft_printlist(utils);
 //	ft_printf("%llu", utils.instr_count);
 	ft_freelists(&utils);

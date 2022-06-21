@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:28:32 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/11 14:28:42 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 19:00:08 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,39 @@ void	ft_freelists(t_utils *utils)
 		}
 		utils->head_a = temp;
 	}
+}
+
+/* Gets the addresses of the tails of both stacks */
+static void	ft_get_tails(t_utils *copy)
+{
+	t_node	*tail_a;
+	t_node	*tail_b;
+	tail_a = copy->head_a;
+	tail_b = copy->head_b;
+	while (tail_a && tail_a->next)
+		tail_a = tail_a->next;
+	while (tail_b && tail_b->next)
+		tail_b = tail_b->next;
+	copy->tail_a = tail_a;
+	copy->tail_b = tail_b;
+}
+
+void	ft_copyutils(t_utils *dst, t_utils *src)
+{
+	dst->count_a = src->count_a;
+	dst->count_b = src->count_b;
+	dst->input_count = src->input_count;
+	dst->sorted = src->sorted;
+	dst->head_a = ft_copylist(src->head_a);
+	dst->head_b = ft_copylist(src->head_b);
+	ft_get_tails(dst);
+}
+
+t_utils	*ft_copystate(t_utils *original)
+{
+	t_utils	*copy;
+
+	copy = (t_utils *)malloc(sizeof(t_utils));
+	ft_copyutils(copy, original);
+	return (copy);
 }

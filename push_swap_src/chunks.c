@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:57:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 11:19:51 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 18:53:56 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	ft_initializechunk(t_chunk *chunk)
 	chunk->start = 0;
 	chunk->end = 0;
 	chunk->sorted = 0;
+	chunk->processed = 0;
 }
 
 static void	ft_allocatechunks(t_utils *utils, t_solver *solver)
@@ -53,7 +54,7 @@ static void	ft_setchunks(int *sorted, t_solver *solverutil, size_t first, size_t
 	i = 0;
 	j = 0;
 	solverutil->chunks[j].start = sorted[i++];
-	while (i < first)
+	while (i < first - 1)
 		i++;
 	solverutil->chunks[j].end = sorted[i++];
 	j++;

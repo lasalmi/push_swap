@@ -1,5 +1,32 @@
 #include "../checker.h"
 
+t_node *ft_copylist(t_node *head)
+{
+	t_node	*dst_head;
+	t_node	*current;
+
+	if (!head)
+		return (NULL);
+	dst_head = ft_createnode();
+	current = dst_head;
+	while (current)
+	{
+		ft_copynode(current, head);
+		if (head->next)
+			current->next = ft_createnode();
+		current = current->next;
+		head = head->next;
+	}
+	return (dst_head);
+}
+
+void	ft_copynode(t_node *dst, t_node *src)
+{
+	dst->value = src->value;
+	dst->next = src->next;
+	dst->prev = src->prev;
+}
+
 /* Allocates a new node and in case
 of mallocfail exits */
 

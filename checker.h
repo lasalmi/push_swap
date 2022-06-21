@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 13:42:01 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 17:56:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct	s_instructions {
 typedef struct	s_chunk {
 	int		start;
 	int		end;
+	uint8_t	processed;
 	uint8_t	sorted;
 }	t_chunk;
 
@@ -86,4 +87,11 @@ void	ft_freelists(t_utils *utils);
 void	ft_pw_dispatcher(t_utils *utils, int func_index);
 void	ft_getchunks(t_utils *utils, t_solver *solver);
 int		ft_findslotb(int nb, t_node *head);
+t_node	*ft_copylist(t_node *head);
+void	ft_copynode(t_node *dst, t_node *src);
+int		ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
+int		ft_countcost(int value_to_find, t_utils *utils);
+int		ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk);
+t_utils	*ft_copystate(t_utils *original);
+void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction);
 #endif
