@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/20 17:40:22 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/21 11:39:26 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,5 @@ void	ft_error(void);
 void	ft_freelists(t_utils *utils);
 void	ft_pw_dispatcher(t_utils *utils, int func_index);
 void	ft_getchunks(t_utils *utils, t_solver *solver);
+int		ft_findslotb(int nb, t_node *head);
 #endif
