@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/22 17:12:50 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 00:00:47 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,15 @@ typedef struct	s_solver {
 }	t_solver;
 
 typedef struct	s_target {
-	int		target;
-	size_t	rotate_cost;
-	size_t	rev_rot_cost;
+	uint8_t	processed;
+	int		rotate_target;
+	int		rev_target;
+	int		rotate_cost;
+	int		rev_rot_cost;
+	int		rotate_pair;
+	int		rot_pair_cost;
+	int		rev_pair;
+	int		rev_pair_cost;
 }	t_target;
 
 typedef	void (*t_func)(t_utils*);
@@ -89,11 +95,14 @@ void	ft_getchunks(t_utils *utils, t_solver *solver);
 int		ft_findslotb(int nb, t_node *head);
 t_node	*ft_copylist(t_node *head);
 void	ft_copynode(t_node *dst, t_node *src);
-int		ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
-int		ft_countcost(int value_to_find, t_utils *utils);
+t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
+int		ft_countcost_a(int value_to_find, t_utils *utils);
+int		ft_countcost_b(int value_to_find, t_utils *utils);
 int		ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk);
 t_utils	*ft_copystate(t_utils *original);
 void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction);
 int		ft_cheapest_chunk(t_utils *original, t_solver *solver);
 void	ft_check_list(t_utils *utils);
+void	ft_init_target(t_target *target);
+void	ft_get_target_costs(t_target *target, t_utils *utils);
 #endif

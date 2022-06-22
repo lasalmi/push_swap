@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/22 17:42:37 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 00:21:05 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction)
 bottom of the stack A. Returns negative,
 if it is more efficient to use reverse rotate, returns 0
 if already in bottom of stack A */
-int	ft_countcost(int value_to_find, t_utils *utils)
+int	ft_countcost_a(int value_to_find, t_utils *utils)
 {
 	int		i;
 	int		j;
@@ -69,6 +69,34 @@ int	ft_countcost(int value_to_find, t_utils *utils)
 	}
 	list = utils->tail_a;
 	while (value_to_find != list->value)
+	{
+		j--;
+		list = list->prev;
+	}
+	j--;
+	if (ft_abs(j) > i)
+		return (i);
+	return (j);
+}
+
+int	ft_countcost_b(int value_to_find, t_utils *utils)
+{
+	int		i;
+	int		j;
+	t_node	*list;
+
+	list = utils->head_b;
+	i = 0;
+	j = 0;
+	if (!list)
+		return (INT_MAX);
+	while (list && value_to_find != list->value)
+	{
+		i++;
+		list = list->next;
+	}
+	list = utils->tail_b;
+	while (list && value_to_find != list->value)
 	{
 		j--;
 		list = list->prev;

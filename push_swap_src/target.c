@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:31:07 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 19:31:57 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 00:24:11 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,24 +75,32 @@ static int	ft_find_rev_rotate(t_chunk *chunk, t_node *tail, int *rotate)
 	return (target);
 }
 
+void	ft_get_target_costs(t_target *target, t_utils *utils)
+{
+	target->rotate_cost = ft_countcost_a(target->rotate_target, utils);
+	target->rev_rot_cost = ft_countcost_a(target->rev_target, utils);
+	target->rotate_pair = ft_find_target_b(target->rotate_target, utils->head_b);
+	target->rev_pair = ft_find_target_b(target->rev_target, utils->head_b);
+	target->rev_pair_cost = ft_countcost_b(target->rev_pair, utils);
+	target->rot_pair_cost = ft_countcost_b(target->rotate_pair, utils);
+	ft_printf("Rot target: %d Rot cost: %d Rot pair: %d\n", target->rotate_target, target->rotate_cost, target->rotate_pair);
+	ft_printlist(*utils);
+}
+
 /* Finds the closest member of the given chunk and returns the value
 of that member, DOESNT return direction! */
-int	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail)
+t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail)
 {
-	int	rotate;
-	int	rev_rotate;
-	int	rot_target;
-	int	rev_target;
+	t_target	target;
 
-	rotate = 0;
-	rev_rotate = 1;
+	ft_init_target(&target);
 	if (!head)
 	{
 		chunk->processed = 1;
-		return (0);
+		return (target);
 	}
-	rot_target = head->value;
-	rev_target = tail->value;
+	target.rotate_target = head->value;
+	target.rev_target = tail->value;
 /*	while (head && !ft_is_in_range(head->value,chunk->start, chunk->end))
 	{
 		rotate++;
@@ -102,17 +110,15 @@ int	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail)
 	}
 	if (!head)
 		chunk->processed = 1; */
-	rot_target = ft_find_rotate(chunk, head, &rotate);
+	target.rotate_target = ft_find_rotate(chunk, head, &target.rotate_target);
 	if (chunk->processed)
-		return (-1);
-	rev_target = ft_find_rev_rotate(chunk, tail, &rev_rotate);
+		target.processed = 1;
+	target.rev_target = ft_find_rev_rotate(chunk, tail, &target.rev_target);
 /*	while (tail && head  && !ft_is_in_range(tail->value,chunk->start, chunk->end))
 	{
 		rev_rotate++;
 		tail = tail->prev;
 		rev_target = tail->value;
 	} */
-	if (rotate >= rev_rotate)
-		return (rev_target);
-	return (rot_target);
+	return (target);
 }

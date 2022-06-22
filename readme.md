@@ -60,4 +60,4 @@
 	-Interpreter to check which chunk to work first by cost
 	-Loading the given integers to a list [DONE]
 	-Creating an array with already sorted list by using quicksort [DONE]
-
+	-Fix find target b

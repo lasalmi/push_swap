@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/22 17:18:48 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 00:12:23 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,22 @@ void	ft_countnodes(t_utils *utils)
 /* Need to null solver "sorted", if used in sandbox */
 int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 {
-	t_utils	*sandbox;
-	int		target;
-	int		direction;
-	int		cost;
+	t_utils		*sandbox;
+	t_target	target;
+	int			direction;
+	int			cost;
 
 	cost = 0;
 	sandbox = ft_copystate(original);
 	while (1)
 	{
 		target = ft_find_closest_a(chunk, sandbox->head_a, sandbox->tail_a);
-		ft_countnodes(sandbox);
 /*		ft_printlist(*sandbox); */
 		if (chunk->processed)
 			break ;
-		ft_printf("Target: %d", target);
-		direction = ft_countcost(target, sandbox);
+/*		direction = ft_countcost_a(target, sandbox); */
+		ft_get_target_costs(&target, sandbox);
+		direction = target.rotate_cost;
 		cost += (ft_abs(direction));
 		if (direction < 0)
 			ft_loop_dispatcher(abs(direction), sandbox, 8);
@@ -86,6 +86,7 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 	}
 	ft_printf("CHUNK LOW: %d CHUNK HIGH: %d\n", chunk->start, chunk->end);
 	ft_printf("Cost of chunk: %i\n", cost);
+	ft_printlist(*sandbox);
 /*	ft_freelists(sandbox); */
 	return (cost);
 }
