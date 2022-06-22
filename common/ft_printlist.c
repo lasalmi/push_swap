@@ -6,12 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:32:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/07 17:32:22 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/22 17:42:13 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-#include "../libft/libft.h"
 
 void	ft_printlist(t_utils utils)
 {

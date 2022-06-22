@@ -13,7 +13,10 @@ t_node *ft_copylist(t_node *head)
 	{
 		ft_copynode(current, head);
 		if (head->next)
+		{
 			current->next = ft_createnode();
+			current->next->prev = current;
+		}
 		current = current->next;
 		head = head->next;
 	}
@@ -23,8 +26,6 @@ t_node *ft_copylist(t_node *head)
 void	ft_copynode(t_node *dst, t_node *src)
 {
 	dst->value = src->value;
-	dst->next = src->next;
-	dst->prev = src->prev;
 }
 
 /* Allocates a new node and in case

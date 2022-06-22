@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 17:56:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/22 17:12:50 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,6 @@ int		ft_countcost(int value_to_find, t_utils *utils);
 int		ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk);
 t_utils	*ft_copystate(t_utils *original);
 void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction);
+int		ft_cheapest_chunk(t_utils *original, t_solver *solver);
+void	ft_check_list(t_utils *utils);
 #endif

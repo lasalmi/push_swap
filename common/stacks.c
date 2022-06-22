@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/15 16:58:20 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/22 17:16:06 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void ft_push_b(t_utils *utils)
 	}
 	utils->count_a -= 1;
 	utils->count_b += 1;
+	ft_check_list(utils);
 }
 
 void ft_swap_a(t_utils *utils)
@@ -91,7 +92,7 @@ void ft_swap_both(t_utils *utils)
 	ft_swap_b(utils);
 }
 
-void ft_rev_rotate_a(t_utils *utils)
+/*void ft_rev_rotate_a(t_utils *utils)
 {
 	t_node	*temp;
 	ft_printf("REVERSE ROTATING A\n");
@@ -104,7 +105,27 @@ void ft_rev_rotate_a(t_utils *utils)
 	utils->head_a = utils->tail_a;
 	utils->tail_a = temp;
 	utils->head_a->prev = NULL;
+} */
+
+void	ft_rev_rotate_a(t_utils *utils)
+{
+	t_node	*new_tail;
+	t_node	*new_head;
+	
+	ft_printf("REVERSE ROTATING A NEW\n");
+	if (utils->count_a < 2)
+		return ;
+	new_tail = utils->tail_a->prev;
+	new_head = utils->tail_a;
+	new_tail->next = NULL;
+	new_head->next = utils->head_a;
+	new_head->prev = NULL;
+	utils->head_a->prev = new_head;
+	utils->tail_a->next = utils->head_a;
+	utils->head_a = new_head;
+	utils->tail_a = new_tail;
 }
+
 
 void ft_rev_rotate_b(t_utils *utils)
 {
@@ -135,6 +156,7 @@ void	ft_rotate_a(t_utils *utils)
 	utils->tail_a = utils->head_a;
 	temp->prev = NULL;
 	utils->head_a = temp;
+	ft_check_list(utils);
 }
 
 void	ft_rotate_b(t_utils *utils)

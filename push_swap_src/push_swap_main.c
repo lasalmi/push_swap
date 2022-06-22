@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 19:38:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/22 17:42:37 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	ft_push_a_all(t_utils *utils)
 		ft_push_a(utils);
 	}
 }
+/*
 void	ft_solve(t_utils *utils, int *sorted)
 {
 	size_t	current;
@@ -110,7 +111,7 @@ void	ft_solve(t_utils *utils, int *sorted)
 	}
 	ft_printlist(*utils);
 	ft_push_a_all(utils);
-}
+} */
 
 void	ft_testchunks(t_utils *utils)
 {
@@ -128,9 +129,10 @@ void	ft_testchunks(t_utils *utils)
 void	ft_preprocess(t_utils *utils)
 {
 	t_solver	solverutils;
+
 	ft_getchunks(utils, &solverutils);
-	ft_printf("Cost: %d\n", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[0]));
-//	ft_printf("Cost: %d", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[1]));
+	ft_printf("CHEAPEST CHUNK INDEX: %d\n", ft_cheapest_chunk(utils, &solverutils));
+//	ft_printf("Cost: %d", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[0]));
 }
 
 int	main(int argc, char **argv)
