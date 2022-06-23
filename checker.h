@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 00:00:47 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 13:09:49 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,20 @@ typedef struct	s_target {
 	int		rev_pair;
 	int		rev_pair_cost;
 }	t_target;
+
+typedef struct	s_cost {
+	uint8_t	found;
+	int		target;
+	size_t	rotate_cost;
+	size_t	rev_cost
+}	t_cost;
+
+typedef struct	s_pair {
+	struct s_cost	stack_a;
+	struct s_cost	stack_b;
+	size_t			total_cost;
+	int				*instructions;
+}	t_pair;
 
 typedef	void (*t_func)(t_utils*);
 

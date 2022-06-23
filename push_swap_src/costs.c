@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:25:08 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 14:10:35 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 14:14:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,4 @@ t_cost	ft_find_pair(int stack_a, t_node *head, int list_size)
 	if (!ret.found)
 		ft_find_biggest(temp, list_size);
 	return (ret);
-}
-t_pair	ft_cheapest_pair(t_utils utils, t_chunk *chunk)
-{
-	while (utils->head_)
 }
