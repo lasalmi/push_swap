@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 13:09:49 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 17:50:08 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct	s_cost {
 	uint8_t	found;
 	int		target;
 	size_t	rotate_cost;
-	size_t	rev_cost
+	size_t	rev_cost;
 }	t_cost;
 
 typedef struct	s_pair {
@@ -76,6 +76,15 @@ typedef struct	s_pair {
 	size_t			total_cost;
 	int				*instructions;
 }	t_pair;
+
+typedef enum	e_type {
+	NOT_FOUND,
+	ROTREV,
+	REVROT,
+	ROTATE,
+	REV,
+	__UNUSED
+}	t_type;
 
 typedef	void (*t_func)(t_utils*);
 
@@ -119,4 +128,7 @@ int		ft_cheapest_chunk(t_utils *original, t_solver *solver);
 void	ft_check_list(t_utils *utils);
 void	ft_init_target(t_target *target);
 void	ft_get_target_costs(t_target *target, t_utils *utils);
+t_pair	ft_findpair(t_chunk *chunk, t_utils *utils);
+size_t	ft_returngreater(size_t a, size_t b);
+t_type	ft_findtype(t_pair *pair);
 #endif
