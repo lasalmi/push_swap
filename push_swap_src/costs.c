@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:25:08 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 13:11:41 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 14:10:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,27 @@ void	ft_initialize_target(t_cost	*cost)
 	cost->found = 0;
 }
 
+t_cost	ft_find_biggest(t_node *head, int stack_size)
+{
+	t_cost	ret;
+	int		biggest;
+	int		i;
+
+	i = 0;
+	biggest = 0;
+	ft_initialize_target(&ret);
+	if (!head)
+		return (ret);
+	while (head)
+	{
+		if (head->value > biggest)
+			ret = ft_count_cost(head->value, i, stack_size);
+		head = head->next;
+		i++;
+	}
+	return (ret);
+}
+
 /* Finds the nearest smaller number and if no smaller numbers are found
 returns the biggest target in the stack */
 t_cost	ft_find_pair(int stack_a, t_node *head, int list_size)
@@ -66,7 +87,9 @@ t_cost	ft_find_pair(int stack_a, t_node *head, int list_size)
 	t_cost	ret;
 	int		i;
 	int		diff;
+	t_node	*temp;
 
+	temp = head;
 	i = 0;
 	diff = INT_MAX;
 	ft_initialize_target(&ret);
@@ -82,7 +105,8 @@ t_cost	ft_find_pair(int stack_a, t_node *head, int list_size)
 		i++;
 		head = head->next;
 	}
-	/* IF !FOUND handle biggest */
+	if (!ret.found)
+		ft_find_biggest(temp, list_size);
 	return (ret);
 }
 t_pair	ft_cheapest_pair(t_utils utils, t_chunk *chunk)
