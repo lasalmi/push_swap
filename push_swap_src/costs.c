@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:25:08 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 14:14:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 15:35:24 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ t_cost	ft_find_biggest(t_node *head, int stack_size)
 }
 
 /* Finds the nearest smaller number and if no smaller numbers are found
-returns the biggest target in the stack */
-t_cost	ft_find_pair(int stack_a, t_node *head, int list_size)
+returns the biggest target in the stack B */
+t_cost	ft_find_pair_for_a(int stack_a, t_node *head, int list_size)
 {
 	t_cost	ret;
 	int		i;
@@ -108,4 +108,40 @@ t_cost	ft_find_pair(int stack_a, t_node *head, int list_size)
 	if (!ret.found)
 		ft_find_biggest(temp, list_size);
 	return (ret);
+}
+
+int	ft_total_cost_smaller(int total_cost, int a_value, int i, t_utils utils)
+{
+	t_pair	to_compare;
+
+	to_compare.stack_a = ft_count_cost(head->value, i, utils.count_a);
+	to_compare.stack_b = ft_find_pair_for_a(head->value, utils->head_b, utils->count_b);
+	to_compare.total_cost = ft_total_cost_move(to_compare.stack_a, to_compare.stack_b);
+	if (to_compare.total_cost < total_cost)
+		return (1);
+	return (0);
+}
+
+/* Returns the smallest cost pair within given chunk */
+t_pair	ft_findpair(t_chunk *chunk, t_utils *utils)
+{
+	t_node	*head;
+	t_pair	pair;
+	int		i;
+	
+	i = 0;
+	pair.total_cost = INT_MAX;
+	head = utils->head_a;
+	while (head)
+	{
+		if (ft_ismember(chunk, head->value) && ft_total_cost_smaller(pair.total_cost, head->value, i, *utils));
+		{
+			pair.stack_a = ft_count_cost(head->value, i, utils->count_a);
+			pair.stack_b = ft_find_pair_for_a(head->value, utils->head_b, utils->count_b);
+			pair.total_cost = ft_total_cost_move(pair.stack_a, pair.stack_b);
+		}
+		i++;
+		head = head->next;
+	}
+	return (pair);
 }

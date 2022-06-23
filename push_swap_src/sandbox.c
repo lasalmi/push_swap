@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 00:12:23 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 15:15:01 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,11 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 		ft_get_target_costs(&target, sandbox);
 		direction = target.rotate_cost;
 		cost += (ft_abs(direction));
-		if (direction < 0)
+/*		if (direction < 0)
 			ft_loop_dispatcher(abs(direction), sandbox, 8);
 		if (direction > 0)
-			ft_loop_dispatcher(direction, sandbox, 5);
-/*		ft_printlist(*sandbox); */
+			ft_loop_dispatcher(direction, sandbox, 5); */
 		ft_push_b(sandbox);
-/*		ft_printlist(*sandbox); */
 	}
 	ft_printf("CHUNK LOW: %d CHUNK HIGH: %d\n", chunk->start, chunk->end);
 	ft_printf("Cost of chunk: %i\n", cost);
