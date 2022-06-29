@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/22 17:16:06 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/29 14:12:49 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void ft_rev_rotate_b(t_utils *utils)
 {
 	t_node	*temp;
 
+	ft_printf("REVERSE ROTATING B NEW\n");
 	if (utils->count_b < 2)
 		return ;
 	temp = utils->tail_b->prev;

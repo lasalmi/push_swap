@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:25:08 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 17:00:21 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/29 14:19:36 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ t_cost	ft_count_cost(int member, int i, int stack_size)
 
 size_t	ft_returnsmallest(size_t a, size_t b, size_t c, size_t d)
 {
-	if (a < b && a < c && a < d)
+	if (a <= b && a <= c && a <= d)
 		return (a);
-	if (b < a && b < c && b < d)
+	if (b <= a && b <= c && b <= d)
 		return (b);
-	if (c < a && c < b && c < d)
+	if (c <= a && c <= b && c <= d)
 		return (c);
 	return (d);
 }
@@ -61,8 +61,8 @@ size_t	ft_total_cost_move(t_cost target_a, t_cost target_b)
 
 	rotrev = target_a.rotate_cost + target_b.rev_cost;
 	revrot = target_a.rev_cost + target_b.rev_cost;
-	ft_printf("A: Rev:%llu Rot:%llu\n", target_a.rev_cost, target_a.rotate_cost);
-	ft_printf("B: Rev:%llu Rot:%llu\n", target_b.rev_cost, target_b.rotate_cost);
+//	ft_printf("A: Rev:%llu Rot:%llu\n", target_a.rev_cost, target_a.rotate_cost);
+//	ft_printf("B: Rev:%llu Rot:%llu\n", target_b.rev_cost, target_b.rotate_cost);
 	rotate_cost = ft_returngreater(target_a.rotate_cost, target_b.rotate_cost);
 	rev_cost = ft_returngreater(target_a.rev_cost, target_b.rev_cost);
 	return (ft_returnsmallest(rotate_cost, rev_cost, rotrev, revrot));
@@ -159,7 +159,7 @@ t_pair	ft_findpair(t_chunk *chunk, t_utils *utils)
 			pair.stack_a = ft_count_cost(head->value, i, utils->count_a);
 			pair.stack_b = ft_find_pair_for_a(head->value, utils->head_b, utils->count_b);
 			pair.total_cost = ft_total_cost_move(pair.stack_a, pair.stack_b);
-			ft_printf("Findpair: A:%d B:%d Total%llu\n", pair.stack_a.target, pair.stack_b.target, pair.total_cost);
+//			ft_printf("Findpair: A:%d B:%d Total%llu\n", pair.stack_a.target, pair.stack_b.target, pair.total_cost);
 		}
 		i++;
 		head = head->next;

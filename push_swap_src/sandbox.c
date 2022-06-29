@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 19:51:04 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/23 22:25:20 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	ft_cheapest_chunk(t_utils *original, t_solver *solver)
 	i = 0;
 	while (i < solver->chunk_amount)
 	{
+		while (solver->chunks[i].sorted)
+			i++;
+		if (i >= solver->chunk_amount)
+			break ;
 		cost = ft_count_chunk_cost(original, solver, &solver->chunks[i]);
 		if (cost < lowest)
 		{
@@ -83,11 +87,11 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 		i = 0;
 		ft_push_b(sandbox);
 		free(pair.instructions);
-		ft_printlist(*sandbox);
+//		ft_printlist(*sandbox);
 	}
-	ft_printf("Type of instruction: %d\n", ft_findtype(&pair));
-	ft_printf("CHUNK LOW: %d CHUNK HIGH: %d\n", chunk->start, chunk->end);
-	ft_printf("Cost of chunk: %i\n", cost);
+//	ft_printf("Type of instruction: %d\n", ft_findtype(&pair));
+//	ft_printf("CHUNK LOW: %d CHUNK HIGH: %d\n", chunk->start, chunk->end);
+//	ft_printf("Cost of chunk: %i\n", cost);
 //	ft_printlist(*sandbox);
 
 	ft_push_b(sandbox);
