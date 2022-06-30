@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 22:25:20 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/30 11:34:56 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 
 	ft_push_b(sandbox);
 //	ft_printlist(*sandbox);
-/*	ft_freelists(sandbox); */
+	ft_freelists(sandbox);
+	free(sandbox);
 	return (cost);
 }

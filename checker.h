@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 18:27:26 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/30 10:41:41 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,4 +132,5 @@ t_pair	ft_findpair(t_chunk *chunk, t_utils *utils);
 size_t	ft_returngreater(size_t a, size_t b);
 t_type	ft_findtype(t_pair *pair);
 void	ft_generate_instructions(t_pair *pair);
+t_cost	ft_find_biggest(t_node *head, int stack_size);
 #endif

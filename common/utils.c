@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:28:32 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/21 19:00:08 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/30 11:07:33 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,19 @@ void	ft_freelists(t_utils *utils)
 		temp = utils->head_a->next;
 		free(utils->head_a);
 		utils->head_a = NULL;
-		if (!temp && utils->head_b)
+/*		if (!temp && utils->head_b)
 		{
 			temp = utils->head_b;
 			utils->head_b = NULL;
-		}
+		} */
 		utils->head_a = temp;
+	}
+	while (utils->head_b)
+	{
+		temp = utils->head_b->next;
+		free(utils->head_b);
+		utils->head_b = NULL;
+		utils->head_b = temp;
 	}
 }
 

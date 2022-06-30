@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/23 22:24:33 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/06/30 10:59:38 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	ft_sortvalues(t_utils *utils)
 	ft_quicksortint(utils->sorted, utils->input_count);
 }
 
-void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction)
+/*void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction)
 {
 	utils->instr_count += n;
 	while(n--)
 		ft_pw_dispatcher(utils, instruction);
-}
+} */
 
 /* Counts the cost of moving the value to the
 bottom of the stack A. Returns negative,
@@ -154,6 +154,47 @@ void	ft_testchunks(t_utils *utils)
 	}
 }
 
+size_t	ft_b_for_push(t_utils *utils)
+{
+	t_cost	target;
+	size_t	cost;
+
+	cost = 0;
+	target = ft_find_biggest(utils->head_b, utils->count_b);
+	if (target.rev_cost > target.rotate_cost)
+	{
+		while (target.rev_cost)
+		{
+			ft_pw_dispatcher(utils, 9);
+			cost++;
+			target.rev_cost--;
+		}
+	}
+	else
+	{
+		while (target.rotate_cost)
+		{
+			ft_pw_dispatcher(utils, 6);
+			cost++;
+			target.rotate_cost--;
+		}
+	}
+	return (cost);
+}
+size_t	ft_push_b_all(t_utils *utils)
+{
+	size_t	cost;
+
+	cost = 0;
+	cost += ft_b_for_push(utils);
+	while (utils->count_b)
+	{
+		ft_push_a(utils);
+		cost++;
+	}
+	return (cost);
+}
+
 void	ft_preprocess(t_utils *utils)
 {
 	t_solver	solverutils;
@@ -188,8 +229,10 @@ void	ft_preprocess(t_utils *utils)
 			ft_printlist(*utils);
 		}
 	}
+	free(solverutils.chunks);
+	cost += ft_push_b_all(utils);
+	ft_printlist(*utils);
 	ft_printf("Cost: %llu", cost);
-//	ft_printf("Cost: %d", ft_count_chunk_cost(utils, &solverutils, &solverutils.chunks[0]));
 }
 
 int	main(int argc, char **argv)
@@ -207,6 +250,7 @@ int	main(int argc, char **argv)
 	ft_preprocess(&utils);
 //	ft_printlist(utils);
 //	ft_printf("%llu", utils.instr_count);
+	free(utils.sorted);
 	ft_freelists(&utils);
 	return (0);
 }
