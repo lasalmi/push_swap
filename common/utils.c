@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:28:32 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/30 11:07:33 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/05 08:44:08 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ void	ft_freelists(t_utils *utils)
 		temp = utils->head_a->next;
 		free(utils->head_a);
 		utils->head_a = NULL;
-/*		if (!temp && utils->head_b)
-		{
-			temp = utils->head_b;
-			utils->head_b = NULL;
-		} */
 		utils->head_a = temp;
 	}
 	while (utils->head_b)
@@ -48,6 +43,7 @@ static void	ft_get_tails(t_utils *copy)
 {
 	t_node	*tail_a;
 	t_node	*tail_b;
+
 	tail_a = copy->head_a;
 	tail_b = copy->head_b;
 	while (tail_a && tail_a->next)

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:06:43 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/22 17:12:31 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/05 08:40:51 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_checklistprev(t_node *node)
 {
 	int	i;
-	
+
 	i = 0;
 	while (node && i < 500)
 	{
@@ -31,7 +31,7 @@ void	ft_checklistprev(t_node *node)
 void	ft_checklistnext(t_node *node)
 {
 	int	i;
-	
+
 	i = 0;
 	while (node && i < 500)
 	{

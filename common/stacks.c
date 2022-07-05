@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/29 14:12:49 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/05 08:43:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ to that element */
 
 t_node	*ft_create_elem_stack_a(t_utils *utils)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = ft_createnode();
 	ft_add_node_tail(&utils->tail_a, new_node);
@@ -27,9 +27,9 @@ t_node	*ft_create_elem_stack_a(t_utils *utils)
 /* Pushes the head element of stack b as 
 the new head of stack a and refreshes the counts */
 
-void ft_push_a(t_utils *utils)
+void	ft_push_a(t_utils *utils)
 {
-	t_node *to_push;
+	t_node	*to_push;
 
 	to_push = utils->head_b;
 	if (!utils->count_b)
@@ -50,9 +50,9 @@ void ft_push_a(t_utils *utils)
 /* Pushes the head element of stack a as 
 the new head of stack b and refreshes the counts */
 
-void ft_push_b(t_utils *utils)
+void	ft_push_b(t_utils *utils)
 {
-	t_node *to_push;
+	t_node	*to_push;
 
 	ft_printf("PUSHING B\n");
 	to_push = utils->head_a;
@@ -72,21 +72,21 @@ void ft_push_b(t_utils *utils)
 	ft_check_list(utils);
 }
 
-void ft_swap_a(t_utils *utils)
+void	ft_swap_a(t_utils *utils)
 {
 	if (utils->count_a < 2)
 		return ;
 	ft_swapnode(utils->head_a, utils->head_a->next);
 }
 
-void ft_swap_b(t_utils *utils)
+void	ft_swap_b(t_utils *utils)
 {
 	if (utils->count_b < 2)
 		return ;
 	ft_swapnode(utils->head_b, utils->head_b->next);
 }
 
-void ft_swap_both(t_utils *utils)
+void	ft_swap_both(t_utils *utils)
 {
 	ft_swap_a(utils);
 	ft_swap_b(utils);
@@ -111,7 +111,7 @@ void	ft_rev_rotate_a(t_utils *utils)
 {
 	t_node	*new_tail;
 	t_node	*new_head;
-	
+
 	ft_printf("REVERSE ROTATING A NEW\n");
 	if (utils->count_a < 2)
 		return ;
@@ -126,8 +126,7 @@ void	ft_rev_rotate_a(t_utils *utils)
 	utils->tail_a = new_tail;
 }
 
-
-void ft_rev_rotate_b(t_utils *utils)
+void	ft_rev_rotate_b(t_utils *utils)
 {
 	t_node	*temp;
 
@@ -145,7 +144,7 @@ void ft_rev_rotate_b(t_utils *utils)
 
 void	ft_rotate_a(t_utils *utils)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	ft_printf("ROTATING A\n");
 	if (utils->count_a < 2)
@@ -162,13 +161,13 @@ void	ft_rotate_a(t_utils *utils)
 
 void	ft_rotate_b(t_utils *utils)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	if (utils->count_b < 2)
 		return ;
 	temp = utils->head_b->next;
 	utils->tail_b->next = utils->head_b;
-	utils->head_b->prev = utils->tail_b	;
+	utils->head_b->prev = utils->tail_b;
 	utils->head_b->next = NULL;
 	utils->tail_b = utils->head_b;
 	temp->prev = NULL;

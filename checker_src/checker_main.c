@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/19 19:37:11 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/05 08:38:10 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	ft_exec_instructions(t_utils *utils, t_instructions *instr)
 	while (i < instr->count)
 	{
 		ft_pw_dispatcher(utils, instr->inst_array[i]);
-		if ((utils->head_a && utils->head_a->prev) || (utils->head_b && utils->head_b->prev))
+		if ((utils->head_a && utils->head_a->prev) \
+	|| (utils->head_b && utils->head_b->prev))
 			exit(1);
 		ft_printlist(*utils);
 		i++;
