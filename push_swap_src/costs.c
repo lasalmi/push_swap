@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:25:08 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/29 14:19:36 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/05 08:57:33 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_returngreater(size_t a, size_t b)
 }
 /* Checks that the given value is a member of chunk */
 
-int	ft_ismember(t_chunk *chunk, int	value)
+int	ft_ismember(t_chunk *chunk, int value)
 {
 	return (value <= chunk->end && value >= chunk->start);
 }
@@ -61,8 +61,6 @@ size_t	ft_total_cost_move(t_cost target_a, t_cost target_b)
 
 	rotrev = target_a.rotate_cost + target_b.rev_cost;
 	revrot = target_a.rev_cost + target_b.rev_cost;
-//	ft_printf("A: Rev:%llu Rot:%llu\n", target_a.rev_cost, target_a.rotate_cost);
-//	ft_printf("B: Rev:%llu Rot:%llu\n", target_b.rev_cost, target_b.rotate_cost);
 	rotate_cost = ft_returngreater(target_a.rotate_cost, target_b.rotate_cost);
 	rev_cost = ft_returngreater(target_a.rev_cost, target_b.rev_cost);
 	return (ft_returnsmallest(rotate_cost, rev_cost, rotrev, revrot));
@@ -135,8 +133,10 @@ int	ft_total_cost_smaller(int total_cost, int a_value, int i, t_utils utils)
 	t_pair	to_compare;
 
 	to_compare.stack_a = ft_count_cost(a_value, i, utils.count_a);
-	to_compare.stack_b = ft_find_pair_for_a(a_value, utils.head_b, utils.count_b);
-	to_compare.total_cost = ft_total_cost_move(to_compare.stack_a, to_compare.stack_b);
+	to_compare.stack_b = ft_find_pair_for_a(a_value, utils.head_b, \
+	utils.count_b);
+	to_compare.total_cost = ft_total_cost_move(to_compare.stack_a, \
+	to_compare.stack_b);
 	if (to_compare.total_cost < total_cost)
 		return (1);
 	return (0);
@@ -148,18 +148,19 @@ t_pair	ft_findpair(t_chunk *chunk, t_utils *utils)
 	t_node	*head;
 	t_pair	pair;
 	int		i;
-	
+
 	i = 0;
 	pair.total_cost = INT_MAX;
 	head = utils->head_a;
 	while (head)
 	{
-		if (ft_ismember(chunk, head->value) && ft_total_cost_smaller(pair.total_cost, head->value, i, *utils))
+		if (ft_ismember(chunk, head->value) && \
+		ft_total_cost_smaller(pair.total_cost, head->value, i, *utils))
 		{
 			pair.stack_a = ft_count_cost(head->value, i, utils->count_a);
-			pair.stack_b = ft_find_pair_for_a(head->value, utils->head_b, utils->count_b);
+			pair.stack_b = ft_find_pair_for_a(head->value, \
+			utils->head_b, utils->count_b);
 			pair.total_cost = ft_total_cost_move(pair.stack_a, pair.stack_b);
-//			ft_printf("Findpair: A:%d B:%d Total%llu\n", pair.stack_a.target, pair.stack_b.target, pair.total_cost);
 		}
 		i++;
 		head = head->next;

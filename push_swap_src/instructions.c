@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:25:21 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/29 14:14:58 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/05 08:55:53 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ t_type	ft_findtype(t_pair *pair)
 {
 	t_type	ret;
 
-	ft_printf("Pair: %d %d\n", pair->stack_a.target, pair->stack_b.target);
-	ft_printf("Pair Rev: %llu %llu\n", pair->stack_a.rev_cost, pair->stack_b.rev_cost);
-	ft_printf("Pair Rot: %llu %llu\n", pair->stack_a.rotate_cost, pair->stack_b.rotate_cost);
-	ft_printf("Pair Total cost: %llu\n", pair->total_cost);
 	ret = ft_samedirection(pair->stack_a, pair->stack_b, pair->total_cost);
 	if (ret > NOT_FOUND)
 		return (ret);
@@ -78,8 +74,8 @@ void	ft_gen_rotate(t_pair *pair)
 		pair->instructions[i++] = 5;
 	while (rb--)
 		pair->instructions[i++] = 6;
-
 }
+
 /* Generates revrot instructions for revrot pair */
 void	ft_gen_rev(t_pair *pair)
 {
