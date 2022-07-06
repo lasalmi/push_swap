@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:01:35 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 10:10:18 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ void	ft_exec_instructions(t_utils *utils, t_instructions *instr)
 		if ((utils->head_a && utils->head_a->prev) \
 	|| (utils->head_b && utils->head_b->prev))
 			exit(1);
-		ft_printlist(*utils);
 		i++;
 	}
 	free(instr->inst_array);
+	if (utils->caller == PRINT)
+		ft_printf("Instructions: %llu\n", instr->count);
 }
 
 /* Initializes the instruction array if it doesnt exist, if
@@ -88,17 +89,13 @@ void	ft_read_input(t_utils *utils)
 	ret = 1;
 	ft_initinstructions(&instr);
 	line = NULL;
-//	instr.inst_array = NULL;
 	while (ret)
 	{
 		ret = get_next_line(0, &line);
 		if (ret < 1)
 			break ;
 		ft_save_instruction(&instr, line);
-//		func = ft_get_instruction(line);
-//		ft_dispatcher(utils, func);
 		ft_strdel(&line);
-//		ft_printlist(*utils);
 	}
 	if (ret < 0)
 		ft_error();

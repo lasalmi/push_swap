@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:40:28 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 10:06:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ static int	ft_validate_input(char *str, t_node *list)
 	ft_checkduplicate((int)result, list);
 	return ((int)result);
 }
+
+void	ft_check_flag(t_utils *utils, char ***argv, int *argc)
+{
+	if (!ft_strequ(**argv, "-p"))
+		return ;
+	*argv = *argv + 1;
+	*argc = *argc - 1;
+	utils->caller = PRINT;
+}
+
 /* Reads values from input. TODO: Replace
 ft_atol with input validator, add node add */
 
@@ -63,6 +73,7 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 	int		i;
 
 	i = 0;
+	ft_check_flag(utils, &argv, &argc);
 	utils->head_a = ft_createnode();
 	current = utils->head_a;
 	utils->tail_a = current;

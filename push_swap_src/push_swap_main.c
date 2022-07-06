@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:38:17 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 11:24:52 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ size_t	ft_b_for_push(t_utils *utils)
 
 	cost = 0;
 	target = ft_find_biggest(utils->head_b, utils->count_b);
-	if (target.rev_cost > target.rotate_cost)
+	if (target.rev_cost < target.rotate_cost)
 	{
 		while (target.rev_cost)
 		{
