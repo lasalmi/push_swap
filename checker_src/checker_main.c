@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:38:10 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:01:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,30 +103,6 @@ void	ft_read_input(t_utils *utils)
 	if (ret < 0)
 		ft_error();
 	ft_exec_instructions(utils, &instr);
-}
-
-int	ft_is_correct(t_utils *utils)
-{
-	size_t	i;
-	int		compare;
-	t_node	*current;
-
-	current = utils->head_a;
-	i = 0;
-	compare = INT_MIN;
-	if (utils->count_b)
-		return (0);
-	while (current)
-	{
-		i++;
-		if (compare > current->value)
-			return (0);
-		compare = current->value;
-		current = current->next;
-	}
-	if (i != utils->input_count)
-		return (0);
-	return (1);
 }
 
 int	main(int argc, char **argv)

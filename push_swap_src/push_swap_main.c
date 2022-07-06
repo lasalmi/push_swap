@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 09:02:24 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:07:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_sortvalues(t_utils *utils)
 /* Counts the cost of moving the value to the
 bottom of the stack A. Returns negative,
 if it is more efficient to use reverse rotate, returns 0
-if already in bottom of stack A */
+if already on top of stack A */
 int	ft_countcost_a(int value_to_find, t_utils *utils)
 {
 	int		i;
@@ -109,19 +109,6 @@ void	ft_push_a_all(t_utils *utils)
 	}
 }
 
-/*void	ft_testchunks(t_utils *utils)
-{
-	t_solver	solverutils;
-
-	ft_getchunks(utils, &solverutils);
-	int i = 0;
-	while (i < solverutils.chunk_amount)
-	{
-		ft_printf("Start: %d",solverutils.chunks[i].start);
-		ft_printf("End: %d\n",solverutils.chunks[i++].end);
-	}
-} */
-
 size_t	ft_b_for_push(t_utils *utils)
 {
 	t_cost	target;
@@ -164,44 +151,12 @@ size_t	ft_push_b_all(t_utils *utils)
 	return (cost);
 }
 
-void	ft_preprocess(t_utils *utils)
+void	ft_process(t_utils *utils)
 {
-	t_solver	solverutils;
-	int			ret;
-	t_pair		pair;
-	size_t		cost;
-	int			i;
-
-	i = 0;
-	cost = 0;
-	ft_getchunks(utils, &solverutils);
-	ret = ft_cheapest_chunk(utils, &solverutils);
-	while (ret >= 0)
-	{
-		pair = ft_findpair(&solverutils.chunks[ret], utils);
-		if (pair.total_cost == INT_MAX)
-		{
-			solverutils.chunks[ret].sorted = 1;
-			ret = ft_cheapest_chunk(utils, &solverutils);
-		}
-		if (pair.total_cost != INT_MAX)
-		{
-			ft_generate_instructions(&pair);
-			cost += pair.total_cost;
-			while (pair.total_cost--)
-				ft_pw_dispatcher(utils, pair.instructions[i++]);
-			i = 0;
-			ft_push_b(utils);
-			cost++;
-			ft_printlist(*utils);
-			free(pair.instructions);
-			ft_printlist(*utils);
-		}
-	}
-	free(solverutils.chunks);
-	cost += ft_push_b_all(utils);
-	ft_printlist(*utils);
-	ft_printf("Cost: %llu", cost);
+	if (ft_is_correct(utils))
+		return ;
+	else
+		ft_solver_large(utils);
 }
 
 int	main(int argc, char **argv)
@@ -214,7 +169,7 @@ int	main(int argc, char **argv)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
 	ft_sortvalues(&utils);
-	ft_preprocess(&utils);
+	ft_process(&utils);
 	free(utils.sorted);
 	ft_freelists(&utils);
 	return (0);

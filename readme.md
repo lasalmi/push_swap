@@ -4,8 +4,9 @@
 	-Error if bigger than integer - Atoll compare to max_int [DONE]
 	-Argument not integer -issign and isdigit after  [DONE]
 	-Duplicate values -comparison to existing list (or array for speed)  [DONE]
-	-Given instruction doesnt exist -strncmp doesnt match with the instruct
+	-Given instruction doesnt exist -strncmp doesnt match with the instruct [DONE]
 	-Does the checker need usage msg with argc < 2? 
+	-Check memoryleaks
 ## Functions to handle the stacks
 	-Create node [DONE]
 	-Swap two nodes [DONE] 
@@ -55,9 +56,9 @@
 		-Cost to get target to the right slot [DONE]
 		-"Ride hitcher" for dual instructions.
 	-"Enviroment copier" for counting the total cost for the chunk to move from A to B [DONE]
-	-Environment deleter/free
+	-Environment deleter/free [DONE]
 	-Exemptions ? If some integer of a chunk is too "expensive" it will be left behind in stack A and handled specifically when pushing from B to A.
 	-Interpreter to check which chunk to work first by cost
 	-Loading the given integers to a list [DONE]
 	-Creating an array with already sorted list by using quicksort [DONE]
-	-Fix find target b
+	-Fix find target b [DONE]
