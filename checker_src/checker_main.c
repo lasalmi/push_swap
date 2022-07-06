@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 10:10:18 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:38:45 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	main(int argc, char **argv)
 	t_utils	utils;
 
 	ft_initutils(&utils);
+	utils.caller = CHECKER;
 	utils.head_b = NULL;
 	if (argc < 2)
 		ft_error();

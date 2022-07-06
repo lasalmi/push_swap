@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 10:06:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 12:40:01 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	ft_validate_input(char *str, t_node *list)
 
 void	ft_check_flag(t_utils *utils, char ***argv, int *argc)
 {
-	if (!ft_strequ(**argv, "-p"))
+	if (utils->caller != CHECKER || !ft_strequ(**argv, "-p"))
 		return ;
 	*argv = *argv + 1;
 	*argc = *argc - 1;
