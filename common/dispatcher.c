@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 14:16:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/06/15 14:18:31 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:29:11 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ void	ft_pw_dispatcher(t_utils *utils, int func_index)
 
 	if (func_index < 0)
 		ft_error();
+	ft_output(utils, func_index);
 	funcs[func_index](utils);
 }

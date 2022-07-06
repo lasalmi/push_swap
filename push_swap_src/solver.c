@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:06:10 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:39:50 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void	ft_solver_large(t_utils *utils)
 			while (pair.total_cost--)
 				ft_pw_dispatcher(utils, pair.instructions[i++]);
 			i = 0;
-			ft_push_b(utils);
+			ft_pw_dispatcher(utils, 4);
 			cost++;
-			ft_printlist(*utils);
+//			ft_printlist(*utils);
 			free(pair.instructions);
-			ft_printlist(*utils);
+//			ft_printlist(*utils);
 		}
 	}
 	free(solverutils.chunks);
 	cost += ft_push_b_all(utils);
-	ft_printlist(*utils);
+//	ft_printlist(*utils);
 }

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:43:35 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:35:44 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	ft_push_b(t_utils *utils)
 {
 	t_node	*to_push;
 
-	ft_printf("PUSHING B\n");
 	to_push = utils->head_a;
 	if (!utils->count_a)
 		return ;
@@ -112,7 +111,6 @@ void	ft_rev_rotate_a(t_utils *utils)
 	t_node	*new_tail;
 	t_node	*new_head;
 
-	ft_printf("REVERSE ROTATING A NEW\n");
 	if (utils->count_a < 2)
 		return ;
 	new_tail = utils->tail_a->prev;
@@ -130,7 +128,6 @@ void	ft_rev_rotate_b(t_utils *utils)
 {
 	t_node	*temp;
 
-	ft_printf("REVERSE ROTATING B NEW\n");
 	if (utils->count_b < 2)
 		return ;
 	temp = utils->tail_b->prev;
@@ -146,7 +143,6 @@ void	ft_rotate_a(t_utils *utils)
 {
 	t_node	*temp;
 
-	ft_printf("ROTATING A\n");
 	if (utils->count_a < 2)
 		return ;
 	temp = utils->head_a->next;

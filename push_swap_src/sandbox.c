@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:59:46 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:32:01 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 	i = 0;
 	cost = 0;
 	sandbox = ft_copystate(original);
+	sandbox->caller = SANDBOX;
 	while (1)
 	{
 		pair = ft_findpair(chunk, sandbox);

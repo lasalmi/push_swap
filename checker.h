@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:09:24 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:31:37 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ typedef struct s_node {
 	struct s_node	*next;
 }	t_node;
 
+typedef enum	e_pw_caller {
+	CHECKER,
+	PUSH_SWAP,
+	PRINT,
+	SANDBOX,
+	INITIALIZER
+}	t_pw_caller;
+
 typedef struct s_utils {
 	int				input_count;
 	struct s_node	*head_a;
@@ -31,6 +39,7 @@ typedef struct s_utils {
 	size_t			count_b;
 	size_t			instr_count;
 	int				*sorted;
+	t_pw_caller		caller;
 }	t_utils;
 
 typedef struct	s_instructions {
@@ -136,4 +145,5 @@ t_cost	ft_find_biggest(t_node *head, int stack_size);
 int		ft_is_correct(t_utils *utils);
 void	ft_solver_large(t_utils *utils);
 size_t	ft_push_b_all(t_utils *utils);
+void	ft_output(t_utils *utils, int instruction);
 #endif

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:07:35 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/06 09:38:17 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	ft_push_a_all(t_utils *utils)
 {
 	while (utils->head_b)
 	{
-		ft_push_a(utils);
+		ft_pw_dispatcher(utils, 3);
 	}
 }
 
@@ -145,7 +145,7 @@ size_t	ft_push_b_all(t_utils *utils)
 	cost += ft_b_for_push(utils);
 	while (utils->count_b)
 	{
-		ft_push_a(utils);
+		ft_pw_dispatcher(utils, 3);
 		cost++;
 	}
 	return (cost);
@@ -164,6 +164,7 @@ int	main(int argc, char **argv)
 	t_utils	utils;
 
 	ft_initutils(&utils);
+	utils.caller = PUSH_SWAP;
 	utils.head_b = NULL;
 	if (argc < 2)
 		ft_error();
