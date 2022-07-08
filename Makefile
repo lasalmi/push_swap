@@ -4,7 +4,7 @@ COMMON_SRC := $(addprefix $(COMMON_SRC_DIR),$(COMMON_FILES))
 CHECKER_FILES = checker_main.c
 CHECKER_SRC_DIR = ./checker_src/
 CHECKER_SRC := $(addprefix $(CHECKER_SRC_DIR),$(CHECKER_FILES))
-PUSH_SWAP_FILES = push_swap_main.c	chunks.c sandbox.c target.c costs.c instructions.c solver.c solver_utils.c
+PUSH_SWAP_FILES = push_swap_main.c	chunks.c sandbox.c target.c costs.c instructions.c solver.c solver_utils.c solver_small.c
 PUSH_SWAP_SRC_DIR = ./push_swap_src/
 PUSH_SWAP_SRC = $(addprefix $(PUSH_SWAP_SRC_DIR),$(PUSH_SWAP_FILES))
 CHECKER_OBJ := $(CHECKER_FILES:.c=.o)
