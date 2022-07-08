@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:31:37 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/08 14:43:26 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,4 +146,5 @@ int		ft_is_correct(t_utils *utils);
 void	ft_solver_large(t_utils *utils);
 size_t	ft_push_b_all(t_utils *utils);
 void	ft_output(t_utils *utils, int instruction);
+int		in_order(t_utils *utils);
 #endif

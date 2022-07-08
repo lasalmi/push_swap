@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solver_small.c                                     :+:      :+:    :+:   */
+/*   solver_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:47:37 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/07 11:54:13 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/08 15:04:55 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	in_order(t_utils *utils)
 
 	i = 0;
 	locator(utils, &node);
-	while (node && i < utils->input_count)
+	while (node && i < (utils->input_count - 1))
 	{
 		if (!compare_nodes(*node, utils))
 			return (0);

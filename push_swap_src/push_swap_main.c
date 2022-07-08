@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 11:24:52 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/08 14:43:16 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ int	main(int argc, char **argv)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
 	ft_sortvalues(&utils);
+	ft_printf("TEST: %d",in_order(&utils));
 	ft_process(&utils);
 	free(utils.sorted);
 	ft_freelists(&utils);
