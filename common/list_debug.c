@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:06:43 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:40:51 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/08 12:38:55 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_checklistprev(t_node *node)
 			ft_printf("Error in prev->next\n");
 		node = node->prev;
 	}
-	if (i > 499)
+	if (i > 500)
 		ft_printf("Index gets too high\n");
 }
 
@@ -40,7 +40,7 @@ void	ft_checklistnext(t_node *node)
 			ft_printf("Error in next->prev\n");
 		node = node->next;
 	}
-	if (i > 499)
+	if (i > 500)
 		ft_printf("Index gets too high\n");
 }
 
