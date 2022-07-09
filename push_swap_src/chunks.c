@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:57:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 15:49:38 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/09 11:18:37 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	ft_countchunks(t_utils *utils)
 {
 	if (utils->input_count <= 19)
-		return (1);
+		return (2);
 	if (utils->input_count > 19 && utils->input_count <= 50)
 		return (2);
 	if (utils->input_count > 50 && utils->input_count <= 150)

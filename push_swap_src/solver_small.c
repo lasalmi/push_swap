@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:55:59 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/08 17:04:55 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/09 10:26:23 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,26 @@ static	int	ft_are_consecutive(t_utils *utils, int a, int b)
 
 void ft_sort_small(t_utils *utils)
 {
-	while (!in_order(utils))
+	t_solver	solverutils;
+	t_pair		pair;
+	int			i;
+
+	i = 0;
+	ft_getchunks(utils, &solverutils);
+	while (1)
 	{
-		if (utils->head_a->value > utils->head_a->next->value/* && ft_are_consecutive(utils, \
-		utils->head_a->value, utils->head_a->next->value)*/ && utils->head_a->value != utils->sorted[utils->input_count - 1])
-			ft_pw_dispatcher(utils, 0);
-		else
-			ft_pw_dispatcher(utils, 5);
-//		ft_printlist(*utils);
+	pair = ft_findpair(&solverutils.chunks[0], utils);
+	if (pair.total_cost == INT_MAX)
+		break ;
+	ft_generate_instructions(&pair);
+	while(pair.total_cost--)
+		ft_pw_dispatcher(utils, pair.instructions[i++]);
+	i = 0;
+	ft_pw_dispatcher(utils, 4);
+//	ft_printlist(*utils);
 	}
+	if (utils->head_a->next && utils->head_a->value > utils->head_a->next->value)
+		ft_pw_dispatcher(utils, 0);
+	ft_push_b_all(utils);
+//	ft_printlist(*utils);
 }
