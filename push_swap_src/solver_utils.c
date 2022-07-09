@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:47:37 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/08 15:04:55 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/09 17:09:21 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ static int	is_smaller(int a, int b)
 static void locator(t_utils *utils, t_node **node)
 {
 	t_node	*finder;
+	int		smallest;
 
+	smallest = ft_find_smallest(utils->head_a);
 	finder = utils->head_a;
-	while (finder && utils->sorted[0] != finder->value)
+	while (finder && smallest != finder->value)
 		finder = finder->next;
 	*node = finder;
 }
@@ -44,7 +46,8 @@ static int compare_nodes(t_node node, t_utils *utils)
 }
 
 /* Checks that the stack A is in right order, but
-doesnt check that it is correctly rotated */
+doesnt check that it is correctly rotated, utils->count_a - 1
+because the last one doesnt need to be evaluated */
 
 int	in_order(t_utils *utils)
 {
@@ -53,10 +56,15 @@ int	in_order(t_utils *utils)
 
 	i = 0;
 	locator(utils, &node);
-	while (node && i < (utils->input_count - 1))
+	while (node && i < (utils->count_a - 1))
 	{
 		if (!compare_nodes(*node, utils))
+		{
+//			ft_printf("COMPARE FAILING! INDEX:%d COUNT: %d\n", i, utils->count_a);
+//			ft_printlist(*utils);
 			return (0);
+		}
+//		ft_printf("INDEX IS:%d COUNT IS:%d\n", i, utils->count_a);
 		next_node(&node, utils);
 		i++;
 	}

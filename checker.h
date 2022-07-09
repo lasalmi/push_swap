@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/08 16:55:53 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/09 17:06:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,4 +148,6 @@ size_t	ft_push_b_all(t_utils *utils);
 void	ft_output(t_utils *utils, int instruction);
 int		in_order(t_utils *utils);
 void	ft_sort_small(t_utils *utils);
+void	ft_countnodes(t_utils *utils);
+int		ft_find_smallest(t_node *head);
 #endif
