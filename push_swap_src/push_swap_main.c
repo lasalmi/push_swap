@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/09 16:40:51 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/10 13:56:00 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,15 +162,22 @@ void	ft_process(t_utils *utils)
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
-
+//	int i = 500;
 	ft_initutils(&utils);
 	utils.caller = PUSH_SWAP;
 	utils.head_b = NULL;
 	if (argc < 2)
 		ft_error();
 	ft_read_values(&utils, argv + 1, argc - 1);
+//	while (i--)
+//		ft_push_b(&utils);
+//	ft_printlist(utils);
 	ft_sortvalues(&utils);
-	ft_sort_small(&utils);
+//	ft_solver_large(&utils);
+//	preliminary_stack_sort(&utils);
+	ft_solver_large(&utils);
+//	ft_printf("REACHED MAIN\n");
+	ft_printlist(utils);
 	free(utils.sorted);
 	ft_freelists(&utils);
 	return (0);
