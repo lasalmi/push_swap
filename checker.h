@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/10 13:14:19 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/13 12:52:57 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
 int		ft_countcost_a(int value_to_find, t_utils *utils);
 int		ft_countcost_b(int value_to_find, t_utils *utils);
 int		ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk);
-t_utils	*ft_copystate(t_utils *original);
+t_utils	ft_copystate(t_utils *original);
 void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction);
 int		ft_cheapest_chunk(t_utils *original, t_solver *solver);
 void	ft_check_list(t_utils *utils);
@@ -151,4 +151,6 @@ void	ft_sort_small(t_utils *utils);
 void	ft_countnodes(t_utils *utils);
 int		ft_find_smallest(t_node *head);
 void	preliminary_stack_sort(t_utils *utils);
+void	mallocfail(t_utils *utils);
+size_t	countnodes(t_node *head);
 #endif

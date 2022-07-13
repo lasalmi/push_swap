@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:35:44 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/13 12:26:15 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ t_node	*ft_create_elem_stack_a(t_utils *utils)
 	t_node	*new_node;
 
 	new_node = ft_createnode();
+	if (!new_node)
+	{
+		ft_freelists(utils);
+		exit (1);
+	}
 	ft_add_node_tail(&utils->tail_a, new_node);
 	return (new_node);
 }

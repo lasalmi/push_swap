@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:28:32 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:44:08 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/13 12:56:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ static void	ft_get_tails(t_utils *copy)
 	copy->tail_a = tail_a;
 	copy->tail_b = tail_b;
 }
-
+/* Copies the given dual linked lists to dst from
+src. Copylist will break the copying if mallocfail occurs
+and countnodes will check that the node counts match */
 void	ft_copyutils(t_utils *dst, t_utils *src)
 {
 	dst->count_a = src->count_a;
@@ -62,14 +64,20 @@ void	ft_copyutils(t_utils *dst, t_utils *src)
 	dst->sorted = src->sorted;
 	dst->head_a = ft_copylist(src->head_a);
 	dst->head_b = ft_copylist(src->head_b);
+	if (countnodes(dst->head_a) != dst->count_a || \
+	countnodes(dst->head_b) != dst->count_b)
+	{
+		ft_freelists(dst);
+		mallocfail(src);
+	}
 	ft_get_tails(dst);
 }
 
-t_utils	*ft_copystate(t_utils *original)
+t_utils	ft_copystate(t_utils *original)
 {
-	t_utils	*copy;
+	t_utils	copy;
 
-	copy = (t_utils *)malloc(sizeof(t_utils));
-	ft_copyutils(copy, original);
+//	copy = (t_utils *)malloc(sizeof(t_utils));
+	ft_copyutils(&copy, original);
 	return (copy);
 }

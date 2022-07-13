@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:40:16 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/13 12:51:48 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_node	*ft_copylist(t_node *head)
 		if (head->next)
 		{
 			current->next = ft_createnode();
+			if (!current->next)
+				break ;
 			current->next->prev = current;
 		}
 		current = current->next;
@@ -40,6 +42,19 @@ void	ft_copynode(t_node *dst, t_node *src)
 	dst->value = src->value;
 }
 
+size_t	countnodes(t_node *head)
+{
+	size_t	i;
+
+	i = 0;
+	while (head)
+	{
+		i++;
+		head = head->next;
+	}
+	return (i);
+}
+
 /* Allocates a new node and in case
 of mallocfail exits */
 
@@ -49,10 +64,7 @@ t_node	*ft_createnode(void)
 
 	ret = (t_node *)malloc(sizeof(t_node));
 	if (!ret)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
+		return (NULL);
 	ret->next = NULL;
 	ret->prev = NULL;
 	return (ret);

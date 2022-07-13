@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:25:08 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/10 13:55:38 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/13 21:42:59 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ t_cost	ft_find_pair_for_b(int stack_b, t_node *head, int list_size)
 	{
 		if ((stack_b - head->value) < 0 && (ft_abs(stack_b) - ft_abs(head->value)) > diff)
 		{
-//			ft_printf("IF IN FIND PAIR FOR B: %d, FOUND: %d\n", stack_b, head->value);
+			ft_printf("IF IN FIND PAIR FOR B: %d, FOUND: %d\n", stack_b, head->value);
 			diff = ft_abs(stack_b) - ft_abs(head->value);
 			ret = ft_count_cost(head->value, i, list_size);
 		}
