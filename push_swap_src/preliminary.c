@@ -6,15 +6,22 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 12:59:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/13 21:15:38 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/16 09:47:52 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-void push_rest_to_b(t_utils *utils)
+
+
+int	contains_bigger(t_node *node, int pivot)
 {
-	while (utils->count_a)
-		ft_pw_dispatcher(utils, 4);
+	while (node)
+	{
+		if (node->value >= pivot)
+			return (1);
+		node = node->next;
+	}
+	return (0);
 }
 
 int	contains_smaller(t_node *node, int pivot)
@@ -28,57 +35,60 @@ int	contains_smaller(t_node *node, int pivot)
 	return (0);
 }
 
-int	contains_bigger(t_node *node, int pivot)
+void push_rest_to_b(t_utils *utils, int i)
 {
-	while (node)
+	while (contains_smaller(utils->head_a, utils->sorted[i]))
 	{
-		if (node->value >= pivot)
-			return (1);
-		node = node->next;
+		if (utils->head_a->value < utils->sorted[i])
+			ft_pw_dispatcher(utils, 4);
+		else
+			ft_pw_dispatcher(utils, 5);
 	}
-	return (0);
 }
 
-void	sort_smaller_half(t_utils *utils)
+void	push_smaller_half_to_b(t_utils *utils, int pivot)
 {
-	int	pivot;
-	size_t	i;
-	size_t	chunk_size;
+	t_node	*stack_a;
 
-	chunk_size = utils->input_count / 2;
-	i = utils->input_count - chunk_size;
-	pivot = utils->sorted[i];
-
-	while (chunk_size >= 15 && i >= 15)
+	stack_a = utils->head_a;
+	while (contains_smaller(stack_a, pivot))
 	{
-		while (contains_smaller(utils->head_a, pivot))
-		{
-			if (utils->head_a->value < pivot)
-				ft_pw_dispatcher(utils, 4);
-			else
-				ft_pw_dispatcher(utils, 5);
-		}
-//		ft_printf("FIRST LOOP\n");
-//		ft_printlist(*utils);
-		chunk_size /= 2;
-		i /= 2;
-		pivot = utils->sorted[i];
-//		ft_printf("PIVOT: %d", pivot);
-		while (contains_bigger(utils->head_b, pivot) && chunk_size >= 30)
-		{
-//			ft_printf("HEAD B VALUE: %d\n", utils->head_b->value);
-			if (utils->head_b->value >= pivot)
-				ft_pw_dispatcher(utils, 3);
-			else
-				ft_pw_dispatcher(utils, 9);
-		}
-		chunk_size /= 2;
-		i /= 2;
-		pivot = utils->sorted[i];
+		if (stack_a->value < pivot)
+			ft_pw_dispatcher(utils, 4);
+		else
+			ft_pw_dispatcher(utils, 5);
+		stack_a = utils->head_a;
 	}
-	ft_printf("FIRST HALF DONE\n");
-	ft_printlist(*utils);
-	push_rest_to_b(utils);
+}
+
+void	push_bigger_half_to_a(t_utils *utils, int pivot)
+{
+	t_node	*stack_b;
+
+	stack_b = utils->head_b;
+	while (contains_bigger(stack_b, pivot))
+	{
+		if (stack_b->value >= pivot)
+			ft_pw_dispatcher(utils, 3);
+		else
+			ft_pw_dispatcher(utils, 6);
+		stack_b = utils->head_b;
+	}
+}
+
+void	sort_smaller_half(t_utils *utils, int pivot_index)
+{
+	int		than;
+
+	than = utils->sorted[pivot_index];
+	push_smaller_half_to_b(utils, than);
+//	ft_printf("PUSHED SMALLER TO B\n");
+//	ft_printlist(*utils);
+	than = utils->sorted[pivot_index / 2];
+	push_bigger_half_to_a(utils, than);
+//	ft_printf("PUSHED BIGGER TO A\n");
+//	ft_printlist(*utils);
+	push_rest_to_b(utils, utils->sorted[pivot_index]);
 }
 
 void	preliminary_stack_sort(t_utils *utils)
@@ -88,8 +98,9 @@ void	preliminary_stack_sort(t_utils *utils)
 	int	chunk_size;
 	
 	chunk_size = utils->input_count / 2;
-	i = (chunk_size - 1) / 2;
+	i = (chunk_size - 1);
 	pivot = utils->sorted[i];
+//	sort_smaller_half(utils, i);
 	while (chunk_size > 1)
 	{
 		while (contains_smaller(utils->head_a, pivot))
@@ -103,6 +114,7 @@ void	preliminary_stack_sort(t_utils *utils)
 		pivot = utils->sorted[utils->input_count - chunk_size];
 	}
 /*	sort_smaller_half(utils); */
+//ft_printf("PRELIMINARY DONE, PRINTING\n");
 // ft_printlist(*utils);
 //	push_rest_to_b(utils);
 //	ft_printlist(*utils);

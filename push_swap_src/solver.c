@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/13 21:30:48 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/16 09:32:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ static void rotate_a_to_finish(t_utils *utils)
 			ft_pw_dispatcher(utils, 8);
 	}
 	else
+	{
+		i = movement;
 		while (i--)
 			ft_pw_dispatcher(utils, 5);
+	}
 }
 void	ft_solver_large(t_utils *utils)
 {
@@ -60,8 +63,8 @@ void	ft_solver_large(t_utils *utils)
 		}
 		if (pair.total_cost != INT_MAX)
 		{
-			ft_printf("PUSHING PAIR: A:%d B: %d\n", pair.stack_a.target, pair.stack_b.target);
-			ft_printlist(*utils);
+//			ft_printf("PUSHING PAIR: A:%d B: %d\n", pair.stack_a.target, pair.stack_b.target);
+//			ft_printlist(*utils);
 			ft_generate_instructions(&pair);
 			cost += pair.total_cost;
 			while (pair.total_cost--)

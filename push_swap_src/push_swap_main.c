@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/13 21:35:38 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/16 09:47:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ int	main(int argc, char **argv)
 //	preliminary_stack_sort(&utils);
 	ft_solver_large(&utils);
 //	ft_printf("REACHED MAIN\n");
-	ft_printlist(utils);
+//	ft_printlist(utils);
 	free(utils.sorted);
 	ft_freelists(&utils);
 	return (0);
