@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/09 15:16:45 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/29 11:10:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	ft_save_instruction(t_instructions *instr, char *line)
 	if (!instr->inst_array)
 	{
 		instr->inst_array = (int *)malloc(sizeof(int) * 20);
+		if (!instr->inst_array)
+			ft_error();
 		instr->memthreshold = 20 / 2;
 	}
 	instr->inst_array[i] = ft_get_instruction(line);

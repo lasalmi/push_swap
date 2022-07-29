@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:57:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/09 11:18:37 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/29 11:12:36 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static void	ft_allocatechunks(t_utils *utils, t_solver *solver)
 	chunks = solver->chunk_amount;
 	i = 0;
 	solver->chunks = (t_chunk *)malloc(sizeof(t_chunk) * chunks);
+	if (!solver->chunks)
+		ft_error();
 	while (i < chunks)
 		ft_initializechunk(&solver->chunks[i++]);
 }
