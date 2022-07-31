@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/13 12:52:57 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/31 17:56:45 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	ft_rotate_both(t_utils *utils);
 void	ft_rev_rotate_both(t_utils *utils);
 void	ft_delink_head(t_node **head);
 void	ft_initutils(t_utils *utils);
-void	ft_initinstructions(t_instructions *instructions);
+void	ft_init_instructions(t_instructions *instructions);
 void	ft_read_values(t_utils *utils, char **argv, int argc);
 void	ft_error(void);
 void	ft_freelists(t_utils *utils);
@@ -153,4 +153,7 @@ int		ft_find_smallest(t_node *head);
 void	preliminary_stack_sort(t_utils *utils);
 void	mallocfail(t_utils *utils);
 size_t	countnodes(t_node *head);
+//int		ft_get_instruction(char *line);
+void	ft_exec_instructions(t_utils *utils, t_instructions *instr);
+void	ft_save_instruction(t_instructions *instr, char *line);
 #endif

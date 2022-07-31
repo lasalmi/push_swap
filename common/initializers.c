@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:30:58 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/07/31 17:50:41 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_initutils(t_utils *utils)
 	utils->caller = INITIALIZER;
 }
 
-void	ft_initinstructions(t_instructions *instructions)
+void	ft_init_instructions(t_instructions *instructions)
 {
 	instructions->inst_array = NULL;
 	instructions->count = 0;
