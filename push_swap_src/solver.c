@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 14:47:10 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	ft_solver_large(t_utils *utils)
 			ft_pw_dispatcher(utils, 3);
 			cost++;
 			free(pair.instructions);
+//			ft_print_list(*utils);
 		}
 	}
 //	ft_printf("EXITING SOLVER:\n");
