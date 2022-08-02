@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:32:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 09:28:03 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 11:14:36 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	ft_print_instruction(int instruction)
 void	ft_print_action(int instruction)
 {
 	const char	*table[] = {"SWAPPING A", "SWAPPING B", "SWAPPING BOTH", \
-	 "PUSHING A", "PUSHING B", "ROTATING A", "ROTATING B", "ROTATING BOTH", \
-	 "REVERSE ROTATING A", "REVERSE ROTATING B", "REVERSE ROTATING BOTH", NULL};
+	"PUSHING A", "PUSHING B", "ROTATING A", "ROTATING B", "ROTATING BOTH", \
+	"REVERSE ROTATING A", "REVERSE ROTATING B", "REVERSE ROTATING BOTH", NULL};
 
 	ft_printf("%s\n", table[instruction]);
 }
