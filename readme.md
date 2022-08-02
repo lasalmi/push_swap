@@ -13,3 +13,7 @@
 	-Move additional functions to new files
 	-Check for dead code by commenting out functions and recompiling
 	
+### Tests
+	-Integers more than 500
+	-Negative values
+	-Evaluation form

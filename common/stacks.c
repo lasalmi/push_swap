@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/13 12:26:15 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:16:17 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ t_node	*ft_create_elem_stack_a(t_utils *utils)
 {
 	t_node	*new_node;
 
-	new_node = ft_createnode();
+	new_node = ft_create_node();
 	if (!new_node)
 	{
-		ft_freelists(utils);
+		ft_free_lists(utils);
 		exit (1);
 	}
 	ft_add_node_tail(&utils->tail_a, new_node);
@@ -80,14 +80,14 @@ void	ft_swap_a(t_utils *utils)
 {
 	if (utils->count_a < 2)
 		return ;
-	ft_swapnode(utils->head_a, utils->head_a->next);
+	ft_swap_node(utils->head_a, utils->head_a->next);
 }
 
 void	ft_swap_b(t_utils *utils)
 {
 	if (utils->count_b < 2)
 		return ;
-	ft_swapnode(utils->head_b, utils->head_b->next);
+	ft_swap_node(utils->head_b, utils->head_b->next);
 }
 
 void	ft_swap_both(t_utils *utils)
@@ -95,21 +95,6 @@ void	ft_swap_both(t_utils *utils)
 	ft_swap_a(utils);
 	ft_swap_b(utils);
 }
-
-/*void ft_rev_rotate_a(t_utils *utils)
-{
-	t_node	*temp;
-	ft_printf("REVERSE ROTATING A\n");
-	if (utils->count_a < 2)
-		return ;
-	temp = utils->tail_a->prev;
-	utils->tail_a->next = utils->head_a;
-	utils->tail_a->prev->next = NULL;
-	utils->head_a->prev = utils->tail_a;
-	utils->head_a = utils->tail_a;
-	utils->tail_a = temp;
-	utils->head_a->prev = NULL;
-} */
 
 void	ft_rev_rotate_a(t_utils *utils)
 {

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/31 17:55:25 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:18:48 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 {
 	t_utils	utils;
 
-	ft_initutils(&utils);
+	ft_initialize_utils(&utils);
 	utils.caller = CHECKER;
 	utils.head_b = NULL;
 	if (argc < 2)
@@ -50,6 +50,6 @@ int	main(int argc, char **argv)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	ft_freelists(&utils);
+	ft_free_lists(&utils);
 	return (0);
 }

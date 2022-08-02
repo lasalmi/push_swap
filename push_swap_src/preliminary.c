@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 12:59:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/16 09:47:52 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ void	sort_smaller_half(t_utils *utils, int pivot_index)
 	than = utils->sorted[pivot_index];
 	push_smaller_half_to_b(utils, than);
 //	ft_printf("PUSHED SMALLER TO B\n");
-//	ft_printlist(*utils);
+//	ft_print_list(*utils);
 	than = utils->sorted[pivot_index / 2];
 	push_bigger_half_to_a(utils, than);
 //	ft_printf("PUSHED BIGGER TO A\n");
-//	ft_printlist(*utils);
+//	ft_print_list(*utils);
 	push_rest_to_b(utils, utils->sorted[pivot_index]);
 }
 
@@ -115,7 +115,7 @@ void	preliminary_stack_sort(t_utils *utils)
 	}
 /*	sort_smaller_half(utils); */
 //ft_printf("PRELIMINARY DONE, PRINTING\n");
-// ft_printlist(*utils);
+// ft_print_list(*utils);
 //	push_rest_to_b(utils);
-//	ft_printlist(*utils);
+//	ft_print_list(*utils);
 }

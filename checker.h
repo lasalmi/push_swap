@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/31 17:56:45 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ typedef enum	e_type {
 
 typedef	void (*t_func)(t_utils*);
 
-t_node	*ft_createnode(void);
-void	ft_swapnode(t_node *node, t_node *node2);
-void	ft_printlist(t_utils utils);
+t_node	*ft_create_node(void);
+void	ft_swap_node(t_node *node, t_node *node2);
+void	ft_print_list(t_utils utils);
 void	ft_add_node_tail(t_node **tail, t_node *new_node);
 void	ft_add_node_head(t_node **head, t_node *new_node);
 t_node	*ft_create_elem_stack_a(t_utils *utils);
@@ -117,21 +117,21 @@ void	ft_rotate_a(t_utils *utils);
 void	ft_rotate_both(t_utils *utils);
 void	ft_rev_rotate_both(t_utils *utils);
 void	ft_delink_head(t_node **head);
-void	ft_initutils(t_utils *utils);
+void	ft_initialize_utils(t_utils *utils);
 void	ft_init_instructions(t_instructions *instructions);
 void	ft_read_values(t_utils *utils, char **argv, int argc);
 void	ft_error(void);
-void	ft_freelists(t_utils *utils);
+void	ft_free_lists(t_utils *utils);
 void	ft_pw_dispatcher(t_utils *utils, int func_index);
 void	ft_getchunks(t_utils *utils, t_solver *solver);
 int		ft_findslotb(int nb, t_node *head);
-t_node	*ft_copylist(t_node *head);
-void	ft_copynode(t_node *dst, t_node *src);
+t_node	*ft_copy_list(t_node *head);
+void	ft_copy_node(t_node *dst, t_node *src);
 t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
 int		ft_countcost_a(int value_to_find, t_utils *utils);
 int		ft_countcost_b(int value_to_find, t_utils *utils);
 int		ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk);
-t_utils	ft_copystate(t_utils *original);
+t_utils	ft_copy_state(t_utils *original);
 void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction);
 int		ft_cheapest_chunk(t_utils *original, t_solver *solver);
 void	ft_check_list(t_utils *utils);
@@ -148,11 +148,11 @@ size_t	ft_push_b_all(t_utils *utils);
 void	ft_output(t_utils *utils, int instruction);
 int		in_order(t_utils *utils);
 void	ft_sort_small(t_utils *utils);
-void	ft_countnodes(t_utils *utils);
+void	ft_count_nodes(t_utils *utils);
 int		ft_find_smallest(t_node *head);
 void	preliminary_stack_sort(t_utils *utils);
 void	mallocfail(t_utils *utils);
-size_t	countnodes(t_node *head);
+size_t	count_nodes(t_node *head);
 //int		ft_get_instruction(char *line);
 void	ft_exec_instructions(t_utils *utils, t_instructions *instr);
 void	ft_save_instruction(t_instructions *instr, char *line);

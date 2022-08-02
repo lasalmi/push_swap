@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/13 12:52:45 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_cheapest_chunk(t_utils *original, t_solver *solver)
 	return (ret);
 }
 
-void	ft_countnodes(t_utils *utils)
+void	ft_count_nodes(t_utils *utils)
 {
 	t_node	*node;
 	int		i;
@@ -76,7 +76,7 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 
 	i = 0;
 	cost = 0;
-	sandbox = ft_copystate(original);
+	sandbox = ft_copy_state(original);
 	sandbox.caller = SANDBOX;
 	while (1)
 	{
@@ -91,10 +91,10 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 		i = 0;
 		ft_push_a(&sandbox);
 //		ft_printf("PUSHED A\n");
-//		ft_printlist(*sandbox);
+//		ft_print_list(*sandbox);
 		free(pair.instructions);
 	}
 	ft_push_b(&sandbox);
-	ft_freelists(&sandbox);
+	ft_free_lists(&sandbox);
 	return (cost);
 }

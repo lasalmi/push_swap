@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/06 12:40:01 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:16:03 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 
 	i = 0;
 	ft_check_flag(utils, &argv, &argc);
-	utils->head_a = ft_createnode();
+	utils->head_a = ft_create_node();
 	current = utils->head_a;
 	utils->tail_a = current;
 	utils->input_count = argc;

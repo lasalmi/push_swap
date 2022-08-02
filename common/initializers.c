@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/31 17:50:41 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:18:48 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-void	ft_initutils(t_utils *utils)
+void	ft_initialize_utils(t_utils *utils)
 {
 	utils->input_count = -1;
 	utils->head_a = NULL;

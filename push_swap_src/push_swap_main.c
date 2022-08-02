@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/16 09:47:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ int	main(int argc, char **argv)
 {
 	t_utils	utils;
 //	int i = 500;
-	ft_initutils(&utils);
+	ft_initialize_utils(&utils);
 	utils.caller = PUSH_SWAP;
 	utils.head_b = NULL;
 	if (argc < 2)
@@ -171,14 +171,14 @@ int	main(int argc, char **argv)
 	ft_read_values(&utils, argv + 1, argc - 1);
 //	while (i--)
 //		ft_push_b(&utils);
-//	ft_printlist(utils);
+//	ft_print_list(utils);
 	ft_sortvalues(&utils);
 //	ft_solver_large(&utils);
 //	preliminary_stack_sort(&utils);
 	ft_solver_large(&utils);
 //	ft_printf("REACHED MAIN\n");
-//	ft_printlist(utils);
+//	ft_print_list(utils);
 	free(utils.sorted);
-	ft_freelists(&utils);
+	ft_free_lists(&utils);
 	return (0);
 }

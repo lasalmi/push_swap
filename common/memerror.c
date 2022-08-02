@@ -6,14 +6,14 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:28:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/13 12:36:15 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:14:34 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-void mallocfail(t_utils *utils)
+void	mallocfail(t_utils *utils)
 {
-	ft_freelists(utils);
+	ft_free_lists(utils);
 	exit(2);
 }

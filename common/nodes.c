@@ -6,27 +6,27 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/29 11:10:45 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:16:17 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-t_node	*ft_copylist(t_node *head)
+t_node	*ft_copy_list(t_node *head)
 {
 	t_node	*dst_head;
 	t_node	*current;
 
 	if (!head)
 		return (NULL);
-	dst_head = ft_createnode();
+	dst_head = ft_create_node();
 	current = dst_head;
 	while (current)
 	{
-		ft_copynode(current, head);
+		ft_copy_node(current, head);
 		if (head->next)
 		{
-			current->next = ft_createnode();
+			current->next = ft_create_node();
 			if (!current->next)
 				break ;
 			current->next->prev = current;
@@ -37,12 +37,12 @@ t_node	*ft_copylist(t_node *head)
 	return (dst_head);
 }
 
-void	ft_copynode(t_node *dst, t_node *src)
+void	ft_copy_node(t_node *dst, t_node *src)
 {
 	dst->value = src->value;
 }
 
-size_t	countnodes(t_node *head)
+size_t	count_nodes(t_node *head)
 {
 	size_t	i;
 
@@ -58,7 +58,7 @@ size_t	countnodes(t_node *head)
 /* Allocates a new node and in case
 of mallocfail exits */
 
-t_node	*ft_createnode(void)
+t_node	*ft_create_node(void)
 {
 	t_node	*ret;
 
@@ -71,7 +71,7 @@ t_node	*ft_createnode(void)
 }
 
 /* Swaps the VALUES of two nodes */
-void	ft_swapnode(t_node *node, t_node *node2)
+void	ft_swap_node(t_node *node, t_node *node2)
 {
 	ft_swap(&node->value, &node2->value);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlist.c                                     :+:      :+:    :+:   */
+/*   ft_print_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../checker.h"
 
-void	ft_printlist(t_utils utils)
+void	ft_print_list(t_utils utils)
 {
 	ft_printf("STACK A:%i  STACK  B:%i\n", utils.count_a, utils.count_b);
 	while (utils.head_a || utils.head_b)
@@ -57,6 +57,6 @@ void	ft_output(t_utils *utils, int instruction)
 	else if (utils->caller == PRINT)
 	{
 		ft_print_action(instruction);
-		ft_printlist(*utils);
+		ft_print_list(*utils);
 	}
 }

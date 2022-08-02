@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:06:43 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/08 12:38:55 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:18:17 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-void	ft_checklistprev(t_node *node)
+void	ft_check_list_previous(t_node *node)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ void	ft_checklistprev(t_node *node)
 		ft_printf("Index gets too high\n");
 }
 
-void	ft_checklistnext(t_node *node)
+void	ft_check_list_next(t_node *node)
 {
 	int	i;
 
@@ -46,8 +46,8 @@ void	ft_checklistnext(t_node *node)
 
 void	ft_check_list(t_utils *utils)
 {
-	ft_checklistnext(utils->head_a);
-	ft_checklistprev(utils->tail_a);
-	ft_checklistnext(utils->head_b);
-	ft_checklistprev(utils->tail_b);
+	ft_check_list_next(utils->head_a);
+	ft_check_list_previous(utils->tail_a);
+	ft_check_list_next(utils->head_b);
+	ft_check_list_previous(utils->tail_b);
 }

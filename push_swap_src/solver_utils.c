@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:47:37 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/09 17:09:21 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	in_order(t_utils *utils)
 		if (!compare_nodes(*node, utils))
 		{
 //			ft_printf("COMPARE FAILING! INDEX:%d COUNT: %d\n", i, utils->count_a);
-//			ft_printlist(*utils);
+//			ft_print_list(*utils);
 			return (0);
 		}
 //		ft_printf("INDEX IS:%d COUNT IS:%d\n", i, utils->count_a);
