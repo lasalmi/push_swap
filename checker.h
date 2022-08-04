@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:17:00 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ typedef enum	e_type {
 typedef	void (*t_func)(t_utils*);
 
 t_node	*ft_create_node(void);
-void	ft_swap_node(t_node *node, t_node *node2);
+// void	ft_swap_node(t_node *node, t_node *node2);
 void	ft_print_list(t_utils utils);
 void	ft_add_node_tail(t_node **tail, t_node *new_node);
 void	ft_add_node_head(t_node **head, t_node *new_node);
@@ -131,7 +131,6 @@ t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
 int		ft_countcost_a(int value_to_find, t_utils *utils);
 int		ft_countcost_b(int value_to_find, t_utils *utils);
 int		ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk);
-t_utils	ft_copy_state(t_utils *original);
 void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction);
 int		ft_cheapest_chunk(t_utils *original, t_solver *solver);
 void	ft_check_list(t_utils *utils);
@@ -153,7 +152,7 @@ int		ft_find_smallest(t_node *head);
 void	preliminary_stack_sort(t_utils *utils);
 void	mallocfail(t_utils *utils);
 size_t	count_nodes(t_node *head);
-//int		ft_get_instruction(char *line);
 void	ft_exec_instructions(t_utils *utils, t_instructions *instr);
 void	ft_save_instruction(t_instructions *instr, char *line);
+void	ft_copy_utils(t_utils *dst, t_utils *src);
 #endif

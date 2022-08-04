@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:16:17 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:16:09 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_node	*ft_copy_list(t_node *head)
 	current = dst_head;
 	while (current)
 	{
-		ft_copy_node(current, head);
+		current->value = head->value;
 		if (head->next)
 		{
 			current->next = ft_create_node();
@@ -35,11 +35,6 @@ t_node	*ft_copy_list(t_node *head)
 		head = head->next;
 	}
 	return (dst_head);
-}
-
-void	ft_copy_node(t_node *dst, t_node *src)
-{
-	dst->value = src->value;
 }
 
 size_t	count_nodes(t_node *head)
@@ -68,12 +63,6 @@ t_node	*ft_create_node(void)
 	ret->next = NULL;
 	ret->prev = NULL;
 	return (ret);
-}
-
-/* Swaps the VALUES of two nodes */
-void	ft_swap_node(t_node *node, t_node *node2)
-{
-	ft_swap(&node->value, &node2->value);
 }
 
 /* Pushes given node as the new tail node

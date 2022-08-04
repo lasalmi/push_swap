@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:16:17 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:15:41 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ void	ft_swap_a(t_utils *utils)
 {
 	if (utils->count_a < 2)
 		return ;
-	ft_swap_node(utils->head_a, utils->head_a->next);
+	ft_swap(&utils->head_a->value, &utils->head_a->next->value);
 }
 
 void	ft_swap_b(t_utils *utils)
 {
 	if (utils->count_b < 2)
 		return ;
-	ft_swap_node(utils->head_b, utils->head_b->next);
+	ft_swap(&utils->head_b->value, &utils->head_b->next->value);
 }
 
 void	ft_swap_both(t_utils *utils)

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:10:21 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,11 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 
 	i = 0;
 	cost = 0;
-	sandbox = ft_copy_state(original);
+	ft_copy_utils(&sandbox, original);
 	sandbox.caller = SANDBOX;
 	while (1)
 	{
 		pair = ft_findpair(chunk, &sandbox);
-//	ft_printf("Pair found pair.a: %d pair.b: %d Total cost: %llu \n", pair.stack_a.target, pair.stack_b.target, pair.total_cost);
 		if (pair.total_cost == INT_MAX)
 			break ;
 		ft_generate_instructions(&pair);
@@ -90,8 +89,6 @@ int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
 			ft_pw_dispatcher(&sandbox, pair.instructions[i++]);
 		i = 0;
 		ft_push_a(&sandbox);
-//		ft_printf("PUSHED A\n");
-//		ft_print_list(*sandbox);
 		free(pair.instructions);
 	}
 	ft_push_b(&sandbox);

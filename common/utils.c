@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:28:32 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:19:42 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:10:38 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,4 @@ void	ft_copy_utils(t_utils *dst, t_utils *src)
 		mallocfail(src);
 	}
 	ft_get_tails(dst);
-}
-
-t_utils	ft_copy_state(t_utils *original)
-{
-	t_utils	copy;
-
-	ft_copy_utils(&copy, original);
-	return (copy);
 }
