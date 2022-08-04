@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:57:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/29 11:12:36 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 15:35:49 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static size_t	ft_countchunks(t_utils *utils)
 	return (5);
 }
 
-static void	ft_initializechunk(t_chunk *chunk)
+void	ft_initializechunk(t_chunk *chunk)
 {
 	chunk->start = 0;
 	chunk->end = 0;
@@ -48,7 +48,8 @@ static void	ft_allocatechunks(t_utils *utils, t_solver *solver)
 		ft_initializechunk(&solver->chunks[i++]);
 }
 
-static void	ft_setchunks(int *sorted, t_solver *solverutil, size_t first, size_t rest)
+static void	ft_setchunks(int *sorted, \
+t_solver *solverutil, size_t first, size_t rest)
 {
 	size_t	i;
 	size_t	j;
@@ -72,19 +73,6 @@ static void	ft_setchunks(int *sorted, t_solver *solverutil, size_t first, size_t
 		}
 		j++;
 	}
-}
-
-/* Identifies which chunk contains the nb given
-and returns the index of that chunk */
-
-int	ft_identifychunk(int n, t_chunk *chunks)
-{
-	int	i;
-
-	i = 0;
-	while (!ft_is_in_range(n, chunks[i].start, chunks[i].end))
-		i++;
-	return (i);
 }
 
 /* Counts the amount of integers in each chunk. The first one has the most */

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:47:37 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 15:45:21 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	is_smaller(int a, int b)
 	return (a < b);
 }
 
-static void locator(t_utils *utils, t_node **node)
+static void	locator(t_utils *utils, t_node **node)
 {
 	t_node	*finder;
 	int		smallest;
@@ -29,7 +29,7 @@ static void locator(t_utils *utils, t_node **node)
 	*node = finder;
 }
 
-static void next_node(t_node **node, t_utils *utils)
+static void	next_node(t_node **node, t_utils *utils)
 {
 	if ((*node)->next)
 		*node = (*node)->next;
@@ -37,7 +37,7 @@ static void next_node(t_node **node, t_utils *utils)
 		*node = utils->head_a;
 }
 
-static int compare_nodes(t_node node, t_utils *utils)
+static int	compare_nodes(t_node node, t_utils *utils)
 {
 	if (node.next)
 		return (is_smaller(node.value, node.next->value));

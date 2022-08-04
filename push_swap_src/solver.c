@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 14:47:10 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 15:52:57 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,33 +38,21 @@ void	ft_solver_large(t_utils *utils)
 	t_pair		pair;
 	size_t		cost;
 	int			i;
-//	int			j = 500; //
 	i = 0;
 	cost = 0;
 	ft_getchunks(utils, &solverutils);
 	preliminary_stack_sort(utils);
-//	while (j--)//
-//		ft_push_b(utils);//
-//	ft_print_list(*utils); //
 	ret = ft_cheapest_chunk(utils, &solverutils);
-//	ft_printf("Exiting in solver large, cheapest chunk: %d\n", ret);//
 	while (ret >= 0)
 	{
 		pair = ft_findpair(&solverutils.chunks[ret], utils);
-//		ft_printf("SOLVER HAS PAIR: B: %d A: %d\n", pair.stack_b.target, pair.stack_a.target);
-//		ft_print_list(*utils);
 		if (pair.total_cost == INT_MAX)
 		{
-//			ft_printf("CHUNK HAS BEEN PUSHED TO A\n");
-//			ft_print_list(*utils);
 			solverutils.chunks[ret].sorted = 1;
 			ret = ft_cheapest_chunk(utils, &solverutils);
-//			ft_printf("Solver has new cheapest chunk: %d\n", ret);
 		}
 		if (pair.total_cost != INT_MAX)
 		{
-//			ft_printf("PUSHING PAIR: A:%d B: %d\n", pair.stack_a.target, pair.stack_b.target);
-//			ft_print_list(*utils);
 			ft_generate_instructions(&pair);
 			cost += pair.total_cost;
 			while (pair.total_cost--)
@@ -73,12 +61,8 @@ void	ft_solver_large(t_utils *utils)
 			ft_pw_dispatcher(utils, 3);
 			cost++;
 			free(pair.instructions);
-//			ft_print_list(*utils);
 		}
 	}
-//	ft_printf("EXITING SOLVER:\n");
-//	ft_print_list(*utils);
 	rotate_a_to_finish(utils);
 	free(solverutils.chunks);
-//	cost += ft_push_b_all(utils);
 }

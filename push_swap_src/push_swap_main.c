@@ -6,40 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:26:54 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 15:57:59 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-
-/* Loads the values from the original head_a
-into an array of ints. All the integers need
-to be in stack A */
-void	ft_loadvalues(t_utils *utils)
-{
-	t_node	*list;
-	int		*arr;
-
-	arr = utils->sorted;
-	list = utils->head_a;
-	while (list)
-	{
-		*arr = list->value;
-		list = list->next;
-		arr++;
-	}
-}
-
-/* Loads and sorts the values in the double linked list
-into an array of integers */
-void	ft_sortvalues(t_utils *utils)
-{
-	utils->sorted = (int *)malloc(sizeof(int) * utils->input_count);
-	if (!utils->sorted)
-		ft_error();
-	ft_loadvalues(utils);
-	ft_quicksortint(utils->sorted, utils->input_count);
-}
 
 /* Counts the cost of moving the value to the
 bottom of the stack A. Returns negative,
@@ -101,14 +72,6 @@ int	ft_countcost_b(int value_to_find, t_utils *utils)
 	return (j);
 }
 
-void	ft_push_a_all(t_utils *utils)
-{
-	while (utils->head_b)
-	{
-		ft_pw_dispatcher(utils, 3);
-	}
-}
-
 size_t	ft_b_for_push(t_utils *utils)
 {
 	t_cost	target;
@@ -149,7 +112,7 @@ size_t	ft_push_b_all(t_utils *utils)
 		cost++;
 	}
 	return (cost);
-}
+} 
 
 void	ft_process(t_utils *utils)
 {
@@ -164,7 +127,6 @@ void	ft_process(t_utils *utils)
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
-//	int i = 500;
 	ft_initialize_utils(&utils);
 	utils.caller = PUSH_SWAP;
 	utils.head_b = NULL;
@@ -173,14 +135,6 @@ int	main(int argc, char **argv)
 	ft_read_values(&utils, argv + 1, argc - 1);
 	ft_sortvalues(&utils);
 	ft_process(&utils);
-//	while (i--)
-//		ft_push_b(&utils);
-//	ft_print_list(utils);
-//	ft_solver_large(&utils);
-//	preliminary_stack_sort(&utils);
-//	ft_solver_large(&utils);
-//	ft_printf("REACHED MAIN\n");
-//	ft_print_list(utils);
 	free(utils.sorted);
 	ft_free_lists(&utils);
 	return (0);

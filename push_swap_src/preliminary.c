@@ -6,12 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 12:59:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:11:41 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 15:44:21 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-
 
 int	contains_bigger(t_node *node, int pivot)
 {
@@ -35,9 +34,8 @@ int	contains_smaller(t_node *node, int pivot)
 	return (0);
 }
 
-void push_rest_to_b(t_utils *utils, int i)
+void	push_rest_to_b(t_utils *utils, int i)
 {
-	
 	while (contains_smaller(utils->head_a, utils->sorted[i]))
 	{
 		if (utils->head_a->value < utils->sorted[i])
@@ -67,7 +65,7 @@ void	preliminary_stack_sort(t_utils *utils)
 	int	pivot;
 	int	i;
 	int	chunk_size;
-	
+
 	chunk_size = utils->input_count / 2;
 	i = (chunk_size - 1);
 	pivot = utils->sorted[i];
