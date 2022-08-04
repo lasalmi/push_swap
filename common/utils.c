@@ -6,11 +6,36 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:28:32 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:10:38 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:20:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
+
+t_node	*ft_copy_list(t_node *head)
+{
+	t_node	*dst_head;
+	t_node	*current;
+
+	if (!head)
+		return (NULL);
+	dst_head = ft_create_node();
+	current = dst_head;
+	while (current)
+	{
+		current->value = head->value;
+		if (head->next)
+		{
+			current->next = ft_create_node();
+			if (!current->next)
+				break ;
+			current->next->prev = current;
+		}
+		current = current->next;
+		head = head->next;
+	}
+	return (dst_head);
+}
 
 /* Frees both lists in utils. After reaching the
 end of stack_a, will switch to head_b if it
@@ -72,4 +97,17 @@ void	ft_copy_utils(t_utils *dst, t_utils *src)
 		mallocfail(src);
 	}
 	ft_get_tails(dst);
+}
+
+size_t	count_nodes(t_node *head)
+{
+	size_t	i;
+
+	i = 0;
+	while (head)
+	{
+		i++;
+		head = head->next;
+	}
+	return (i);
 }

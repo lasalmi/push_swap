@@ -6,49 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:16:09 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:19:51 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-
-t_node	*ft_copy_list(t_node *head)
-{
-	t_node	*dst_head;
-	t_node	*current;
-
-	if (!head)
-		return (NULL);
-	dst_head = ft_create_node();
-	current = dst_head;
-	while (current)
-	{
-		current->value = head->value;
-		if (head->next)
-		{
-			current->next = ft_create_node();
-			if (!current->next)
-				break ;
-			current->next->prev = current;
-		}
-		current = current->next;
-		head = head->next;
-	}
-	return (dst_head);
-}
-
-size_t	count_nodes(t_node *head)
-{
-	size_t	i;
-
-	i = 0;
-	while (head)
-	{
-		i++;
-		head = head->next;
-	}
-	return (i);
-}
 
 /* Allocates a new node and in case
 of mallocfail exits */

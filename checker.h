@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:17:00 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 13:19:18 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,6 @@ void	ft_free_lists(t_utils *utils);
 void	ft_pw_dispatcher(t_utils *utils, int func_index);
 void	ft_getchunks(t_utils *utils, t_solver *solver);
 int		ft_findslotb(int nb, t_node *head);
-t_node	*ft_copy_list(t_node *head);
 void	ft_copy_node(t_node *dst, t_node *src);
 t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
 int		ft_countcost_a(int value_to_find, t_utils *utils);
