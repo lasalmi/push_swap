@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:18:48 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 15:35:30 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ void	ft_init_target(t_target *target)
 	target->rev_target = 1;
 	target->rotate_cost = 0;
 	target->rev_rot_cost = 0;
+}
+
+void	ft_initialize_target(t_cost	*cost)
+{
+	cost->target = 0;
+	cost->rev_cost = 0;
+	cost->rotate_cost = 0;
+	cost->found = 0;
 }

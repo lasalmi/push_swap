@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:19:18 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/04 15:58:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,4 +154,11 @@ size_t	count_nodes(t_node *head);
 void	ft_exec_instructions(t_utils *utils, t_instructions *instr);
 void	ft_save_instruction(t_instructions *instr, char *line);
 void	ft_copy_utils(t_utils *dst, t_utils *src);
+void	ft_initialize_target(t_cost	*cost);
+int		ft_ismember(t_chunk *chunk, int value);
+t_cost	ft_find_pair_for_b(int stack_b, t_node *head, int list_size);
+t_cost	ft_count_cost(int member, int i, int stack_size);
+int		ft_total_cost_smaller(int total_cost, int b_value, int i, t_utils utils);
+size_t	ft_total_cost_move(t_cost target_a, t_cost target_b);
+void	ft_sortvalues(t_utils *utils);
 #endif
