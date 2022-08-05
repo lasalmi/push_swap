@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 15:57:59 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 14:19:16 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ size_t	ft_push_b_all(t_utils *utils)
 		cost++;
 	}
 	return (cost);
-} 
+}
 
 void	ft_process(t_utils *utils)
 {
@@ -127,6 +127,7 @@ void	ft_process(t_utils *utils)
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
+
 	ft_initialize_utils(&utils);
 	utils.caller = PUSH_SWAP;
 	utils.head_b = NULL;

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 12:59:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 15:44:21 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 13:46:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	preliminary_stack_sort(t_utils *utils)
 	chunk_size = utils->input_count / 2;
 	i = (chunk_size - 1);
 	pivot = utils->sorted[i];
-	while (chunk_size > 1)
+	while (chunk_size > 2)
 	{
 		while (contains_smaller(utils->head_a, pivot))
 		{

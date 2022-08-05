@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 13:25:01 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 13:59:17 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	rotate_a_to_finish(t_utils *utils)
 	}
 }
 
-static void	move_pair(t_utils *utils, t_pair *pair, size_t *cost)
+void	move_pair(t_utils *utils, t_pair *pair, size_t *cost)
 {
 	size_t	i;
 
@@ -53,12 +53,11 @@ void	ft_solver_large(t_utils *utils)
 	int			ret;
 	t_pair		pair;
 	size_t		cost;
-	// int			i;
 
-	// i = 0;
 	cost = 0;
 	ft_getchunks(utils, &solverutils);
 	preliminary_stack_sort(utils);
+	ft_sort_stack_a(utils);
 	ret = ft_cheapest_chunk(utils, &solverutils);
 	while (ret >= 0)
 	{
@@ -70,16 +69,6 @@ void	ft_solver_large(t_utils *utils)
 		}
 		if (pair.total_cost != INT_MAX)
 			move_pair(utils, &pair, &cost);
-		// {
-		// 	ft_generate_instructions(&pair);
-		// 	cost += pair.total_cost;
-		// 	while (pair.total_cost--)
-		// 		ft_pw_dispatcher(utils, pair.instructions[i++]);
-		// 	i = 0;
-		// 	ft_pw_dispatcher(utils, 3);
-		// 	cost++;
-		// 	free(pair.instructions);
-		// }
 	}
 	rotate_a_to_finish(utils);
 	free(solverutils.chunks);

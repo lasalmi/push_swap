@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 15:58:35 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 13:59:42 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,4 +161,6 @@ t_cost	ft_count_cost(int member, int i, int stack_size);
 int		ft_total_cost_smaller(int total_cost, int b_value, int i, t_utils utils);
 size_t	ft_total_cost_move(t_cost target_a, t_cost target_b);
 void	ft_sortvalues(t_utils *utils);
+void	move_pair(t_utils *utils, t_pair *pair, size_t *cost);
+void	ft_sort_stack_a(t_utils *utils);
 #endif

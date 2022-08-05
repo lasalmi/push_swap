@@ -6,29 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:55:59 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:19:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 14:23:55 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-
-static	int	ft_are_consecutive(t_utils *utils, int a, int b)
-{
-	size_t	i;
-//	uint8_t	consecutive;
-
-//	consecutive = 0;
-	i = 0;
-	while (i < utils->input_count && utils->sorted[i] != a)
-		i++;
-	if (i > 0 && i < (utils->input_count - 1))
-		return (b == utils->sorted[i - 1] || b == utils->sorted[i + 1]);
-	if (i == (utils->input_count - 1) && i > 0)
-		return (b == utils->sorted[i - 1] && b == utils->sorted[0]);
-	if (i == 0)
-		return (b == utils->sorted[i + 1] || b == utils->sorted[utils->input_count - 1]);
-	return (0);
-}
 
 /* Finds the smallest value in the given list */
 int	ft_find_smallest(t_node *head)
@@ -96,24 +78,31 @@ void ft_sort_small(t_utils *utils)
 	t_pair		pair;
 	int			i;
 	int			chunk;
+	size_t		cost;
 
+	cost = 0;
 	i = 0;
 	ft_getchunks(utils, &solverutils);
 	chunk = ft_cheapest_chunk(utils, &solverutils);
-	while (1 && utils->count_a > 3)
+	while (utils->count_a > 3)
+		ft_pw_dispatcher(utils, 4);
+//	ft_printf("CHUNK NB: %d %d %d\n",chunk, solverutils.chunks[0].start, solverutils.chunks[0].end);
+	ft_sort_stack_a(utils);
+	while (1)
 	{
 	pair = ft_findpair(&solverutils.chunks[chunk], utils);
 	if (pair.total_cost == INT_MAX)
 		break ;
-	ft_generate_instructions(&pair);
-	while(pair.total_cost--)
-		ft_pw_dispatcher(utils, pair.instructions[i++]);
-	i = 0;
-	ft_pw_dispatcher(utils, 4);
+	move_pair(utils, &pair, &cost);
+	// ft_generate_instructions(&pair);
+	// while(pair.total_cost--)
+	// 	ft_pw_dispatcher(utils, pair.instructions[i++]);
+	// i = 0;
+	// ft_pw_dispatcher(utils, 4);
+	// ft_print_list(*utils);
 	}
 //	ft_printf("Sorting stack A");
 //	ft_print_list(*utils);
-	ft_sort_stack_a(utils);
-	ft_push_b_all(utils);
+//	ft_push_b_all(utils);
 	ft_sort_stack_a(utils);
 }
