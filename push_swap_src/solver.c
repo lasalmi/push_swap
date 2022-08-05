@@ -6,12 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 15:52:57 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 13:25:01 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-static void rotate_a_to_finish(t_utils *utils)
+
+static void	rotate_a_to_finish(t_utils *utils)
 {
 	int	movement;
 	int	i;
@@ -31,14 +32,30 @@ static void rotate_a_to_finish(t_utils *utils)
 			ft_pw_dispatcher(utils, 5);
 	}
 }
+
+static void	move_pair(t_utils *utils, t_pair *pair, size_t *cost)
+{
+	size_t	i;
+
+	i = 0;
+	ft_generate_instructions(pair);
+	*cost += pair->total_cost;
+	while (pair->total_cost--)
+		ft_pw_dispatcher(utils, pair->instructions[i++]);
+	ft_pw_dispatcher(utils, 3);
+	(*cost)++;
+	free(pair->instructions);
+}
+
 void	ft_solver_large(t_utils *utils)
 {
 	t_solver	solverutils;
 	int			ret;
 	t_pair		pair;
 	size_t		cost;
-	int			i;
-	i = 0;
+	// int			i;
+
+	// i = 0;
 	cost = 0;
 	ft_getchunks(utils, &solverutils);
 	preliminary_stack_sort(utils);
@@ -52,16 +69,17 @@ void	ft_solver_large(t_utils *utils)
 			ret = ft_cheapest_chunk(utils, &solverutils);
 		}
 		if (pair.total_cost != INT_MAX)
-		{
-			ft_generate_instructions(&pair);
-			cost += pair.total_cost;
-			while (pair.total_cost--)
-				ft_pw_dispatcher(utils, pair.instructions[i++]);
-			i = 0;
-			ft_pw_dispatcher(utils, 3);
-			cost++;
-			free(pair.instructions);
-		}
+			move_pair(utils, &pair, &cost);
+		// {
+		// 	ft_generate_instructions(&pair);
+		// 	cost += pair.total_cost;
+		// 	while (pair.total_cost--)
+		// 		ft_pw_dispatcher(utils, pair.instructions[i++]);
+		// 	i = 0;
+		// 	ft_pw_dispatcher(utils, 3);
+		// 	cost++;
+		// 	free(pair.instructions);
+		// }
 	}
 	rotate_a_to_finish(utils);
 	free(solverutils.chunks);
