@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 11:31:07 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:59:01 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:31:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	ft_find_rev_rotate(t_chunk *chunk, t_node *tail, int *rotate)
 	return (target);
 }
 
-void	ft_get_target_costs(t_target *target, t_utils *utils)
+void	ft_get_ints_costs(t_ints *target, t_utils *utils)
 {
 	target->rotate_cost = ft_countcost_a(target->rotate_target, utils);
 	target->rev_rot_cost = ft_countcost_a(target->rev_target, utils);
@@ -88,11 +88,11 @@ void	ft_get_target_costs(t_target *target, t_utils *utils)
 
 /* Finds the closest member of the given chunk and returns the value
 of that member, DOESNT return direction! */
-t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail)
+t_ints	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail)
 {
-	t_target	target;
+	t_ints	target;
 
-	ft_init_target(&target);
+	ft_init_ints(&target);
 	if (!head)
 	{
 		chunk->processed = 1;

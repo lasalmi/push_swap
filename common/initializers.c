@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 15:35:30 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:31:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_init_instructions(t_instructions *instructions)
 	instructions->memthreshold = 0;
 }
 
-void	ft_init_target(t_target *target)
+void	ft_init_ints(t_ints *target)
 {
 	target->processed = 0;
 	target->rotate_target = 0;
