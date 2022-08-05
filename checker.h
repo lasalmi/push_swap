@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 13:59:42 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 14:38:09 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,4 +163,10 @@ size_t	ft_total_cost_move(t_cost target_a, t_cost target_b);
 void	ft_sortvalues(t_utils *utils);
 void	move_pair(t_utils *utils, t_pair *pair, size_t *cost);
 void	ft_sort_stack_a(t_utils *utils);
+t_type	ft_samedirection(t_cost a, t_cost b, size_t cost);
+t_type	ft_iscombination(t_cost a, t_cost b, size_t cost);
+void	ft_gen_rotate(t_pair *pair);
+void	ft_gen_rev(t_pair *pair);
+void	ft_gen_rotrev(t_pair *pair);
+void	ft_gen_revrot(t_pair *pair);
 #endif

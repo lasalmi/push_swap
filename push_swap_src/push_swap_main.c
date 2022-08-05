@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 14:19:16 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 14:40:22 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,34 +34,6 @@ int	ft_countcost_a(int value_to_find, t_utils *utils)
 	}
 	list = utils->tail_a;
 	while (value_to_find != list->value)
-	{
-		j--;
-		list = list->prev;
-	}
-	j--;
-	if (ft_abs(j) > i)
-		return (i);
-	return (j);
-}
-
-int	ft_countcost_b(int value_to_find, t_utils *utils)
-{
-	int		i;
-	int		j;
-	t_node	*list;
-
-	list = utils->head_b;
-	i = 0;
-	j = 0;
-	if (!list)
-		return (INT_MAX);
-	while (list && value_to_find != list->value)
-	{
-		i++;
-		list = list->next;
-	}
-	list = utils->tail_b;
-	while (list && value_to_find != list->value)
 	{
 		j--;
 		list = list->prev;

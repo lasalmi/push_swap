@@ -6,22 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 12:59:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 13:46:12 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 14:33:24 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-
-int	contains_bigger(t_node *node, int pivot)
-{
-	while (node)
-	{
-		if (node->value >= pivot)
-			return (1);
-		node = node->next;
-	}
-	return (0);
-}
 
 int	contains_smaller(t_node *node, int pivot)
 {
@@ -32,17 +21,6 @@ int	contains_smaller(t_node *node, int pivot)
 		node = node->next;
 	}
 	return (0);
-}
-
-void	push_rest_to_b(t_utils *utils, int i)
-{
-	while (contains_smaller(utils->head_a, utils->sorted[i]))
-	{
-		if (utils->head_a->value < utils->sorted[i])
-			ft_pw_dispatcher(utils, 4);
-		else
-			ft_pw_dispatcher(utils, 5);
-	}
 }
 
 void	push_smaller_half_to_b(t_utils *utils, int pivot)

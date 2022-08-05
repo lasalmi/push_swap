@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:39:51 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 13:57:59 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 14:32:31 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,20 @@ t_pair	ft_findpair(t_chunk *chunk, t_utils *utils)
 		head = head->next;
 	}
 	return (pair);
+}
+
+/* Finds the correct instruction combination
+for getting A and B for the correct state for push */
+
+t_type	ft_findtype(t_pair *pair)
+{
+	t_type	ret;
+
+	ret = ft_samedirection(pair->stack_a, pair->stack_b, pair->total_cost);
+	if (ret > NOT_FOUND)
+		return (ret);
+	ret = ft_iscombination(pair->stack_a, pair->stack_b, pair->total_cost);
+	if (ret > NOT_FOUND)
+		return (ret);
+	return (NOT_FOUND);
 }
