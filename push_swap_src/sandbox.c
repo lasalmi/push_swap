@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:10:21 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:22:36 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ sorted (aka, tested) and counts the cost of the chunk,
 and returns the index of the cheapest chunk */
 int	ft_cheapest_chunk(t_utils *original, t_solver *solver)
 {
-	int	i;
-	int	lowest;
-	int	cost;
-	int	ret;
+	size_t	i;
+	int		lowest;
+	int		cost;
+	int		ret;
 
 	ret = -1;
 	lowest = INT_MAX;
@@ -31,7 +31,7 @@ int	ft_cheapest_chunk(t_utils *original, t_solver *solver)
 			i++;
 		if (i >= solver->chunk_amount)
 			break ;
-		cost = ft_count_chunk_cost(original, solver, &solver->chunks[i]);
+		cost = ft_count_chunk_cost(original, &solver->chunks[i]);
 		if (cost < lowest)
 		{
 			ret = i;
@@ -67,12 +67,12 @@ void	ft_count_nodes(t_utils *utils)
 sets the caller so that the instructions dont get printed out. Finds the cheapest
 pair at each loop of the while and when there are no more members of the chunk
 in stack A it breaks the loop and returns the total cost of that chunk */
-int	ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk)
+int	ft_count_chunk_cost(t_utils	*original, t_chunk *chunk)
 {
 	t_utils		sandbox;
 	t_pair		pair;
 	int			cost;
-	int			i;
+	size_t		i;
 
 	i = 0;
 	cost = 0;

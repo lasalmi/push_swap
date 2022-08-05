@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 14:38:09 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:22:13 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	ft_copy_node(t_node *dst, t_node *src);
 t_target	ft_find_closest_a(t_chunk *chunk, t_node *head, t_node *tail);
 int		ft_countcost_a(int value_to_find, t_utils *utils);
 int		ft_countcost_b(int value_to_find, t_utils *utils);
-int		ft_count_chunk_cost(t_utils	*original, t_solver *solver, t_chunk *chunk);
+int		ft_count_chunk_cost(t_utils	*original, t_chunk *chunk);
 void	ft_loop_dispatcher(size_t n, t_utils *utils, int instruction);
 int		ft_cheapest_chunk(t_utils *original, t_solver *solver);
 void	ft_check_list(t_utils *utils);
@@ -158,7 +158,7 @@ void	ft_initialize_target(t_cost	*cost);
 int		ft_ismember(t_chunk *chunk, int value);
 t_cost	ft_find_pair_for_b(int stack_b, t_node *head, int list_size);
 t_cost	ft_count_cost(int member, int i, int stack_size);
-int		ft_total_cost_smaller(int total_cost, int b_value, int i, t_utils utils);
+int		ft_total_cost_smaller(size_t total_cost, int b_value, int i, t_utils utils);
 size_t	ft_total_cost_move(t_cost target_a, t_cost target_b);
 void	ft_sortvalues(t_utils *utils);
 void	move_pair(t_utils *utils, t_pair *pair, size_t *cost);

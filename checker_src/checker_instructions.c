@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
+/*   checker_instructions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:55:11 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/31 18:02:23 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:17:30 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ the memory to the new alloocation */
 void	ft_save_instruction(t_instructions *instr, char *line)
 {
 	static size_t	i;
-	static size_t	alloc_size;
-	int				*temp;
 
 	if (!instr->inst_array)
 	{

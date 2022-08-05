@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:18:48 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:17:51 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_read_input(t_utils *utils)
 {
 	int				ret;
 	char			*line;
-	int				func;
 	t_instructions	instr;
 
 	ret = 1;

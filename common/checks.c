@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:01:37 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 14:27:26 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:18:35 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_is_correct(t_utils *utils)
 {
-	size_t	i;
+	int		i;
 	int		compare;
 	t_node	*current;
 

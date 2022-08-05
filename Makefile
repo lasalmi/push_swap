@@ -15,7 +15,7 @@ PUSH_SWAP = push_swap
 LIB_NAME = libft.a
 LIB_DIR = ./libft/
 CC = gcc
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all : $(CHECKER) $(PUSH_SWAP)
 

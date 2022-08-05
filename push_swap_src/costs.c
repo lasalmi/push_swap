@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:25:08 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 15:42:30 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/05 19:21:05 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ size_t	ft_total_cost_move(t_cost target_a, t_cost target_b)
 	return (ft_returnsmallest(rotate_cost, rev_cost, rotrev, revrot));
 }
 
-int	ft_total_cost_smaller(int total_cost, int b_value, int i, t_utils utils)
+int	ft_total_cost_smaller(size_t total_cost, int b_value, int i, t_utils utils)
 {
 	t_pair	to_compare;
 
