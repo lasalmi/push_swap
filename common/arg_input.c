@@ -6,24 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/02 13:16:03 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/06 12:00:21 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
-
-/* Checks that string is a number and only a number */
-
-static int	ft_isnumber(char *str)
-{
-	if (*str == '-' || *str == '+')
-		str++;
-	while (ft_isdigit(*str))
-		str++;
-	if (*str != '\0')
-		return (0);
-	return (1);
-}
 
 /* Checks that value is not already in the list for duplicate
 input */
@@ -46,7 +33,7 @@ static int	ft_validate_input(char *str, t_node *list)
 	long long	result;
 
 	temp = str;
-	if (ft_strlen(str) > 11 || !ft_isnumber(str))
+	if (ft_strlen(str) > 11 || !ft_is_number(str))
 		ft_error();
 	result = ft_atoll(str);
 	if (result < INT_MIN || result > INT_MAX)
@@ -57,11 +44,31 @@ static int	ft_validate_input(char *str, t_node *list)
 
 void	ft_check_flag(t_utils *utils, char ***argv, int *argc)
 {
-	if (utils->caller != CHECKER || !ft_strequ(**argv, "-p"))
-		return ;
-	*argv = *argv + 1;
-	*argc = *argc - 1;
-	utils->caller = PRINT;
+	while (1)
+	{
+		if (*argc && utils->caller == CHECKER && ft_strequ(**argv, "-p"))
+		{
+			if (utils->caller == PRINT)
+				ft_error();
+			*argv = *argv + 1;
+			*argc = *argc - 1;
+			utils->caller = PRINT;
+		}
+		else if (*argc && utils->caller == CHECKER \
+		&& ft_strequ(**argv, "-fi"))
+		{
+			if (utils->file)
+				ft_error();
+			*argv = *argv + 1;
+			utils->file = **argv;
+			*argv = *argv + 1;
+			*argc = *argc - 2;
+		}
+		else if (*argc < 0)
+			ft_error();
+		else
+			break ;
+	}
 }
 
 /* Reads values from input. TODO: Replace
@@ -86,5 +93,7 @@ void	ft_read_values(t_utils *utils, char **argv, int argc)
 		current = ft_create_elem_stack_a(utils);
 		i++;
 	}
+	if (i == 0)
+		exit(1);
 	utils->count_a = argc;
 }

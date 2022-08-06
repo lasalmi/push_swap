@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 19:17:51 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/06 11:48:53 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,24 @@ void	ft_read_input(t_utils *utils)
 	int				ret;
 	char			*line;
 	t_instructions	instr;
+	int				fd;
 
+	if (utils->file)
+		fd = open(utils->file, O_RDONLY);
+	else
+		fd = 0;
 	ret = 1;
 	ft_init_instructions(&instr);
 	line = NULL;
-	while (ret)
+	while (ret && fd >= 0)
 	{
-		ret = get_next_line(0, &line);
+		ret = get_next_line(fd, &line);
 		if (ret < 1)
 			break ;
 		ft_save_instruction(&instr, line);
 		ft_strdel(&line);
 	}
-	if (ret < 0)
+	if (ret < 0 || fd < 0)
 		ft_error();
 	ft_exec_instructions(utils, &instr);
 }
@@ -40,7 +45,6 @@ int	main(int argc, char **argv)
 
 	ft_initialize_utils(&utils);
 	utils.caller = CHECKER;
-	utils.head_b = NULL;
 	if (argc < 2)
 		return (0);
 	ft_read_values(&utils, argv + 1, argc - 1);

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 19:34:07 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/06 11:09:57 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_utils {
 	size_t			instr_count;
 	int				*sorted;
 	t_pw_caller		caller;
+	char			*file;
 }	t_utils;
 
 typedef struct s_instructions {
