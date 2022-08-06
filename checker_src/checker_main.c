@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/06 11:48:53 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/06 12:07:50 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_read_values(&utils, argv + 1, argc - 1);
 	ft_read_input(&utils);
+	if (utils.caller == PRINT)
+		ft_print_list(utils);
 	if (ft_is_correct(&utils))
 		ft_printf("OK\n");
 	else
