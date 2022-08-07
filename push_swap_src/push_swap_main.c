@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 13:39:33 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:12:41 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 bottom of the stack A. Returns negative,
 if it is more efficient to use reverse rotate, returns 0
 if already on top of stack A */
-int	ft_countcost_a(int value_to_find, t_utils *utils)
+int	ft_count_cost_a(int value_to_find, t_utils *utils)
 {
 	int		i;
 	int		j;
@@ -68,20 +68,6 @@ size_t	ft_b_for_push(t_utils *utils)
 			cost++;
 			target.rotate_cost--;
 		}
-	}
-	return (cost);
-}
-
-size_t	ft_push_b_all(t_utils *utils)
-{
-	size_t	cost;
-
-	cost = 0;
-	cost += ft_b_for_push(utils);
-	while (utils->count_b)
-	{
-		ft_pw_dispatcher(utils, 3);
-		cost++;
 	}
 	return (cost);
 }

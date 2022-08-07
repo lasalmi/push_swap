@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 14:29:43 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:02:10 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rotate_a_to_finish(t_utils *utils)
 	int	i;
 
 	i = 0;
-	movement = ft_countcost_a(utils->sorted[0], utils);
+	movement = ft_count_cost_a(utils->sorted[0], utils);
 	if (movement < 0)
 	{
 		i = ft_abs(movement);
@@ -33,44 +33,37 @@ static void	rotate_a_to_finish(t_utils *utils)
 	}
 }
 
-void	move_pair(t_utils *utils, t_pair *pair, size_t *cost)
+void	move_pair(t_utils *utils, t_pair *pair)
 {
 	size_t	i;
 
 	i = 0;
 	ft_generate_instructions(pair);
-	*cost += pair->total_cost;
 	while (pair->total_cost--)
 		ft_pw_dispatcher(utils, pair->instructions[i++]);
 	ft_pw_dispatcher(utils, 3);
-	(*cost)++;
 	free(pair->instructions);
 }
 
 void	ft_solver_large(t_utils *utils)
 {
 	t_solver	solverutils;
-	int			ret;
+	int			sorted;
 	t_pair		pair;
-	size_t		cost;
 
-	cost = 0;
-	ft_getchunks(utils, &solverutils);
 	preliminary_stack_sort(utils);
 	ft_sort_stack_a(utils);
-	ret = 0;
-	// ret = ft_cheapest_chunk(utils, &solverutils);
-	while (ret >= 0)
+	sorted = 0;
+	while (!sorted)
 	{
-		pair = ft_findpair(&solverutils.chunk, utils);
+		pair = ft_findpair(utils);
 		if (pair.total_cost == INT_MAX)
 		{
 			solverutils.chunk.sorted = 1;
-			ret = -1;
-			// ret = ft_cheapest_chunk(utils, &solverutils);
+			sorted = 1;
 		}
 		if (pair.total_cost != INT_MAX)
-			move_pair(utils, &pair, &cost);
+			move_pair(utils, &pair);
 	}
 	rotate_a_to_finish(utils);
 }

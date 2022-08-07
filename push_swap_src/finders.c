@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:39:51 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 14:32:31 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 14:44:28 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_cost	ft_find_pair_for_b(int stack_b, t_node *head, int list_size)
 }
 
 /* Returns the smallest cost pair within given chunk */
-t_pair	ft_findpair(t_chunk *chunk, t_utils *utils)
+t_pair	ft_findpair(t_utils *utils)
 {
 	t_node	*head;
 	t_pair	pair;
@@ -103,8 +103,7 @@ t_pair	ft_findpair(t_chunk *chunk, t_utils *utils)
 	head = utils->head_b;
 	while (head)
 	{
-		if (ft_ismember(chunk, head->value) && \
-		ft_total_cost_smaller(pair.total_cost, head->value, i, *utils))
+		if (ft_total_cost_smaller(pair.total_cost, head->value, i, *utils))
 		{
 			pair.stack_b = ft_count_cost(head->value, i, utils->count_b);
 			pair.stack_a = ft_find_pair_for_b(head->value, \

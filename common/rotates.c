@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 13:29:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:32:35 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 14:40:55 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	ft_rotate_a(t_utils *utils)
 	utils->tail_a = utils->head_a;
 	temp->prev = NULL;
 	utils->head_a = temp;
-	ft_check_list(utils);
 }
 
 void	ft_rotate_b(t_utils *utils)

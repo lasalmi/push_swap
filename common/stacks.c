@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:10:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:30:53 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 14:40:58 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,4 @@ void	ft_push_b(t_utils *utils)
 	}
 	utils->count_a -= 1;
 	utils->count_b += 1;
-	ft_check_list(utils);
 }

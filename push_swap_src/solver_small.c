@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:55:59 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 13:41:16 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:02:10 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_sort_stack_a(t_utils *utils)
 		else
 			ft_pw_dispatcher(utils, 5);
 	}
-	rotate = ft_countcost_a(ft_find_smallest(utils->head_a), utils);
+	rotate = ft_count_cost_a(ft_find_smallest(utils->head_a), utils);
 	if (rotate < 0)
 	{
 		rotate = ft_abs(rotate);
