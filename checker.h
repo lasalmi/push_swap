@@ -6,16 +6,12 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:12:33 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:27:10 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
-# define UNDER_20 1
-# define UNDER_50 1
-# define UNDER_150 1
-# define OVER_150 1
 # include "./libft/libft.h"
 # include <limits.h>
 
@@ -41,7 +37,6 @@ typedef struct s_utils {
 	struct s_node	*head_b;
 	struct s_node	*tail_b;
 	size_t			count_b;
-	size_t			instr_count;
 	int				*sorted;
 	t_pw_caller		caller;
 	char			*file;
@@ -52,30 +47,6 @@ typedef struct s_instructions {
 	size_t	memthreshold;
 	size_t	count;
 }	t_instructions;
-
-typedef struct s_chunk {
-	int		start;
-	int		end;
-	uint8_t	processed;
-	uint8_t	sorted;
-}	t_chunk;
-
-typedef struct s_solver {
-	struct s_chunk	chunk;
-	size_t			chunk_amount;
-}	t_solver;
-
-typedef struct s_target {
-	uint8_t	processed;
-	int		rotate_target;
-	int		rev_target;
-	int		rotate_cost;
-	int		rev_rot_cost;
-	int		rotate_pair;
-	int		rot_pair_cost;
-	int		rev_pair;
-	int		rev_pair_cost;
-}	t_ints;
 
 typedef struct s_cost {
 	uint8_t	found;
@@ -129,7 +100,6 @@ void	ft_free_lists(t_utils *utils);
 void	ft_pw_dispatcher(t_utils *utils, int func_index);
 int		ft_count_cost_a(int value_to_find, t_utils *utils);
 int		ft_count_cost_b(int value_to_find, t_utils *utils);
-void	ft_init_ints(t_ints *target);
 t_pair	ft_findpair(t_utils *utils);
 size_t	ft_returngreater(size_t a, size_t b);
 t_type	ft_findtype(t_pair *pair);

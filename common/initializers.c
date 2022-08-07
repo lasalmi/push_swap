@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/06 11:10:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:27:01 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_initialize_utils(t_utils *utils)
 	utils->tail_b = NULL;
 	utils->count_a = 0;
 	utils->count_b = 0;
-	utils->instr_count = 0;
 	utils->caller = INITIALIZER;
 	utils->file = NULL;
 }
@@ -31,15 +30,6 @@ void	ft_init_instructions(t_instructions *instructions)
 	instructions->inst_array = NULL;
 	instructions->count = 0;
 	instructions->memthreshold = 0;
-}
-
-void	ft_init_ints(t_ints *target)
-{
-	target->processed = 0;
-	target->rotate_target = 0;
-	target->rev_target = 1;
-	target->rotate_cost = 0;
-	target->rev_rot_cost = 0;
 }
 
 void	ft_initialize_target(t_cost	*cost)
