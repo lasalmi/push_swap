@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 13:30:26 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 14:29:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,19 @@ void	ft_solver_large(t_utils *utils)
 	ft_getchunks(utils, &solverutils);
 	preliminary_stack_sort(utils);
 	ft_sort_stack_a(utils);
-	ret = ft_cheapest_chunk(utils, &solverutils);
+	ret = 0;
+	// ret = ft_cheapest_chunk(utils, &solverutils);
 	while (ret >= 0)
 	{
-		pair = ft_findpair(&solverutils.chunks[ret], utils);
+		pair = ft_findpair(&solverutils.chunk, utils);
 		if (pair.total_cost == INT_MAX)
 		{
-			solverutils.chunks[ret].sorted = 1;
-			ret = ft_cheapest_chunk(utils, &solverutils);
+			solverutils.chunk.sorted = 1;
+			ret = -1;
+			// ret = ft_cheapest_chunk(utils, &solverutils);
 		}
 		if (pair.total_cost != INT_MAX)
 			move_pair(utils, &pair, &cost);
 	}
 	rotate_a_to_finish(utils);
-	free(solverutils.chunks);
 }

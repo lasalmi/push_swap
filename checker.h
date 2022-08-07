@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 13:47:10 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 14:25:23 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct s_chunk {
 }	t_chunk;
 
 typedef struct s_solver {
-	struct s_chunk	*chunks;
+	struct s_chunk	chunk;
 	size_t			chunk_amount;
 }	t_solver;
 
