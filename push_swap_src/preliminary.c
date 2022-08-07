@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 12:59:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/06 21:50:56 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 13:35:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,12 @@ void	push_smaller_half_to_b(t_utils *utils, int pivot)
 	}
 }
 
-// void 	smaller_half(t_utils *utils, int i)
-// {
-// 	int	j;
-
-// 	j = i / 2;
-// 	push_smaller_half_to_b(utils, utils->sorted[i]);
-// 	while (contains_bigger(utils->head_b, utils->sorted[j]))
-// 	{
-// 		if (utils->head_b->value >= utils->sorted[j])
-// 			ft_pw_dispatcher(utils, 3);
-// 		else
-// 			ft_pw_dispatcher(utils, 6);
-// 	}
-// 	ft_pw_dispatcher(utils, 6);
-// 	while (utils->head_a->value)
-// 	ft_print_list(*utils);
-// }
+int	ft_small_stack(t_utils *utils)
+{
+	while (utils->count_a > 3)
+		ft_pw_dispatcher(utils, 4);
+	return (1);
+}
 
 void	preliminary_stack_sort(t_utils *utils)
 {
@@ -76,6 +65,8 @@ void	preliminary_stack_sort(t_utils *utils)
 	chunk_size = utils->input_count / 2;
 	i = (chunk_size - 1);
 	pivot = utils->sorted[i];
+	if (utils->input_count <= 5 && ft_small_stack(utils))
+		return ;
 	while (chunk_size > 2)
 	{
 		while (contains_smaller(utils->head_a, pivot))
@@ -89,5 +80,4 @@ void	preliminary_stack_sort(t_utils *utils)
 		pivot = utils->sorted[utils->input_count - chunk_size];
 	}
 	ft_sort_stack_a(utils);
-//	push_smaller_half_to_b(utils, utils->input_count - 1);
 }

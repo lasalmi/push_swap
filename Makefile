@@ -1,15 +1,19 @@
-COMMON_FILES = nodes.c stacks.c initializers.c arg_input.c error.c ft_print_list.c utils.c dispatcher.c list_debug.c checks.c memerror.c rotates.c swaps.c
+COMMON_FILES = nodes.c stacks.c initializers.c arg_input.c error.c \
+ft_print_list.c utils.c dispatcher.c list_debug.c checks.c memerror.c \
+rotates.c swaps.c
 COMMON_SRC_DIR = ./common/
 COMMON_SRC := $(addprefix $(COMMON_SRC_DIR),$(COMMON_FILES))
 CHECKER_FILES = checker_main.c checker_instructions.c
 CHECKER_SRC_DIR = ./checker_src/
 CHECKER_SRC := $(addprefix $(CHECKER_SRC_DIR),$(CHECKER_FILES))
-PUSH_SWAP_FILES = push_swap_main.c	chunks.c sandbox.c target.c costs.c instructions.c solver.c solver_utils.c solver_small.c preliminary.c finders.c presort.c instruction_generators.c
+PUSH_SWAP_FILES = push_swap_main.c	chunks.c sandbox.c target.c costs.c \
+instructions.c solver.c solver_utils.c solver_small.c preliminary.c \
+finders.c presort.c instruction_generators.c
 PUSH_SWAP_SRC_DIR = ./push_swap_src/
 PUSH_SWAP_SRC = $(addprefix $(PUSH_SWAP_SRC_DIR),$(PUSH_SWAP_FILES))
-CHECKER_OBJ := $(CHECKER_FILES:.c=.o)
-PUSH_SWAP_OBJ := $(PUSH_SWAP_FILES:.c=.o)
 COMMON_OBJ := $(COMMON_FILES:.c=.o)
+CHECKER_OBJ := $(CHECKER_FILES:.c=.o)
+PW_OBJ := $(PUSH_SWAP_FILES:.c=.o)
 CHECKER = checker
 PUSH_SWAP = push_swap
 LIB_NAME = libft.a
@@ -30,10 +34,10 @@ $(CHECKER_OBJ) : $(CHECKER_SRC)
 $(COMMON_OBJ) : $(COMMON_SRC)
 	gcc $(CFLAGS) -c -g -I. $(COMMON_SRC)
 
-$(PUSH_SWAP) : $(PUSH_SWAP_OBJ) $(COMMON_OBJ) $(LIB_NAME)
-	gcc $(CFLAGS) -L$(LIB_DIR) $(PUSH_SWAP_OBJ) $(COMMON_OBJ) -o $(PUSH_SWAP) -lft
+$(PUSH_SWAP) : $(PW_OBJ) $(COMMON_OBJ) $(LIB_NAME)
+	gcc $(CFLAGS) -L$(LIB_DIR) $(PW_OBJ) $(COMMON_OBJ) -o $(PUSH_SWAP) -lft
 
-$(PUSH_SWAP_OBJ) : $(PUSH_SWAP_SRC)
+$(PW_OBJ) : $(PUSH_SWAP_SRC)
 	gcc $(CFLAGS) -c -g -I. $(PUSH_SWAP_SRC)
 
 $(LIB_NAME) : 
@@ -43,7 +47,7 @@ TEST : $(NAME) main.c
 	./a.out
 
 clean : 
-	rm -f $(CHECKER_OBJ) $(PUSH_SWAP_OBJ) $(COMMON_OBJ)
+	rm -f $(CHECKER_OBJ) $(PW_OBJ) $(COMMON_OBJ)
 	make clean -C libft/
 
 fclean : clean

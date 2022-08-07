@@ -6,11 +6,20 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:59:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 19:22:36 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 13:12:30 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
+
+int	ft_one_chunk(t_solver *solver)
+{
+	if (solver->chunks[0].processed)
+		return (-1);
+	else
+		return (0);
+}
+
 /* Traverses through all the chunks that are not yet
 sorted (aka, tested) and counts the cost of the chunk,
 and returns the index of the cheapest chunk */

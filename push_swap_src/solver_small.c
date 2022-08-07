@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:55:59 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 14:26:18 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 13:41:16 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-/* Finds the smallest value in the given list */
+/*Finds the smallest value in the given list */
 int	ft_find_smallest(t_node *head)
 {
 	int	smallest;
@@ -69,29 +69,4 @@ void	ft_sort_stack_a(t_utils *utils)
 	else if (rotate > 0)
 		while (rotate--)
 			ft_pw_dispatcher(utils, 5);
-}
-
-void	ft_sort_small(t_utils *utils)
-{
-	t_solver	solverutils;
-	t_pair		pair;
-	int			i;
-	int			chunk;
-	size_t		cost;
-
-	cost = 0;
-	i = 0;
-	ft_getchunks(utils, &solverutils);
-	chunk = ft_cheapest_chunk(utils, &solverutils);
-	while (utils->count_a > 3)
-		ft_pw_dispatcher(utils, 4);
-	ft_sort_stack_a(utils);
-	while (1)
-	{
-		pair = ft_findpair(&solverutils.chunks[chunk], utils);
-		if (pair.total_cost == INT_MAX)
-			break ;
-		move_pair(utils, &pair, &cost);
-	}
-	ft_sort_stack_a(utils);
 }

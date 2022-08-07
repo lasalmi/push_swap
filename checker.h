@@ -6,12 +6,16 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/06 11:09:57 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 13:47:10 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
+# define UNDER_20 1
+# define UNDER_50 1
+# define UNDER_150 1
+# define OVER_150 1
 # include "./libft/libft.h"
 # include <limits.h>
 
