@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:25:21 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:33:28 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:39:44 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-t_type	ft_iscombination(t_target a, t_target b, size_t cost)
+t_type	ft_iscombination(t_trgt a, t_trgt b, size_t cost)
 {
 	if (a.rev_cost + b.rotate_cost == cost)
 		return (REVROT);
@@ -21,7 +21,7 @@ t_type	ft_iscombination(t_target a, t_target b, size_t cost)
 	return (NOT_FOUND);
 }
 
-t_type	ft_samedirection(t_target a, t_target b, size_t cost)
+t_type	ft_samedirection(t_trgt a, t_trgt b, size_t cost)
 {
 	if (ft_returngreater(a.rev_cost, b.rev_cost) == cost)
 		return (REV);

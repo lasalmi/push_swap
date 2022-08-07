@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:33:28 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:40:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 bottom of the stack A. Returns negative,
 if it is more efficient to use reverse rotate, returns 0
 if already on top of stack A */
-int	ft_count_target_a(int value_to_find, t_utils *utils)
+int	ft_count_trgt_a(int value_to_find, t_utils *utils)
 {
 	int		i;
 	int		j;
@@ -46,8 +46,8 @@ int	ft_count_target_a(int value_to_find, t_utils *utils)
 
 size_t	ft_b_for_push(t_utils *utils)
 {
-	t_target	target;
-	size_t	cost;
+	t_trgt		target;
+	size_t		cost;
 
 	cost = 0;
 	target = ft_find_biggest(utils->head_b, utils->count_b);
