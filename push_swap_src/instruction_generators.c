@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:36:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:03:19 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:33:28 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	ft_gen_revrot(t_pair *pair)
 		pair->instructions[i++] = 6;
 }
 
-int	ft_count_cost_b(int value_to_find, t_utils *utils)
+int	ft_count_target_b(int value_to_find, t_utils *utils)
 {
 	int		i;
 	int		j;

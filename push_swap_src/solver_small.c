@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:55:59 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:02:10 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:33:28 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_find_smallest(t_node *head)
 
 int	need_to_swap(int head, int second, t_utils *utils)
 {
-	t_cost	largest;
+	t_target	largest;
 
 	largest = ft_find_biggest(utils->head_a, utils->count_a);
 	if (head > second && head != largest.target)
@@ -59,7 +59,7 @@ void	ft_sort_stack_a(t_utils *utils)
 		else
 			ft_pw_dispatcher(utils, 5);
 	}
-	rotate = ft_count_cost_a(ft_find_smallest(utils->head_a), utils);
+	rotate = ft_count_target_a(ft_find_smallest(utils->head_a), utils);
 	if (rotate < 0)
 	{
 		rotate = ft_abs(rotate);

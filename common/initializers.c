@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:27:01 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/07 15:33:28 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_init_instructions(t_instructions *instructions)
 	instructions->memthreshold = 0;
 }
 
-void	ft_initialize_target(t_cost	*cost)
+void	ft_initialize_target(t_target	*cost)
 {
 	cost->target = 0;
 	cost->rev_cost = 0;
