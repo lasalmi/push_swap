@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 12:34:57 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ void	move_pair(t_utils *utils, t_pair *pair)
 
 	i = 0;
 	ft_generate_instructions(pair);
+	if (!pair->instructions)
+	{
+		free(utils->sorted);
+		ft_free_lists(utils);
+		exit(2);
+	}
 	while (pair->total_cost--)
 		ft_pw_dispatcher(utils, pair->instructions[i++]);
 	ft_pw_dispatcher(utils, 3);

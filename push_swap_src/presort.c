@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:57:35 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 12:33:18 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void	ft_sortvalues(t_utils *utils)
 {
 	utils->sorted = (int *)malloc(sizeof(int) * utils->input_count);
 	if (!utils->sorted)
-		ft_error();
+	{
+		ft_free_lists(utils);
+		exit(2);
+	}
 	ft_loadvalues(utils);
 	ft_quicksortint(utils->sorted, utils->input_count);
 }

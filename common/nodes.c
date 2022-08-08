@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 12:22:23 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 12:31:29 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_node	*ft_create_node(void)
 
 	ret = (t_node *)malloc(sizeof(t_node));
 	if (!ret)
-		exit(2);
+		return (ret);
 	ret->next = NULL;
 	ret->prev = NULL;
 	return (ret);
