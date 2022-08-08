@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:55:11 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 13:17:00 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 14:05:49 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ static void	realloc_instructions(t_instructions *instr, size_t i)
 
 /* Initializes the instruction array if it doesnt exist, if
 index goes over memthreshold allocates new memory and copies
-the memory to the new alloocation */
+the memory to the new alloocation. Sets instr->array
+to NULL in case of malloc failure */
 void	ft_save_instruction(t_instructions *instr, char *line)
 {
 	static size_t	i;

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 13:55:41 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 14:07:16 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,7 @@ void	save_to_node(t_utils *utils, char *arg, t_node *node)
 	node->value = ft_atoi(arg);
 }
 
-/* Reads values from input. TODO: Replace
-ft_atol with input validator, add node add */
+/* Reads values from input. */
 
 void	ft_read_values(t_utils *utils, char **argv, int argc)
 {
