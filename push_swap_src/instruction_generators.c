@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:36:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 12:39:49 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 12:45:15 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_gen_rotate(t_pair *pair)
 {
 	int		rr;
-	int		ra; 
+	int		ra;
 	int		rb;
 	size_t	i;
 
