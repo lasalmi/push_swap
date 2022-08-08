@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/06 12:07:50 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 void	ft_read_input(t_utils *utils)
 {

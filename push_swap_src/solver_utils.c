@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:47:37 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 13:27:36 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 static int	is_smaller(int a, int b)
 {

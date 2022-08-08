@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:25:21 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:39:44 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 t_type	ft_iscombination(t_trgt a, t_trgt b, size_t cost)
 {

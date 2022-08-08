@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:36:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:39:44 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 12:23:34 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 /* Generates rotate instructions for rotate pair */
 void	ft_gen_rotate(t_pair *pair)
@@ -23,7 +23,7 @@ void	ft_gen_rotate(t_pair *pair)
 	i = 0;
 	pair->instructions = (int *)malloc(sizeof(int) * pair->total_cost);
 	if (!pair->instructions)
-		ft_error();
+		exit(2);
 	ra = 0;
 	rb = 0;
 	if (pair->stack_a.rotate_cost < pair->stack_b.rotate_cost)
@@ -53,7 +53,7 @@ void	ft_gen_rev(t_pair *pair)
 	i = 0;
 	pair->instructions = (int *)malloc(sizeof(int) * pair->total_cost);
 	if (!pair->instructions)
-		ft_error();
+		exit(2);
 	rra = 0;
 	rrb = 0;
 	if (pair->stack_a.rev_cost < pair->stack_b.rev_cost)
@@ -81,7 +81,7 @@ void	ft_gen_rotrev(t_pair *pair)
 	i = 0;
 	pair->instructions = (int *)malloc(sizeof(int) * pair->total_cost);
 	if (!pair->instructions)
-		ft_error();
+		exit(2);
 	ra = pair->stack_a.rotate_cost;
 	rrb = pair->stack_b.rev_cost;
 	while (ra--)
@@ -99,7 +99,7 @@ void	ft_gen_revrot(t_pair *pair)
 	i = 0;
 	pair->instructions = (int *)malloc(sizeof(int) * pair->total_cost);
 	if (!pair->instructions)
-		ft_error();
+		exit(2);
 	rra = pair->stack_a.rev_cost;
 	rb = pair->stack_b.rotate_cost;
 	while (rra--)

@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/04 13:19:51 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 12:22:23 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 /* Allocates a new node and in case
 of mallocfail exits */
@@ -21,7 +21,7 @@ t_node	*ft_create_node(void)
 
 	ret = (t_node *)malloc(sizeof(t_node));
 	if (!ret)
-		ft_error();
+		exit(2);
 	ret->next = NULL;
 	ret->prev = NULL;
 	return (ret);

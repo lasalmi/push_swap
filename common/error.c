@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:21:52 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/07/05 08:44:16 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 /* Error and exit */
 void	ft_error(void)

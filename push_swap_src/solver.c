@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:39:44 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 static void	rotate_a_to_finish(t_utils *utils)
 {

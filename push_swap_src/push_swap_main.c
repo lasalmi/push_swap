@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:40:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:44:09 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker.h"
+#include "../push_swap.h"
 
 /* Counts the cost of moving the value to the
 bottom of the stack A. Returns negative,
@@ -87,7 +87,7 @@ int	main(int argc, char **argv)
 	utils.caller = PUSH_SWAP;
 	utils.head_b = NULL;
 	if (argc < 2)
-		ft_error();
+		return (0);
 	ft_read_values(&utils, argv + 1, argc - 1);
 	ft_sortvalues(&utils);
 	ft_process(&utils);

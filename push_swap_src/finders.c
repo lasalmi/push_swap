@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:39:51 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/07 15:40:43 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./checker.h"
+#include "./push_swap.h"
 
 t_trgt	ft_find_biggest(t_node *head, int stack_size)
 {

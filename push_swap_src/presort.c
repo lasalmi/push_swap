@@ -6,11 +6,11 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:57:35 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/05 13:26:41 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./checker.h"
+#include "./push_swap.h"
 
 /* Loads the values from the original head_a
 into an array of ints. All the integers need
