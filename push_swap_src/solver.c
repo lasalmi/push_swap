@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 09:04:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:56:06 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:13:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	rotate_a_to_finish(t_utils *utils)
 	movement = count_trgt_a(utils->sorted[0], utils);
 	if (movement < 0)
 	{
-		i = abs(movement);
+		i = ft_abs(movement);
 		while (i--)
 			pw_dispatcher(utils, 8);
 	}

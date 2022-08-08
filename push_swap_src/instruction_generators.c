@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:36:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:13:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int	count_trgt_b(int value_to_find, t_utils *utils)
 		list = list->prev;
 	}
 	j--;
-	if (abs(j) > i)
+	if (ft_abs(j) > i)
 		return (i);
 	return (j);
 }

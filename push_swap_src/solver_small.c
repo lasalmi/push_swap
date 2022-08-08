@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:55:59 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:16:11 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	find_smallest(t_node *head)
 	return (smallest);
 }
 
-int	need_to_ft_swap(int head, int second, t_utils *utils)
+int	need_to_swap(int head, int second, t_utils *utils)
 {
 	t_trgt	largest;
 
@@ -41,9 +41,8 @@ int	need_to_ft_swap(int head, int second, t_utils *utils)
 	return (0);
 }
 
-/* Sorts stack A that has <= 3 integers. ft_swaps the integers
-if needed when head value is NOT the largest value of the input 
-TO DO: NEED TO MAKE THE ft_swap IN A, IF HEAD is */
+/* Sorts stack A that has <= 3 integers. swaps the integers
+if needed when head value is NOT the largest value of the input */
 void	sort_stack_a(t_utils *utils)
 {
 	int	head;
@@ -54,7 +53,7 @@ void	sort_stack_a(t_utils *utils)
 	{
 		head = utils->head_a->value;
 		second = utils->head_a->next->value;
-		if (need_to_ft_swap(head, second, utils))
+		if (need_to_swap(head, second, utils))
 			pw_dispatcher(utils, 0);
 		else
 			pw_dispatcher(utils, 5);
@@ -62,7 +61,7 @@ void	sort_stack_a(t_utils *utils)
 	rotate = count_trgt_a(find_smallest(utils->head_a), utils);
 	if (rotate < 0)
 	{
-		rotate = abs(rotate);
+		rotate = ft_abs(rotate);
 		while (rotate--)
 			pw_dispatcher(utils, 8);
 	}

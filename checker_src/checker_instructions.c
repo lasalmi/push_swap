@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:55:11 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:17:08 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	get_instruction(char *line)
 		return (-1);
 	while (table[i])
 	{
-		if (!strcmp(line, table[i]))
+		if (!ft_strcmp(line, table[i]))
 			return (i);
 		i++;
 	}
@@ -59,7 +59,7 @@ static void	realloc_instructions(t_instructions *instr, size_t i)
 		instr->inst_array = NULL;
 		return ;
 	}
-	memcpy(temp, instr->inst_array, (i * sizeof(int)));
+	ft_memcpy(temp, instr->inst_array, (i * sizeof(int)));
 	free(instr->inst_array);
 	instr->memthreshold *= 2;
 	instr->inst_array = temp;

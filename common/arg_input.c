@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:56:06 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:11:02 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	validate_input(char *str, t_node *list)
 	long long	result;
 
 	temp = str;
-	if (strlen(str) > 11 || !ft_is_number(str))
+	if (ft_strlen(str) > 11 || !ft_is_number(str))
 		return (0);
 	result = atoll(str);
 	if (result < INT_MIN || result > INT_MAX)
@@ -78,7 +78,7 @@ void	save_to_node(t_utils *utils, char *arg, t_node *node)
 		free_stacks(utils);
 		error();
 	}
-	node->value = atoi(arg);
+	node->value = ft_atoi(arg);
 }
 
 /* Reads values from input. */
