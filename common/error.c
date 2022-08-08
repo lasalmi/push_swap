@@ -6,14 +6,14 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 14:21:52 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /* Error and exit */
-void	ft_error(void)
+void	error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(1);

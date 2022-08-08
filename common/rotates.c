@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 13:29:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_rev_rotate_a(t_utils *utils)
+void	rev_rotate_a(t_utils *utils)
 {
 	t_node	*new_tail;
 	t_node	*new_head;
@@ -30,7 +30,7 @@ void	ft_rev_rotate_a(t_utils *utils)
 	utils->tail_a = new_tail;
 }
 
-void	ft_rev_rotate_b(t_utils *utils)
+void	rev_rotate_b(t_utils *utils)
 {
 	t_node	*temp;
 
@@ -45,7 +45,7 @@ void	ft_rev_rotate_b(t_utils *utils)
 	utils->head_b->prev = NULL;
 }
 
-void	ft_rotate_a(t_utils *utils)
+void	rotate_a(t_utils *utils)
 {
 	t_node	*temp;
 
@@ -60,7 +60,7 @@ void	ft_rotate_a(t_utils *utils)
 	utils->head_a = temp;
 }
 
-void	ft_rotate_b(t_utils *utils)
+void	rotate_b(t_utils *utils)
 {
 	t_node	*temp;
 

@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 02:49:30 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 12:44:57 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 17:05:29 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_node {
 
 typedef enum e_pw_caller {
 	CHECKER,
-	PUSH_SWAP,
+	PUSH_ft_swap,
 	PRINT,
 	SANDBOX,
 	INITIALIZER
@@ -73,59 +73,59 @@ typedef enum e_type {
 
 typedef void	(*t_func)(t_utils*);
 
-t_node	*ft_create_node(void);
-void	ft_print_list(t_utils utils);
-void	ft_add_node_tail(t_node **tail, t_node *new_node);
-void	ft_add_node_head(t_node **head, t_node *new_node);
-t_node	*ft_create_elem_stack_a(t_utils *utils);
-void	ft_delink_tail(t_node **tail);
-void	ft_push_a(t_utils *utils);
-void	ft_push_b(t_utils *utils);
+t_node	*create_node(void);
+void	print_stacks(t_utils utils);
+void	add_node_tail(t_node **tail, t_node *new_node);
+void	add_node_head(t_node **head, t_node *new_node);
+t_node	*create_elem_stack_a(t_utils *utils);
+void	delink_tail(t_node **tail);
+void	push_a(t_utils *utils);
+void	push_b(t_utils *utils);
 void	ft_swap_a(t_utils *utils);
 void	ft_swap_b(t_utils *utils);
 void	ft_swap_both(t_utils *utils);
-void	ft_rotate_a(t_utils *utils);
-void	ft_rotate_b(t_utils *utils);
-void	ft_rev_rotate_b(t_utils *utils);
-void	ft_rev_rotate_a(t_utils *utils);
-void	ft_rotate_a(t_utils *utils);
-void	ft_rotate_both(t_utils *utils);
-void	ft_rev_rotate_both(t_utils *utils);
-void	ft_delink_head(t_node **head);
-void	ft_initialize_utils(t_utils *utils);
-void	ft_init_instructions(t_instructions *instructions);
-void	ft_read_values(t_utils *utils, char **argv, int argc);
-void	ft_error(void);
-void	ft_free_lists(t_utils *utils);
-void	ft_pw_dispatcher(t_utils *utils, int func_index);
-int		ft_count_trgt_a(int value_to_find, t_utils *utils);
-int		ft_count_trgt_b(int value_to_find, t_utils *utils);
-t_pair	ft_findpair(t_utils *utils);
-size_t	ft_returngreater(size_t a, size_t b);
-t_type	ft_findtype(t_pair *pair);
-void	ft_generate_instructions(t_pair *pair);
-t_trgt	ft_find_biggest(t_node *head, int stack_size);
-int		ft_is_correct(t_utils *utils);
-void	ft_solver_large(t_utils *utils);
-void	ft_output(t_utils *utils, int instruction);
+void	rotate_a(t_utils *utils);
+void	rotate_b(t_utils *utils);
+void	rev_rotate_b(t_utils *utils);
+void	rev_rotate_a(t_utils *utils);
+void	rotate_a(t_utils *utils);
+void	rotate_both(t_utils *utils);
+void	rev_rotate_both(t_utils *utils);
+void	delink_head(t_node **head);
+void	initialize_utils(t_utils *utils);
+void	init_instructions(t_instructions *instructions);
+void	read_values(t_utils *utils, char **argv, int argc);
+void	error(void);
+void	free_stacks(t_utils *utils);
+void	pw_dispatcher(t_utils *utils, int func_index);
+int		count_trgt_a(int value_to_find, t_utils *utils);
+int		count_trgt_b(int value_to_find, t_utils *utils);
+t_pair	find_pair(t_utils *utils);
+size_t	return_greater(size_t a, size_t b);
+t_type	find_type(t_pair *pair);
+void	generate_instructions(t_pair *pair);
+t_trgt	find_biggest(t_node *head, int stack_size);
+int		is_correct(t_utils *utils);
+void	solver_large(t_utils *utils);
+void	output(t_utils *utils, int instruction);
 int		in_order(t_utils *utils);
-int		ft_find_smallest(t_node *head);
+int		find_smallest(t_node *head);
 void	preliminary_stack_sort(t_utils *utils);
-void	ft_exec_instructions(t_utils *utils, t_instructions *instr);
-void	ft_save_instruction(t_instructions *instr, char *line);
-void	ft_copy_utils(t_utils *dst, t_utils *src);
-void	ft_initialize_target(t_trgt	*cost);
-t_trgt	ft_find_pair_for_b(int stack_b, t_node *head, int list_size);
-t_trgt	ft_count_trgt(int member, int i, int stack_size);
-int		ft_total_cost_smaller(size_t total_cost, \
+void	exec_instructions(t_utils *utils, t_instructions *instr);
+void	save_instruction(t_instructions *instr, char *line);
+void	copy_utils(t_utils *dst, t_utils *src);
+void	initialize_target(t_trgt	*cost);
+t_trgt	find_pair_for_b(int stack_b, t_node *head, int list_size);
+t_trgt	count_trgt(int member, int i, int stack_size);
+int		total_cost_smaller(size_t total_cost, \
 int b_value, int i, t_utils utils);
-size_t	ft_total_cost_move(t_trgt target_a, t_trgt target_b);
-void	ft_sortvalues(t_utils *utils);
-void	ft_sort_stack_a(t_utils *utils);
-t_type	ft_samedirection(t_trgt a, t_trgt b, size_t cost);
-t_type	ft_iscombination(t_trgt a, t_trgt b, size_t cost);
-void	ft_gen_rotate(t_pair *pair);
-void	ft_gen_rev(t_pair *pair);
-void	ft_gen_rotrev(t_pair *pair);
-void	ft_gen_revrot(t_pair *pair);
+size_t	total_cost_move(t_trgt target_a, t_trgt target_b);
+void	sort_values(t_utils *utils);
+void	sort_stack_a(t_utils *utils);
+t_type	same_direction(t_trgt a, t_trgt b, size_t cost);
+t_type	is_combination(t_trgt a, t_trgt b, size_t cost);
+void	gen_rotate(t_pair *pair);
+void	gen_rev(t_pair *pair);
+void	gen_rotrev(t_pair *pair);
+void	gen_revrot(t_pair *pair);
 #endif

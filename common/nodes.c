@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 12:31:29 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* Allocates a new node and in case
 of mallocfail exits */
 
-t_node	*ft_create_node(void)
+t_node	*create_node(void)
 {
 	t_node	*ret;
 
@@ -29,7 +29,7 @@ t_node	*ft_create_node(void)
 
 /* Pushes given node as the new tail node
 GIVEN NODE MUST BE TAIL! */
-void	ft_add_node_tail(t_node **tail, t_node *new_node)
+void	add_node_tail(t_node **tail, t_node *new_node)
 {
 	if ((*tail)->next)
 	{
@@ -44,7 +44,7 @@ void	ft_add_node_tail(t_node **tail, t_node *new_node)
 
 /* Pushes given node as the new head node
 GIVEN NODE MUST BE HEAD! */
-void	ft_add_node_head(t_node **head, t_node *new_node)
+void	add_node_head(t_node **head, t_node *new_node)
 {
 	if ((*head)->prev)
 	{
@@ -59,13 +59,13 @@ void	ft_add_node_head(t_node **head, t_node *new_node)
 
 /* Delinks the given tail from the list
 and sets the tail as the previous node */
-void	ft_delink_tail(t_node **tail)
+void	delink_tail(t_node **tail)
 {
 	(*tail)->prev->next = NULL;
 	*tail = (*tail)->prev;
 }
 
-void	ft_delink_head(t_node **head)
+void	delink_head(t_node **head)
 {
 	if ((*head)->next)
 	{

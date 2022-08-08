@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 17:49:28 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_initialize_utils(t_utils *utils)
+void	initialize_utils(t_utils *utils)
 {
 	utils->input_count = -1;
 	utils->head_a = NULL;
@@ -25,14 +25,14 @@ void	ft_initialize_utils(t_utils *utils)
 	utils->file = NULL;
 }
 
-void	ft_init_instructions(t_instructions *instructions)
+void	init_instructions(t_instructions *instructions)
 {
 	instructions->inst_array = NULL;
 	instructions->count = 0;
 	instructions->memthreshold = 0;
 }
 
-void	ft_initialize_target(t_trgt	*cost)
+void	initialize_target(t_trgt	*cost)
 {
 	cost->target = 0;
 	cost->rev_cost = 0;

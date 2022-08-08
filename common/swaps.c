@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swaps.c                                            :+:      :+:    :+:   */
+/*   ft_swaps.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 13:30:55 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:48:03 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	ft_swap_both(t_utils *utils)
 	ft_swap_b(utils);
 }
 
-void	ft_rotate_both(t_utils *utils)
+void	rotate_both(t_utils *utils)
 {
-	ft_rotate_a(utils);
-	ft_rotate_b(utils);
+	rotate_a(utils);
+	rotate_b(utils);
 }
 
-void	ft_rev_rotate_both(t_utils *utils)
+void	rev_rotate_both(t_utils *utils)
 {
-	ft_rev_rotate_a(utils);
-	ft_rev_rotate_b(utils);
+	rev_rotate_a(utils);
+	rev_rotate_b(utils);
 }

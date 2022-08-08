@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:39:51 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 17:06:44 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-t_trgt	ft_find_biggest(t_node *head, int stack_size)
+t_trgt	find_biggest(t_node *head, int stack_size)
 {
 	t_trgt	ret;
 	int		biggest;
@@ -20,14 +20,14 @@ t_trgt	ft_find_biggest(t_node *head, int stack_size)
 
 	i = 0;
 	biggest = INT_MIN;
-	ft_initialize_target(&ret);
+	initialize_target(&ret);
 	if (!head)
 		return (ret);
 	while (head)
 	{
 		if (head->value > biggest)
 		{
-			ret = ft_count_trgt(head->value, i, stack_size);
+			ret = count_trgt(head->value, i, stack_size);
 			biggest = ret.target;
 		}
 		head = head->next;
@@ -36,7 +36,7 @@ t_trgt	ft_find_biggest(t_node *head, int stack_size)
 	return (ret);
 }
 
-t_trgt	ft_find_smallest_pair(t_node *head, int stack_size)
+t_trgt	find_smallest_pair(t_node *head, int stack_size)
 {
 	t_trgt	ret;
 	int		smallest;
@@ -44,14 +44,14 @@ t_trgt	ft_find_smallest_pair(t_node *head, int stack_size)
 
 	i = 0;
 	smallest = INT_MAX;
-	ft_initialize_target(&ret);
+	initialize_target(&ret);
 	if (!head)
 		return (ret);
 	while (head)
 	{
 		if (head->value < smallest)
 		{
-			ret = ft_count_trgt(head->value, i, stack_size);
+			ret = count_trgt(head->value, i, stack_size);
 			smallest = ret.target;
 		}
 		head = head->next;
@@ -62,8 +62,8 @@ t_trgt	ft_find_smallest_pair(t_node *head, int stack_size)
 
 /* Finds a pair in stack A for the value given as stack_b,
 makes sure that stack_b is smaller and then counts the
-diff with ft_diff */
-t_trgt	ft_find_pair_for_b(int stack_b, t_node *head, int list_size)
+diff with diff */
+t_trgt	find_pair_for_b(int stack_b, t_node *head, int list_size)
 {
 	t_trgt	ret;
 	int		i;
@@ -73,7 +73,7 @@ t_trgt	ft_find_pair_for_b(int stack_b, t_node *head, int list_size)
 	temp = head;
 	i = 0;
 	diff = INT_MAX;
-	ft_initialize_target(&ret);
+	initialize_target(&ret);
 	if (!head)
 		return (ret);
 	while (head)
@@ -81,18 +81,18 @@ t_trgt	ft_find_pair_for_b(int stack_b, t_node *head, int list_size)
 		if ((stack_b - head->value) < 0 && ft_diff(stack_b, head->value) < diff)
 		{
 			diff = ft_diff(stack_b, head->value);
-			ret = ft_count_trgt(head->value, i, list_size);
+			ret = count_trgt(head->value, i, list_size);
 		}
 		i++;
 		head = head->next;
 	}
 	if (!ret.found)
-		ret = ft_find_smallest_pair(temp, list_size);
+		ret = find_smallest_pair(temp, list_size);
 	return (ret);
 }
 
 /* Returns the smallest cost pair */
-t_pair	ft_findpair(t_utils *utils)
+t_pair	find_pair(t_utils *utils)
 {
 	t_node	*head;
 	t_pair	pair;
@@ -103,12 +103,12 @@ t_pair	ft_findpair(t_utils *utils)
 	head = utils->head_b;
 	while (head)
 	{
-		if (ft_total_cost_smaller(pair.total_cost, head->value, i, *utils))
+		if (total_cost_smaller(pair.total_cost, head->value, i, *utils))
 		{
-			pair.stack_b = ft_count_trgt(head->value, i, utils->count_b);
-			pair.stack_a = ft_find_pair_for_b(head->value, \
+			pair.stack_b = count_trgt(head->value, i, utils->count_b);
+			pair.stack_a = find_pair_for_b(head->value, \
 			utils->head_a, utils->count_a);
-			pair.total_cost = ft_total_cost_move(pair.stack_a, pair.stack_b);
+			pair.total_cost = total_cost_move(pair.stack_a, pair.stack_b);
 		}
 		i++;
 		head = head->next;
@@ -119,14 +119,14 @@ t_pair	ft_findpair(t_utils *utils)
 /* Finds the correct instruction combination
 for getting A and B for the correct state for push */
 
-t_type	ft_findtype(t_pair *pair)
+t_type	find_type(t_pair *pair)
 {
 	t_type	ret;
 
-	ret = ft_samedirection(pair->stack_a, pair->stack_b, pair->total_cost);
+	ret = same_direction(pair->stack_a, pair->stack_b, pair->total_cost);
 	if (ret > NOT_FOUND)
 		return (ret);
-	ret = ft_iscombination(pair->stack_a, pair->stack_b, pair->total_cost);
+	ret = is_combination(pair->stack_a, pair->stack_b, pair->total_cost);
 	if (ret > NOT_FOUND)
 		return (ret);
 	return (NOT_FOUND);

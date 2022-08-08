@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   push_ft_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:44:09 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:48:03 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 bottom of the stack A. Returns negative,
 if it is more efficient to use reverse rotate, returns 0
 if already on top of stack A */
-int	ft_count_trgt_a(int value_to_find, t_utils *utils)
+int	count_trgt_a(int value_to_find, t_utils *utils)
 {
 	int		i;
 	int		j;
@@ -39,23 +39,23 @@ int	ft_count_trgt_a(int value_to_find, t_utils *utils)
 		list = list->prev;
 	}
 	j--;
-	if (ft_abs(j) > i)
+	if (abs(j) > i)
 		return (i);
 	return (j);
 }
 
-size_t	ft_b_for_push(t_utils *utils)
+size_t	b_for_push(t_utils *utils)
 {
 	t_trgt		target;
 	size_t		cost;
 
 	cost = 0;
-	target = ft_find_biggest(utils->head_b, utils->count_b);
+	target = find_biggest(utils->head_b, utils->count_b);
 	if (target.rev_cost < target.rotate_cost)
 	{
 		while (target.rev_cost)
 		{
-			ft_pw_dispatcher(utils, 9);
+			pw_dispatcher(utils, 9);
 			cost++;
 			target.rev_cost--;
 		}
@@ -64,7 +64,7 @@ size_t	ft_b_for_push(t_utils *utils)
 	{
 		while (target.rotate_cost)
 		{
-			ft_pw_dispatcher(utils, 6);
+			pw_dispatcher(utils, 6);
 			cost++;
 			target.rotate_cost--;
 		}
@@ -72,26 +72,26 @@ size_t	ft_b_for_push(t_utils *utils)
 	return (cost);
 }
 
-void	ft_process(t_utils *utils)
+void	process(t_utils *utils)
 {
-	if (ft_is_correct(utils))
+	if (is_correct(utils))
 		return ;
-	ft_solver_large(utils);
+	solver_large(utils);
 }
 
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
 
-	ft_initialize_utils(&utils);
-	utils.caller = PUSH_SWAP;
+	initialize_utils(&utils);
+	utils.caller = PUSH_ft_swap;
 	utils.head_b = NULL;
 	if (argc < 2)
 		return (0);
-	ft_read_values(&utils, argv + 1, argc - 1);
-	ft_sortvalues(&utils);
-	ft_process(&utils);
+	read_values(&utils, argv + 1, argc - 1);
+	sort_values(&utils);
+	process(&utils);
 	free(utils.sorted);
-	ft_free_lists(&utils);
+	free_stacks(&utils);
 	return (0);
 }

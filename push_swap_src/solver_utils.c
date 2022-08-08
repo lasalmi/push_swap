@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:47:37 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	locator(t_utils *utils, t_node **node)
 	t_node	*finder;
 	int		smallest;
 
-	smallest = ft_find_smallest(utils->head_a);
+	smallest = find_smallest(utils->head_a);
 	finder = utils->head_a;
 	while (finder && smallest != finder->value)
 		finder = finder->next;

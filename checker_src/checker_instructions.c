@@ -6,13 +6,13 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:55:11 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 14:05:49 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	ft_get_instruction(char *line)
+static int	get_instruction(char *line)
 {
 	const char	*table[] = {"sa", "sb", "ss", "pa", "pb", \
 	"ra", "rb", "rr", "rra", "rrb", "rrr", NULL};
@@ -23,21 +23,21 @@ static int	ft_get_instruction(char *line)
 		return (-1);
 	while (table[i])
 	{
-		if (!ft_strcmp(line, table[i]))
+		if (!strcmp(line, table[i]))
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-void	ft_exec_instructions(t_utils *utils, t_instructions *instr)
+void	exec_instructions(t_utils *utils, t_instructions *instr)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < instr->count)
 	{
-		ft_pw_dispatcher(utils, instr->inst_array[i]);
+		pw_dispatcher(utils, instr->inst_array[i]);
 		if ((utils->head_a && utils->head_a->prev) \
 	|| (utils->head_b && utils->head_b->prev))
 			exit(1);
@@ -59,7 +59,7 @@ static void	realloc_instructions(t_instructions *instr, size_t i)
 		instr->inst_array = NULL;
 		return ;
 	}
-	ft_memcpy(temp, instr->inst_array, (i * sizeof(int)));
+	memcpy(temp, instr->inst_array, (i * sizeof(int)));
 	free(instr->inst_array);
 	instr->memthreshold *= 2;
 	instr->inst_array = temp;
@@ -69,7 +69,7 @@ static void	realloc_instructions(t_instructions *instr, size_t i)
 index goes over memthreshold allocates new memory and copies
 the memory to the new alloocation. Sets instr->array
 to NULL in case of malloc failure */
-void	ft_save_instruction(t_instructions *instr, char *line)
+void	save_instruction(t_instructions *instr, char *line)
 {
 	static size_t	i;
 
@@ -80,7 +80,7 @@ void	ft_save_instruction(t_instructions *instr, char *line)
 			return ;
 		instr->memthreshold = 20 / 2;
 	}
-	instr->inst_array[i] = ft_get_instruction(line);
+	instr->inst_array[i] = get_instruction(line);
 	if (instr->inst_array[i] < 0)
 	{
 		free(instr->inst_array);

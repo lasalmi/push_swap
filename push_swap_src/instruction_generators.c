@@ -6,14 +6,14 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:36:22 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 12:45:15 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /* Generates rotate instructions for rotate pair */
-void	ft_gen_rotate(t_pair *pair)
+void	gen_rotate(t_pair *pair)
 {
 	int		rr;
 	int		ra;
@@ -43,7 +43,7 @@ void	ft_gen_rotate(t_pair *pair)
 }
 
 /* Generates revrot instructions for revrot pair */
-void	ft_gen_rev(t_pair *pair)
+void	gen_rev(t_pair *pair)
 {
 	int		rrr;
 	int		rra;
@@ -72,7 +72,7 @@ void	ft_gen_rev(t_pair *pair)
 		pair->instructions[i++] = 9;
 }
 
-void	ft_gen_rotrev(t_pair *pair)
+void	gen_rotrev(t_pair *pair)
 {
 	int	ra;
 	int	rrb;
@@ -90,7 +90,7 @@ void	ft_gen_rotrev(t_pair *pair)
 		pair->instructions[i++] = 9;
 }
 
-void	ft_gen_revrot(t_pair *pair)
+void	gen_revrot(t_pair *pair)
 {
 	int	rra;
 	int	rb;
@@ -108,7 +108,7 @@ void	ft_gen_revrot(t_pair *pair)
 		pair->instructions[i++] = 6;
 }
 
-int	ft_count_trgt_b(int value_to_find, t_utils *utils)
+int	count_trgt_b(int value_to_find, t_utils *utils)
 {
 	int		i;
 	int		j;
@@ -131,7 +131,7 @@ int	ft_count_trgt_b(int value_to_find, t_utils *utils)
 		list = list->prev;
 	}
 	j--;
-	if (ft_abs(j) > i)
+	if (abs(j) > i)
 		return (i);
 	return (j);
 }

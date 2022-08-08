@@ -1,5 +1,5 @@
 COMMON_FILES = nodes.c stacks.c initializers.c arg_input.c error.c \
-ft_print_list.c utils.c dispatcher.c checks.c \
+print_stacks.c utils.c dispatcher.c checks.c \
 rotates.c swaps.c
 COMMON_SRC_DIR = ./common/
 COMMON_SRC := $(addprefix $(COMMON_SRC_DIR),$(COMMON_FILES))
@@ -43,7 +43,7 @@ $(PW_OBJ) : $(PUSH_SWAP_SRC)
 $(LIB_NAME) : 
 	make -C libft
 TEST : $(NAME) main.c
-	gcc -Wall -Wextra -Werror -g -Ilibft -I. -L. main.c -lftprintf
+	gcc -Wall -Wextra -Werror -g -Ilibft -I. -L. main.c -lftft_printf
 	./a.out
 
 clean : 
