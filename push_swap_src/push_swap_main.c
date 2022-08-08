@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_ft_swap_main.c                                   :+:      :+:    :+:   */
+/*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:48:03 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:07:37 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /* Counts the cost of moving the value to the
-bottom of the stack A. Returns negative,
+top of the stack A. Returns negative,
 if it is more efficient to use reverse rotate, returns 0
 if already on top of stack A */
 int	count_trgt_a(int value_to_find, t_utils *utils)

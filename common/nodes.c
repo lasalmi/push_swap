@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 08:39:13 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:52:14 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:06:37 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,6 @@ void	add_node_head(t_node **head, t_node *new_node)
 	new_node->next = *head;
 	(*head)->prev = new_node;
 	*head = new_node;
-}
-
-/* Delinks the given tail from the list
-and sets the tail as the previous node */
-void	delink_tail(t_node **tail)
-{
-	(*tail)->prev->next = NULL;
-	*tail = (*tail)->prev;
 }
 
 void	delink_head(t_node **head)

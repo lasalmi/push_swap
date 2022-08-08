@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stacks.c                                    :+:      :+:    :+:   */
+/*   print_stacks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 18:32:17 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 19:08:32 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_instruction(int instruction)
 
 void	print_action(int instruction)
 {
-	const char	*table[] = {"ft_swapPING A", "ft_swapPING B", "ft_swapPING BOTH", \
+	const char	*table[] = {"SWAPPING A", "SWAPPING B", "SWAPPING BOTH", \
 	"PUSHING A", "PUSHING B", "ROTATING A", "ROTATING B", "ROTATING BOTH", \
 	"REVERSE ROTATING A", "REVERSE ROTATING B", "REVERSE ROTATING BOTH", NULL};
 
