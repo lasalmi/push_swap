@@ -6,11 +6,17 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 13:31:21 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static void	ft_instruction_error(t_utils *utils)
+{
+	ft_free_lists(utils);
+	ft_error();
+}
 
 void	ft_read_input(t_utils *utils)
 {
@@ -19,23 +25,23 @@ void	ft_read_input(t_utils *utils)
 	t_instructions	instr;
 	int				fd;
 
+	fd = 0;
 	if (utils->file)
 		fd = open(utils->file, O_RDONLY);
-	else
-		fd = 0;
-	ret = 1;
 	ft_init_instructions(&instr);
 	line = NULL;
-	while (ret && fd >= 0)
+	while (fd >= 0)
 	{
 		ret = get_next_line(fd, &line);
 		if (ret < 1)
 			break ;
 		ft_save_instruction(&instr, line);
 		ft_strdel(&line);
+		if (!instr.inst_array)
+			ft_error();
 	}
 	if (ret < 0 || fd < 0)
-		ft_error();
+		ft_instruction_error(utils);
 	ft_exec_instructions(utils, &instr);
 }
 

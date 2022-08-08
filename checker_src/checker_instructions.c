@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:55:11 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 13:17:00 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ static void	realloc_instructions(t_instructions *instr, size_t i)
 
 	temp = (int *)malloc(sizeof(int) * instr->memthreshold * 4);
 	if (!temp)
-		ft_error();
+	{
+		free(instr->inst_array);
+		instr->inst_array = NULL;
+		return ;
+	}
 	ft_memcpy(temp, instr->inst_array, (i * sizeof(int)));
 	free(instr->inst_array);
 	instr->memthreshold *= 2;
@@ -72,12 +76,16 @@ void	ft_save_instruction(t_instructions *instr, char *line)
 	{
 		instr->inst_array = (int *)malloc(sizeof(int) * 20);
 		if (!instr->inst_array)
-			ft_error();
+			return ;
 		instr->memthreshold = 20 / 2;
 	}
 	instr->inst_array[i] = ft_get_instruction(line);
 	if (instr->inst_array[i] < 0)
-		ft_error();
+	{
+		free(instr->inst_array);
+		instr->inst_array = NULL;
+		return ;
+	}
 	i++;
 	instr->count = i;
 	if (i > instr->memthreshold)

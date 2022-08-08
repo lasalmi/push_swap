@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:25:21 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 11:37:27 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/08 13:59:12 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,4 @@ void	ft_generate_instructions(t_pair *pair)
 		ft_gen_revrot(pair);
 	else if (type == ROTREV)
 		ft_gen_rotrev(pair);
-	else
-	{
-		ft_putstr("GEN INSTR ERROR!");
-		ft_error();
-	}
 }
