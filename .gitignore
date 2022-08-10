@@ -1,5 +1,6 @@
 *.o
 a.out
 checker
-push_ft_swap
+push__swap
 output
+.DS_Store

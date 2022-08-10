@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 19:14:17 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/08/10 13:26:18 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,34 +42,6 @@ int	count_trgt_a(int value_to_find, t_utils *utils)
 	if (ft_abs(j) > i)
 		return (i);
 	return (j);
-}
-
-size_t	b_for_push(t_utils *utils)
-{
-	t_trgt		target;
-	size_t		cost;
-
-	cost = 0;
-	target = find_biggest(utils->head_b, utils->count_b);
-	if (target.rev_cost < target.rotate_cost)
-	{
-		while (target.rev_cost)
-		{
-			pw_dispatcher(utils, 9);
-			cost++;
-			target.rev_cost--;
-		}
-	}
-	else
-	{
-		while (target.rotate_cost)
-		{
-			pw_dispatcher(utils, 6);
-			cost++;
-			target.rotate_cost--;
-		}
-	}
-	return (cost);
 }
 
 void	process(t_utils *utils)
