@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 19:11:02 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/09/07 17:13:17 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	validate_input(char *str, t_node *list)
 	temp = str;
 	if (ft_strlen(str) > 11 || !ft_is_number(str))
 		return (0);
-	result = atoll(str);
+	result = ft_atoll(str);
 	if (result < INT_MIN || result > INT_MAX)
 		return (0);
 	return (checkduplicate((int)result, list));
