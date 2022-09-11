@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/08 16:56:54 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/09/11 21:37:46 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,36 @@ void	read_input(t_utils *utils)
 	exec_instructions(utils, &instr);
 }
 
+void check_argc(int *argc, char ***argv, int *splitted)
+{
+	size_t	i;
+
+	i = 0;
+	(*argv) += 1;
+	*argc -= 1;
+	if (*argc != 1)
+	{
+		*splitted = 0;
+		return ;
+	}
+	*argv = ft_strsplit(**argv, ' ');
+	while ((*argv)[i])
+		i++;
+	*argc = (int)i;
+	*splitted = 1;
+}
+
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
-
+	int		splitted;
+	
 	initialize_utils(&utils);
 	utils.caller = CHECKER;
 	if (argc < 2)
 		return (0);
-	read_values(&utils, argv + 1, argc - 1);
+	check_argc(&argc, &argv, &splitted);
+	read_values(&utils, argv, argc);
 	read_input(&utils);
 	if (utils.caller == PRINT)
 		print_stacks(utils);
@@ -61,6 +82,8 @@ int	main(int argc, char **argv)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	if (splitted)
+		ft_free_str_arr(&argv);
 	free_stacks(&utils);
 	return (0);
 }

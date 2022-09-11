@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/08/10 13:26:18 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/09/11 21:33:20 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,42 @@ void	process(t_utils *utils)
 	solver_large(utils);
 }
 
+void check_argc(int *argc, char ***argv, int *splitted)
+{
+	size_t	i;
+
+	i = 0;
+	(*argv) += 1;
+	*argc -= 1;
+	if (*argc != 1)
+	{
+		*splitted = 0;
+		return ;
+	}
+	*argv = ft_strsplit(**argv, ' ');
+	while ((*argv)[i])
+		i++;
+	*argc = (int)i;
+	*splitted = 1;
+}
+
 int	main(int argc, char **argv)
 {
 	t_utils	utils;
+	int		splitted;
 
 	initialize_utils(&utils);
 	utils.caller = PUSH_ft_swap;
 	utils.head_b = NULL;
 	if (argc < 2)
 		return (0);
-	read_values(&utils, argv + 1, argc - 1);
+	check_argc(&argc, &argv, &splitted);
+	read_values(&utils, argv, argc);
 	sort_values(&utils);
 	process(&utils);
 	free(utils.sorted);
 	free_stacks(&utils);
+	if (splitted == 1)
+		ft_free_str_arr(&argv);
 	return (0);
 }
