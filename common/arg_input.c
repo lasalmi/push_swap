@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:29:10 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/09/07 17:13:17 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/09/11 20:39:51 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	read_values(t_utils *utils, char **argv, int argc)
 		current = create_elem_stack_a(utils);
 		i++;
 	}
-	if (i == 0)
+	if (i == 0 && argc == 0)
 	{
 		free_stacks(utils);
 		exit(1);
