@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 03:05:00 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/09/11 21:37:46 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/09/12 08:40:44 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	read_input(t_utils *utils)
 	exec_instructions(utils, &instr);
 }
 
-void check_argc(int *argc, char ***argv, int *splitted)
+void	check_argc(int *argc, char ***argv, int *splitted)
 {
 	size_t	i;
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 {
 	t_utils	utils;
 	int		splitted;
-	
+
 	initialize_utils(&utils);
 	utils.caller = CHECKER;
 	if (argc < 2)

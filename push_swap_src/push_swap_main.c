@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/09/11 21:33:20 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/09/12 08:40:17 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	process(t_utils *utils)
 	solver_large(utils);
 }
 
-void check_argc(int *argc, char ***argv, int *splitted)
+void	check_argc(int *argc, char ***argv, int *splitted)
 {
 	size_t	i;
 
