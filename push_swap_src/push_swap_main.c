@@ -6,7 +6,7 @@
 /*   By: lasalmi <lasalmi@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 16:41:02 by lasalmi           #+#    #+#             */
-/*   Updated: 2022/09/12 08:40:17 by lasalmi          ###   ########.fr       */
+/*   Updated: 2022/09/17 09:55:43 by lasalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	check_argc(int *argc, char ***argv, int *splitted)
 		*splitted = 0;
 		return ;
 	}
-	*argv = ft_strsplit(**argv, ' ');
+	*argv = ft_line_split(**argv, " ");
 	while ((*argv)[i])
 		i++;
 	*argc = (int)i;
