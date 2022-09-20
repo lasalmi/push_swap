@@ -16,7 +16,6 @@ CHECKER_OBJ := $(CHECKER_FILES:.c=.o)
 PW_OBJ := $(PUSH_SWAP_FILES:.c=.o)
 NAME = push_swap
 CHECKER = checker
-# PUSH_SWAP = push_swap
 LIB_NAME = ./libft/libft.a
 LIB_DIR = ./libft/
 CC = gcc
